@@ -1,0 +1,21 @@
+{
+    "title":{
+    "main": "شركة جبل عمر للتطوير",
+    "subtitle": "جبل عمر"
+    },
+    "sidebar": {
+        "overview": "معلومات الشركة",
+        "profile": "ملف الشركة",
+        "board": "المديرين",
+        "share_performance": "أداء السهم",
+        "financial_info": "البيانات المالية",
+        "investors_presentation": "عرض المستثمرين",
+        "disclosures": "الإفصاحات",
+        "corporate_actions": "إجرائات الشركة",
+        "major_shareholders": "كبار المساهمين",
+        "business_segments": "التحليل القطاعي",
+        "projects": "المشاريع",
+        "merges_acq": "الاندماجات والإستحواذات",
+        "contact_ir": "تواصل مع الشركة"
+    }
+}

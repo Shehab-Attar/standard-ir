@@ -1,0 +1,8 @@
+div {
+  display: block;
+  unicode-bidi: isolate;
+}
+
+*, :after, :before {
+  box-sizing: border-box;
+}

@@ -1,0 +1,19 @@
+* {
+    font-family: Neo Sans Arabic, sans-serif !important;
+}
+  
+.dynamicTitle {
+    font-size: clamp(1rem, .8rem + 2vw, 1.5rem);
+    color: #374c5f;
+}
+.dynamicTitle .span{
+    color: #6C757D
+}
+
+.fw-bold {
+    font-weight: 700 !important;
+}
+
+.mx-1{
+    color: rgb(25, 135, 84);
+}

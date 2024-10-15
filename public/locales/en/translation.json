@@ -1,0 +1,21 @@
+{
+    "title":{
+    "main": "Jabal Omar Development Co.",
+    "subtitle": "JABAL OMAR"
+    },
+    "sidebar": {
+        "overview": "Overview",
+        "profile": "Profile",
+        "board": "Board & Management",
+        "share_performance": "Share Performance",
+        "financial_info": "Financial Information",
+        "investors_presentation": "Investors Presentation",
+        "disclosures": "Disclosures",
+        "corporate_actions": "Corporate Actions",
+        "major_shareholders": "Major Shareholders",
+        "business_segments": "Business Segments",
+        "projects": "Projects",
+        "merges_acq": "Merges & Acquisitions",
+        "contact_ir": "Contact IR"
+    }
+}
