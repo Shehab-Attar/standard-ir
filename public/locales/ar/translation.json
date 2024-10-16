@@ -1,7 +1,8 @@
 {
     "title":{
-    "main": "شركة جبل عمر للتطوير",
-    "subtitle": "جبل عمر"
+    "main": "مجموعة عبدالمحسن الحكير للسياحة والتنمية",
+    "subtitle": "مجموعة الحكير",
+    "more": "المزيد"
     },
     "sidebar": {
         "overview": "معلومات الشركة",
@@ -17,5 +18,47 @@
         "projects": "المشاريع",
         "merges_acq": "الاندماجات والإستحواذات",
         "contact_ir": "تواصل مع الشركة"
+    },
+    "market_data": {
+        "title": "أداء السهم",
+        "last_trade": "اخر سعر",
+        "volume": "حجم التداول",
+        "change": "التغيير",
+        "turnover": "قيمة التداول",
+        "change_percent": "التغيير%",
+        "transactions": "عدد الصفقات",
+        "open": "الافتتاح",
+        "market_value": "القيمة السوقية",
+        "low": "الادنى",
+        "avg_volume_3m": "م حجم التداول 3 شهور",
+        "high": "الاعلى",
+        "avg_turnover_3m": "م قيمة التداول 3 شهور",
+        "prev_close": "الاغلاق السابق",
+        "avg_transactions_3m": "م عدد الصفقات 3 شهور",
+        "change_3m": "التغير 3 شهور",
+        "change_12m": "التغيير 12 شهر",
+        "change_6m": "التغيير 6 شهور",
+        "ytd": "التغير من بداية العام"
+    },
+    "financial_ratios": {
+        "title": "المؤشرات المالية"
+    },
+    "events": {
+        "mainTitle": "المفكرة",
+        "date": "تاريخ الحدث",
+        "event": "الحدث",
+        "venue": "موقع الحدث"
+    },
+    "corporate_actions": {
+        "recent_changes": "التغير في رأس المال",
+        "previous_capital": "رأس المال السابق",
+        "previous_no_of_shares": "عدد الأسهم قبل التغير",
+        "capital_change": "نسبة التغير",
+        "current_capital": "رأس المال بعد التغير",
+        "current_capital_currency": "(مليون)",
+        "current_capital_currency_ryial": "(مليون ريال)",
+        "current_no_of_shares": "عدد الأسهم بعد التغير",
+        "type": "النوع",
+        "announcement": "تاريخ الإعلان"
     }
 }

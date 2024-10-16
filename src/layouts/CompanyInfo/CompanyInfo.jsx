@@ -8,9 +8,9 @@ const CompanyInfo = () => {
     <div className='container-lg mb-2 px-xl-0'>
         <div className='d-flex border-bottom flex-wrap'>
             <div className='p-3 bg-light fs-4 fw-bold text-secondary d-flex align-items-center m-2'>
-                <span className='dynamicTitle'>4250</span>
+                <span className='dynamicTitle'>1820</span>
             </div>
-            <div className='px-lg-3  fs-5 fw-bold'>
+            <div className='px-lg-3 fw-bold'>
                 <div className='main-title fw-bold dynamicTitle'>
                   {t("title.main")}
                   &nbsp;

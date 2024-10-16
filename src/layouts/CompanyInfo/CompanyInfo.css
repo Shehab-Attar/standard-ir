@@ -3,11 +3,15 @@
 }
   
 .dynamicTitle {
-    font-size: clamp(1rem, .8rem + 2vw, 1.5rem);
+    font-size: clamp(.8rem + 2vw, 1.5rem);
     color: #374c5f;
 }
 .dynamicTitle .span{
     color: #6C757D
+}
+
+.main-title{
+    font-size: 18px;
 }
 
 .fw-bold {

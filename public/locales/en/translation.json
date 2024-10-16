@@ -1,7 +1,8 @@
 {
-    "title":{
-    "main": "Jabal Omar Development Co.",
-    "subtitle": "JABAL OMAR"
+    "title": {
+        "main": "Abdulmohsen Alhokair Group for Tourism and Development",
+        "subtitle": "ALHOKAIR GROUP",
+        "more": "More"
     },
     "sidebar": {
         "overview": "Overview",
@@ -17,5 +18,47 @@
         "projects": "Projects",
         "merges_acq": "Merges & Acquisitions",
         "contact_ir": "Contact IR"
+    },
+    "market_data": {
+        "title": "Market Data",
+        "last_trade": "Last Trade",
+        "volume": "Volume",
+        "change": "Change",
+        "turnover": "Turnover",
+        "change_percent": "Change%",
+        "transactions": "Transactions",
+        "open": "Open",
+        "market_value": "Market Value",
+        "low": "Low",
+        "avg_volume_3m": "Avg Volume 3 M",
+        "high": "High",
+        "avg_turnover_3m": "Avg Turnover 3 M",
+        "prev_close": "Prev. Close",
+        "avg_transactions_3m": "Avg Transactions 3 M",
+        "change_3m": "Change 3 M",
+        "change_12m": "Change 12 M",
+        "change_6m": "Change 6 M",
+        "ytd": "YTD"
+    },
+    "financial_ratios": {
+        "title": "Financial Ratios"
+    },
+    "events": {
+        "mainTitle": "Events",
+        "date": "Date",
+        "event": "Event",
+        "venue": "Venue"
+    },
+    "corporate_actions": {
+        "recent_changes": "Recent Changes",
+        "previous_capital": "Previous Capital",
+        "previous_no_of_shares": "Previous No. of Shares (M)",
+        "capital_change": "Capital Change",
+        "current_capital": "Current Capital",
+        "current_capital_currency": "(M)",
+        "current_capital_currency_ryial": "(M SAR)",
+        "current_no_of_shares": "Current No. of Shares (M)",
+        "type": "Type",
+        "announcement": "Announcement"
     }
 }
