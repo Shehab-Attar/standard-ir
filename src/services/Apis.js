@@ -1,12 +1,18 @@
 import axios from "axios";
 
-const API_URL = "https://data-ir.argaam.com/authenticate";
 const TOKEN_KEY = "authToken";
 const TOKEN_EXPIRY_KEY = "authTokenExpiry";
 
+export const api = axios.create({
+  baseURL: "https://data-ir.argaam.com",
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
 export async function authenticate() {
   try {
-    const response = await axios.post(API_URL, {
+    const response = await api.post("/authenticate", {
       username: "ALHOKAIR_GROUP",
       password: "T44S21-PK4A51C4CF78967C857BE8F-X0007F-4Z",
     });
@@ -29,7 +35,7 @@ export async function getAuthToken() {
   if (storedToken && storedExpiry) {
     const currentTime = Date.now();
     if (currentTime < parseInt(storedExpiry, 10)) {
-      console.log("Token retrieved from session storage:", storedToken);
+      // console.log("Token retrieved from session storage:", storedToken);
       return storedToken;
     }
   }
@@ -43,10 +49,9 @@ export async function getAuthToken() {
 export async function getOverview() {
   try {
     const authToken = await getAuthToken();
-    const response = await axios.get("https://data-ir.argaam.com/api/v1/json/ir-api/overview", {
+    const response = await api.get("/api/v1/json/ir-api/overview", {
       headers: {
         "Authorization": `Bearer ${authToken}`,
-        "Content-Type": "application/json",
       },
     });
     return response.data;
@@ -56,3 +61,4 @@ export async function getOverview() {
   }
 }
 
+export default api;

@@ -1,8 +1,8 @@
 import React from 'react'
 import './FinancialRatiosWidget.css'
 import { useTranslation } from 'react-i18next';
-import { formatValue, } from '../../../../utils/Helpers';
-import { MoreButton } from '../../../../components/MoreButton';
+import { formatValue } from '../../../../utils/Helpers';
+import MoreButton from '../../../../components/MoreButton';
 
 
 const FinancialRatiosWidget = ({data}) => {
@@ -28,7 +28,7 @@ const FinancialRatiosWidget = ({data}) => {
             ))}
           </tbody>
         </table>
-        <MoreButton />
+        <MoreButton path='financial-ratios' />
       </div>
     </div>
   )

@@ -1,10 +1,10 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next';
 
-export const MoreButton = () => {
+const MoreButton = ({ path }) => {
     const { t, i18n } = useTranslation();
   return (
-    <a className='btn btn-light rounded-0 d-flex align-items-center justify-content-end' href={`${i18n.language}/financial-information`}>
+    <a className='btn btn-light rounded-0 d-flex align-items-center justify-content-end' href={`${i18n.language}/${path}`}>
         <span className='mx-2'>{t('title.more')}</span>
         <svg 
             stroke="currentColor" 
@@ -21,3 +21,5 @@ export const MoreButton = () => {
     </a>
   )
 }
+
+export default MoreButton;

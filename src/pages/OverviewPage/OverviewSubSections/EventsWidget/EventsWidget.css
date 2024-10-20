@@ -18,3 +18,8 @@ th, td{
     padding: 3.2px;
     font-weight: 400;
 }
+
+.modal{
+    display: block;
+    padding-right: 17px;
+}

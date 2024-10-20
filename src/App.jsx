@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Route, Routes, Navigate, useNavigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import CompanyInfo from './layouts/CompanyInfo/CompanyInfo';
 import Sidebar from './layouts/Sidebar/Sidebar';
 import OverviewPage from './pages/OverviewPage/OverviewPage';
@@ -14,11 +14,13 @@ import MajorShareholdersPage from './pages/MajorShareholdersPage/MajorShareholde
 import BusinessSegmentsPage from './pages/BusinessSegmentsPage/BusinessSegmentsPage';
 import ProjectsPage from './pages/ProjectsPage/ProjectsPage';
 import MergersAcquisitionsPage from './pages/MergersAcquisitionsPage/MergersAcquisitionsPage';
+import EstimatesPage from './pages/EstimatesPage/EstimatesPage';
 import ContactIRPage from './pages/ContactIRPage/ContactIRPage';
 import { useTranslation } from 'react-i18next';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './App.css';
+import ArgaamReportsDetailsPage from './pages/OverviewPage/OverviewSubSections/ArgaamReportsWidget/ArgaamReportsDetailsPage/ArgaamReportsDetailsPage';
 
 function App() {
   const navigate = useNavigate();
@@ -32,7 +34,7 @@ function App() {
     if (!supportedLanguages.includes(lang)) {
       navigate(`/${i18n.language}`);
     }
-  }, [navigate]);
+  }, [navigate, i18n.language]);
 
   return (
     <div className='container-lg'>
@@ -57,7 +59,9 @@ function App() {
               <Route path={`/${i18n.language}/business-segments`} element={<BusinessSegmentsPage />} />
               <Route path={`/${i18n.language}/projects`} element={<ProjectsPage />} />
               <Route path={`/${i18n.language}/mergers-acquisitions`} element={<MergersAcquisitionsPage />} />
+              <Route path={`/${i18n.language}/estimates`} element={<EstimatesPage />} />
               <Route path={`/${i18n.language}/contact-ir`} element={<ContactIRPage />} />
+              <Route path="/article/:articleID" render={(props) => <ArgaamReportsDetailsPage articleID={props.match.params.articleID} />} />
             </Routes>
           </div>
         </div>

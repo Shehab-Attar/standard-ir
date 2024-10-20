@@ -17,6 +17,7 @@
         "business_segments": "التحليل القطاعي",
         "projects": "المشاريع",
         "merges_acq": "الاندماجات والإستحواذات",
+        "estimates": "توصيات المحللين",
         "contact_ir": "تواصل مع الشركة"
     },
     "market_data": {
@@ -47,7 +48,11 @@
         "mainTitle": "المفكرة",
         "date": "تاريخ الحدث",
         "event": "الحدث",
-        "venue": "موقع الحدث"
+        "venue": "موقع الحدث",
+        "details": "التفاصيل",
+        "market": "السوق",
+        "company": "الشركة",
+        "type": "نوع الحدث"
     },
     "corporate_actions": {
         "recent_changes": "التغير في رأس المال",
@@ -56,9 +61,46 @@
         "capital_change": "نسبة التغير",
         "current_capital": "رأس المال بعد التغير",
         "current_capital_currency": "(مليون)",
-        "current_capital_currency_ryial": "(مليون ريال)",
+        "current_capital_currency_sar": "(مليون ريال)",
         "current_no_of_shares": "عدد الأسهم بعد التغير",
         "type": "النوع",
-        "announcement": "تاريخ الإعلان"
+        "announcement": "تاريخ الإعلان",
+        "recent_dividends": "أحدث التوزيعات النقدية",
+        "capital": "رأس المال",
+        "shares": "عدد الأسهم",
+        "dividend_percentage": "النسبة من رأس المال",
+        "cash_dividend": "توزيعات أرباح نقدية",
+        "dividend_policy": "سياسة توزيع الأرباح",
+        "dividend_policy_ar": "6 أشهر"
+    },
+    "analyst_recommendations": {
+        "mainTitle": "توصيات المحللين",
+        "date": "التاريخ",
+        "research_firm": "شركة الأبحاث",
+        "rating": "التوصية"
+    },
+    "latest_news": {
+        "mainTitle": "اخر الاخبار"
+    },
+    "earnings": { 
+        "title": "النتائج المالية",
+        "report": "عنوان التقرير",
+        "interim": "مرحلي",
+        "year": "السنة",
+        "fiscalPeriods": {
+            "I1": "3 شهور",
+            "I2": "6 شهور",
+            "I3": "9 شهور",
+            "YEAR": "12 شهر"
+        }
+    },
+    "disclosures": {
+        "mainTitle": "الإفصاحات"
+    },
+    "analyst_estimates": {
+        "mainTitle": "اراء و توقعات المحللين"
+    },
+    "argaam_reports": {
+        "mainTitle": "تقارير أرقام"
     }
 }

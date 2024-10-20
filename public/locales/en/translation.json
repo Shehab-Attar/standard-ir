@@ -17,6 +17,7 @@
         "business_segments": "Business Segments",
         "projects": "Projects",
         "merges_acq": "Merges & Acquisitions",
+        "estimates": "Estimates",
         "contact_ir": "Contact IR"
     },
     "market_data": {
@@ -47,7 +48,11 @@
         "mainTitle": "Events",
         "date": "Date",
         "event": "Event",
-        "venue": "Venue"
+        "venue": "Venue",
+        "details": "Details",
+        "market": "Market",
+        "company": "Company",
+        "type": "Type"
     },
     "corporate_actions": {
         "recent_changes": "Recent Changes",
@@ -56,9 +61,46 @@
         "capital_change": "Capital Change",
         "current_capital": "Current Capital",
         "current_capital_currency": "(M)",
-        "current_capital_currency_ryial": "(M SAR)",
+        "current_capital_currency_sar": "(M SAR)",
+        "current_capital_currency_riyal": "(Million Riyal)",
         "current_no_of_shares": "Current No. of Shares (M)",
         "type": "Type",
-        "announcement": "Announcement"
+        "announcement": "Announcement",
+        "recent_dividends": "Recent Dividends",
+        "capital": "Capital",
+        "shares": "Shares (mn)",
+        "dividend_percentage": "Dividends/Capital (%)",
+        "cash_dividend": "Cash Dividend",
+        "dividend_policy": "Dividend Policy"
+    },
+    "analyst_recommendations": {
+        "mainTitle": "Analyst Recommendations",
+        "date": "Date",
+        "research_firm": "Research Firm",
+        "rating": "Rating"
+    },
+    "latest_news": {
+        "mainTitle": "Latest News"
+    },
+    "earnings": {
+        "title": "Earnings",
+        "report": "Report",
+        "interim": "Interim",
+        "year": "Year",
+        "fiscalPeriods": {
+            "I1": "3 M",
+            "I2": "6 M",
+            "I3": "9 M",
+            "YEAR": "12 M"
+        }
+    },
+    "disclosures": {
+        "mainTitle": "Disclosures"
+    },
+    "analyst_estimates": {
+        "mainTitle": "Analyst Estimates"
+    },
+    "argaam_reports": {
+        "mainTitle": "Argaam Reports"
     }
 }

@@ -110,6 +110,11 @@ const Sidebar = () => {
                   </NavLink>
                 </li>
                 <li className="asideList border-bottom">
+                  <NavLink to={`/${i18n.language}/estimates`} className="nestedNavLink" onClick={handleLinkClick}>
+                    <span className="mx-2">{t('sidebar.estimates')}</span>
+                  </NavLink>
+                </li> 
+                <li className="asideList border-bottom">
                 <NavLink to={`/${i18n.language}/contact-ir`} className="nestedNavLink" onClick={handleLinkClick}>
                   <span className="mx-2">{t('sidebar.contact_ir')}</span>
                 </NavLink>

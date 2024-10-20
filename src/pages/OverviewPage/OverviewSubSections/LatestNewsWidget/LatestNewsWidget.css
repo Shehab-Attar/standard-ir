@@ -1,0 +1,9 @@
+.news-title {
+    text-decoration: none !important;
+    cursor: pointer !important;
+}
+
+.news-title:hover {
+    color: #374C5F;
+}
+    
