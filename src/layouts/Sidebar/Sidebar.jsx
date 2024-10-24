@@ -78,6 +78,16 @@ const Sidebar = () => {
                 </li>
                 <li className="asideList border-bottom">
                   <NavLink
+                    to={`/${i18n.language}/chart`}
+                    className="nestedNavLink"
+                  >
+                    <span className="mx-2">
+                      {t("sidebar.chart")}
+                    </span>
+                  </NavLink>
+                </li>
+                <li className="asideList border-bottom">
+                  <NavLink
                     to={`/${i18n.language}/share-performance`}
                     className="nestedNavLink"
                   >

@@ -20,6 +20,7 @@ import ProjectsPage from './pages/ProjectsPage/ProjectsPage';
 import MergersAcquisitionsPage from './pages/MergersAcquisitionsPage/MergersAcquisitionsPage';
 import EstimatesPage from './pages/EstimatesPage/EstimatesPage';
 import ContactIRPage from './pages/ContactIRPage/ContactIRPage';
+import ChartPage from './pages/ChartPage/ChartPage';
 
 // Details Pages
 import DisclosureDetailsPage from './pages/OverviewPage/OverviewSubSections/DisclousersWidget/DisclosureDetailsPage/DisclosureDetailsPage'
@@ -50,6 +51,9 @@ function App() {
               />
               <Route path={`/${i18n.language}/board-management`} 
                 element={<BoardManagementPage />} 
+              />
+              <Route path={`/${i18n.language}/chart`} 
+                element={<ChartPage />} 
               />
               <Route path={`/${i18n.language}/share-performance`} 
                 element={<SharePerformancePage />} 

@@ -8,19 +8,12 @@
 
 .chart-container{
     position: relative;
-    height: 0px;
+    height: fit-content;
     z-index: 1;
 }
 
-select{
-    position: absolute; 
-    width: 50.7969px; 
-    height: 22px; 
-    padding: 0px; 
-    border: 0px; 
-    top: 10.5px; 
-    cursor: pointer; 
-    opacity: 0.0001; 
-    margin-top: 0px; 
-    left: 10px;
+.nav{
+    width: 100%;
+    border-spacing: 0;
+    padding: 0;
 }
