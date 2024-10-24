@@ -4,14 +4,14 @@ import { useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { getToken } from '../../../../../services/getToken'
 
-const ArgaamReportsDetailsPage = () => {
-  const [argaamReports, setArgaamReports] = useState(null)  
+const LatestNewsDetailsPage = () => {
+  const [latestNews, setLatestNews] = useState(null)
   const [languageMismatch, setLanguageMismatch] = useState(false)
   const { articleID } = useParams()
   const { t, i18n } = useTranslation()
 
   useEffect(() => {
-    const fetchArgaamReports = async () => {
+    const fetchLatestNews = async () => {
       try {
         const token = await getToken()
         const response = await axios.get(`https://data.argaam.com/api/v1.0/json/ir-api/overview`, {
@@ -23,12 +23,14 @@ const ArgaamReportsDetailsPage = () => {
           },
         })
         
-        const foundArgaamReports = response.data.argaamReports.find(d => d.articleID === parseInt(articleID))
-        if (foundArgaamReports.language !== i18n.language) {
-          setLanguageMismatch(true)
-        } else {
-          setArgaamReports(foundArgaamReports)
-          setLanguageMismatch(false)
+        const foundLatestNews = response.data.latestNews.find(d => d.articleID === parseInt(articleID))
+        if (foundLatestNews) {
+          if (foundLatestNews.language !== i18n.language) {
+            setLanguageMismatch(true)
+          } else {
+            setLatestNews(foundLatestNews)
+            setLanguageMismatch(false)
+          }
         }
         
       } catch (err) {
@@ -36,7 +38,7 @@ const ArgaamReportsDetailsPage = () => {
       }
     }
 
-    fetchArgaamReports()
+    fetchLatestNews()
   }, [articleID, i18n.language])
 
 
@@ -44,15 +46,15 @@ const ArgaamReportsDetailsPage = () => {
     return <div className="fw-bold">{t('title.languageMismatch')}</div>
   }
 
-  if (!argaamReports) {
+  if (!latestNews) {
     return null
   }
 
   return (
-    <div className="argaam-reports-details">
-      <div dangerouslySetInnerHTML={{ __html: argaamReports.body }} />
+    <div className="latest-news-details">
+      <div dangerouslySetInnerHTML={{ __html: latestNews.body }} />
     </div>
   )
 }
 
-export default ArgaamReportsDetailsPage
+export default LatestNewsDetailsPage

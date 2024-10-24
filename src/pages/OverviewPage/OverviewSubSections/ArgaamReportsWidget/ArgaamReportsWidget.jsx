@@ -2,7 +2,6 @@ import React from 'react'
 import { useTranslation } from 'react-i18next';
 import MoreButton from '../../../../components/MoreButton';
 import { Link } from 'react-router-dom';
-import ArgaamReportsDetailsPage from './ArgaamReportsDetailsPage/ArgaamReportsDetailsPage';
 const ArgaamReportsWidget = ({ data }) => {
     const { t, i18n } = useTranslation();
     const currentLanguage = i18n.language;
@@ -27,7 +26,7 @@ const ArgaamReportsWidget = ({ data }) => {
             <div key={index} className="p-1 px-2 border-bottom">
               <span
                 className="news-title link-color hovered fs-14"
-                onClick={() => window.location.href = `/${currentLanguage}/disclosures/${argaamReport.articleID}`}
+                onClick={() => window.location.href = `/${currentLanguage}/argaam-reports/${argaamReport.articleID}`}
               >
                 {argaamReport.title}
               </span>

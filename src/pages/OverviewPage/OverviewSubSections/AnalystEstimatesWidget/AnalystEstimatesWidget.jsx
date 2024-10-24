@@ -26,7 +26,7 @@ const AnalystEstimatesWidget = ({ data }) => {
             <div key={index} className="p-1 px-2 border-bottom">
               <span
                 className="news-title link-color hovered fs-14"
-                onClick={() => window.location.href = `/${currentLanguage}/disclosures/${analystEstimate.articleID}`}
+                onClick={() => window.location.href = `/${currentLanguage}/estimates/${analystEstimate.articleID}`}
               >
                 {analystEstimate.title}
               </span>

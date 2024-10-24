@@ -1,7 +1,7 @@
-import './Earnings.css';
+import './EarningsWidget.css';
 import { useTranslation } from 'react-i18next';
 
-const Earnings = ({ data }) => {
+const EarningsWidget = ({ data }) => {
     const {t, i18n} = useTranslation();
     const currentLanguage = i18n.language;
     const earnings = data.earnings.slice(0, 3);
@@ -40,4 +40,4 @@ const Earnings = ({ data }) => {
   )
 }
 
-export default Earnings
+export default EarningsWidget

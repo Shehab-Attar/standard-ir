@@ -6,13 +6,6 @@ const Sidebar = () => {
   const { t, i18n } = useTranslation();
   const isRTL = i18n.dir() === 'rtl';
 
-  const handleLinkClick = () => {
-    // Close the offcanvas when a link is clicked
-    const offcanvasElement = document.getElementById('offcanvasSidebar');
-    const offcanvas = new bootstrap.Offcanvas(offcanvasElement);
-    offcanvas.hide();
-  };
-
   return (
     <>
       <i
@@ -47,77 +40,151 @@ const Sidebar = () => {
       >
         <div className="offcanvas-content overflow-hidden">
           <div className="d-flex flex-column justify-content-between align-items-center 100-vh">
-            <div className="offcanvas-body m-0 p-0 d-flex flex-column fs-6" id="sidebar">
+            <div
+              className="offcanvas-body m-0 p-0 d-flex flex-column fs-6"
+              id="sidebar"
+            >
               <ul className="navbar-nav w-100 p-0 list-unstyled w-100 justify-content-start">
                 <li className="asideList border-bottom">
-                  <NavLink to={`/${i18n.language}`} className="nestedNavLink" end onClick={handleLinkClick}>
-                    <span className="mx-2">{t('sidebar.overview')}</span>
+                  <NavLink
+                    to={`/${i18n.language}`}
+                    className="nestedNavLink"
+                    end
+                  >
+                    <span className="mx-2">
+                      {t("sidebar.overview")}
+                    </span>
                   </NavLink>
                 </li>
                 <li className="asideList border-bottom">
-                  <NavLink to={`/${i18n.language}/profile`} className="nestedNavLink" onClick={handleLinkClick}>
-                    <span className="mx-2">{t('sidebar.profile')}</span>
+                  <NavLink
+                    to={`/${i18n.language}/profile`}
+                    className="nestedNavLink"
+                  >
+                    <span className="mx-2">
+                      {t("sidebar.profile")}
+                    </span>
                   </NavLink>
                 </li>
                 <li className="asideList border-bottom">
-                  <NavLink to={`/${i18n.language}/board-management`} className="nestedNavLink" onClick={handleLinkClick}>
-                    <span className="mx-2">{t('sidebar.board')}</span>
+                  <NavLink
+                    to={`/${i18n.language}/board-management`}
+                    className="nestedNavLink"
+                  >
+                    <span className="mx-2">
+                      {t("sidebar.board")}
+                    </span>
                   </NavLink>
                 </li>
                 <li className="asideList border-bottom">
-                  <NavLink to={`/${i18n.language}/share-performance`} className="nestedNavLink" onClick={handleLinkClick}>
-                    <span className="mx-2">{t('sidebar.share_performance')}</span>
+                  <NavLink
+                    to={`/${i18n.language}/share-performance`}
+                    className="nestedNavLink"
+                  >
+                    <span className="mx-2">
+                      {t("sidebar.share_performance")}
+                    </span>
                   </NavLink>
                 </li>
                 <li className="asideList border-bottom">
-                  <NavLink to={`/${i18n.language}/financial-information`} className="nestedNavLink" onClick={handleLinkClick}>
-                    <span className="mx-2">{t('sidebar.financial_info')}</span>
+                  <NavLink
+                    to={`/${i18n.language}/financial-information`}
+                    className="nestedNavLink"
+                  >
+                    <span className="mx-2">
+                      {t("sidebar.financial_info")}
+                    </span>
                   </NavLink>
                 </li>
                 <li className="asideList border-bottom">
-                  <NavLink to={`/${i18n.language}/investors-presentation`} className="nestedNavLink" onClick={handleLinkClick}>
-                    <span className="mx-2">{t('sidebar.investors_presentation')}</span>
+                  <NavLink
+                    to={`/${i18n.language}/investors-presentation`}
+                    className="nestedNavLink"
+                  >
+                    <span className="mx-2">
+                      {t("sidebar.investors_presentation")}
+                    </span>
                   </NavLink>
                 </li>
                 <li className="asideList border-bottom">
-                  <NavLink to={`/${i18n.language}/disclosures`} className="nestedNavLink" onClick={handleLinkClick}>
-                    <span className="mx-2">{t('sidebar.disclosures')}</span>
+                  <NavLink
+                    to={`/${i18n.language}/disclosures`}
+                    className="nestedNavLink"
+                  >
+                    <span className="mx-2">
+                      {t("sidebar.disclosures")}
+                    </span>
                   </NavLink>
                 </li>
                 <li className="asideList border-bottom">
-                  <NavLink to={`/${i18n.language}/corporate-actions`} className="nestedNavLink" onClick={handleLinkClick}>
-                    <span className="mx-2">{t('sidebar.corporate_actions')}</span>
+                  <NavLink
+                    to={`/${i18n.language}/corporate-actions`}
+                    className="nestedNavLink"
+                  >
+                    <span className="mx-2">
+                      {t("sidebar.corporate_actions")}
+                    </span>
                   </NavLink>
                 </li>
                 <li className="asideList border-bottom">
-                  <NavLink to={`/${i18n.language}/major-shareholders`} className="nestedNavLink" onClick={handleLinkClick}>
-                    <span className="mx-2">{t('sidebar.major_shareholders')}</span>
+                  <NavLink
+                    to={`/${i18n.language}/major-shareholders`}
+                    className="nestedNavLink"
+                  >
+                    <span className="mx-2">
+                      {t("sidebar.major_shareholders")}
+                    </span>
                   </NavLink>
                 </li>
                 <li className="asideList border-bottom">
-                  <NavLink to={`/${i18n.language}/business-segments`} className="nestedNavLink" onClick={handleLinkClick}>
-                    <span className="mx-2">{t('sidebar.business_segments')}</span>
+                  <NavLink
+                    to={`/${i18n.language}/business-segments`}
+                    className="nestedNavLink"
+                  >
+                    <span className="mx-2">
+                      {t("sidebar.business_segments")}
+                    </span>
                   </NavLink>
                 </li>
                 <li className="asideList border-bottom">
-                  <NavLink to={`/${i18n.language}/projects`} className="nestedNavLink" onClick={handleLinkClick}>
-                    <span className="mx-2">{t('sidebar.projects')}</span>
+                  <NavLink
+                    to={`/${i18n.language}/projects`}
+                    className="nestedNavLink"
+                  >
+                    <span className="mx-2">
+                      {t("sidebar.projects")}
+                    </span>
                   </NavLink>
                 </li>
                 <li className="asideList border-bottom">
-                  <NavLink to={`/${i18n.language}/mergers-acquisitions`} className="nestedNavLink" onClick={handleLinkClick}>
-                    <span className="mx-2">{t('sidebar.merges_acq')}</span>
+                  <NavLink
+                    to={`/${i18n.language}/mergers-acquisitions`}
+                    className="nestedNavLink"
+                  >
+                    <span className="mx-2">
+                      {t("sidebar.merges_acq")}
+                    </span>
                   </NavLink>
                 </li>
                 <li className="asideList border-bottom">
-                  <NavLink to={`/${i18n.language}/estimates`} className="nestedNavLink" onClick={handleLinkClick}>
-                    <span className="mx-2">{t('sidebar.estimates')}</span>
+                  <NavLink
+                    to={`/${i18n.language}/estimates`}
+                    className="nestedNavLink"
+                  >
+                    <span className="mx-2">
+                      {t("sidebar.estimates")}
+                    </span>
                   </NavLink>
-                </li> 
+                </li>
                 <li className="asideList border-bottom">
-                <NavLink to={`/${i18n.language}/contact-ir`} className="nestedNavLink" onClick={handleLinkClick}>
-                  <span className="mx-2">{t('sidebar.contact_ir')}</span>
-                </NavLink>
+                  <NavLink
+                    to={`/${i18n.language}/contact-ir`}
+                    className="nestedNavLink"
+                  >
+                    <span className="mx-2">
+                      {t("sidebar.contact_ir")}
+                    </span>
+                  </NavLink>
                 </li>
               </ul>
             </div>

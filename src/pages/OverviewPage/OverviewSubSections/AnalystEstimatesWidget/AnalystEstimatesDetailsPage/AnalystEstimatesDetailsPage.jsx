@@ -4,14 +4,14 @@ import { useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { getToken } from '../../../../../services/getToken'
 
-const ArgaamReportsDetailsPage = () => {
-  const [argaamReports, setArgaamReports] = useState(null)  
-  const [languageMismatch, setLanguageMismatch] = useState(false)
+const AnalystEstimatesDetailsPage = () => {
+  const [analystEstimates, setAnalystEstimates] = useState(null)  
+  const [languageMismatch, setLanguageMismatch] = useState(false) 
   const { articleID } = useParams()
   const { t, i18n } = useTranslation()
 
   useEffect(() => {
-    const fetchArgaamReports = async () => {
+    const fetchAnalystEstimates = async () => {
       try {
         const token = await getToken()
         const response = await axios.get(`https://data.argaam.com/api/v1.0/json/ir-api/overview`, {
@@ -23,11 +23,11 @@ const ArgaamReportsDetailsPage = () => {
           },
         })
         
-        const foundArgaamReports = response.data.argaamReports.find(d => d.articleID === parseInt(articleID))
-        if (foundArgaamReports.language !== i18n.language) {
+        const foundAnalystEstimates = response.data.analystEstimates.find(d => d.articleID === parseInt(articleID))
+        if (foundAnalystEstimates.language !== i18n.language) {
           setLanguageMismatch(true)
         } else {
-          setArgaamReports(foundArgaamReports)
+          setAnalystEstimates(foundAnalystEstimates)
           setLanguageMismatch(false)
         }
         
@@ -36,7 +36,7 @@ const ArgaamReportsDetailsPage = () => {
       }
     }
 
-    fetchArgaamReports()
+    fetchAnalystEstimates()
   }, [articleID, i18n.language])
 
 
@@ -44,15 +44,15 @@ const ArgaamReportsDetailsPage = () => {
     return <div className="fw-bold">{t('title.languageMismatch')}</div>
   }
 
-  if (!argaamReports) {
+  if (!analystEstimates) {
     return null
   }
 
   return (
-    <div className="argaam-reports-details">
-      <div dangerouslySetInnerHTML={{ __html: argaamReports.body }} />
+    <div className="analyst-estimates-details">
+      <div dangerouslySetInnerHTML={{ __html: analystEstimates.body }} />
     </div>
   )
 }
 
-export default ArgaamReportsDetailsPage
+export default AnalystEstimatesDetailsPage

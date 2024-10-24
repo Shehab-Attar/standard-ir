@@ -3,8 +3,10 @@ import './CompanyInfo.css'
 
 
 const CompanyInfo = () => {
+    
     const {t} = useTranslation();
-  return (
+  
+    return (
     <div className='container-lg mb-2 px-xl-0'>
         <div className='d-flex border-bottom flex-wrap'>
             <div className='p-3 bg-light fs-4 fw-bold text-secondary d-flex align-items-center m-2'>

@@ -64,31 +64,31 @@ const CorporateActionsWidget = ({ data }) => {
                         <tbody>
                             <tr>
                                 <th>{t('corporate_actions.current_capital')} {t('corporate_actions.current_capital_currency_sar')}</th>
-                                <td>{data.dividandInfo.capital.toFixed(2)}</td>
+                                <td>{data?.dividandInfo?.capital?.toFixed(2)}</td>
                             </tr>
                             <tr>
                                 <th>{t('corporate_actions.shares')} {i18n.language === 'ar' ? t('corporate_actions.current_capital_currency_sar') : null}</th>
-                                <td>{data.dividandInfo.numberOfShares.toFixed(2)}</td>
+                                <td>{data?.dividandInfo?.numberOfShares?.toFixed(2)}</td>
                             </tr>
                             <tr>
                                 <th>{t('corporate_actions.dividend_percentage')}</th>
-                                <td>{data.dividandInfo.dividendPercentage.toFixed(2)}%</td>
+                                <td>{data?.dividandInfo?.dividendPercentage?.toFixed(2)}%</td>
                             </tr>
                             <tr>
                                 <th>{t('corporate_actions.cash_dividend')}</th>
-                                <td>{data.dividandInfo.cashDividend.toFixed(2)} {t('corporate_actions.current_capital_currency_sar')}</td>
+                                <td>{data?.dividandInfo?.cashDividend?.toFixed(2)} {t('corporate_actions.current_capital_currency_sar')}</td>
                             </tr>
                             <tr>
                                 <th>{t('corporate_actions.dividend_policy')}</th>
-                                <td>{i18n.language === 'ar' ? t('corporate_actions.dividend_policy_ar') : data.dividandInfo.dividendPolicy}</td>
+                                <td>{i18n.language === 'ar' ? t('corporate_actions.dividend_policy_ar') : data?.dividandInfo?.dividendPolicy}</td>
                             </tr>
                             <tr>
                                 <th>{t('corporate_actions.type')}</th>
-                                <td>{i18n.language === 'ar' ? data.dividandInfo.companyDividendStatusNameAr : data.dividandInfo.companyDividendStatusNameEn}</td>
+                                <td>{i18n.language === 'ar' ? data?.dividandInfo?.companyDividendStatusNameAr : data?.dividandInfo?.companyDividendStatusNameEn}</td>
                             </tr>
                             <tr>
                                 <th>{t('corporate_actions.announcement')}</th>
-                                <td>{new Date(data.dividandInfo.dividendAnnouncedDate).toLocaleDateString()}</td>
+                                <td>{new Date(data?.dividandInfo?.dividendAnnouncedDate).toLocaleDateString()}</td>
                             </tr>
                         </tbody>
                     </table>

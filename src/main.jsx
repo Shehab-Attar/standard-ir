@@ -1,10 +1,12 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { createRoot } from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom' 
-import AuthProvider from './components/AuthProvider'
-import App from './App.jsx'
-import './i18n.js'
-import './index.css'
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App.jsx";
+import "./i18n.js";
+import "./index.css";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -15,12 +17,10 @@ const queryClient = new QueryClient({
   },
 });
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <QueryClientProvider client={queryClient}>
     <BrowserRouter>
-      <AuthProvider>
-        <App />
-      </AuthProvider>
+      <App />
     </BrowserRouter>
   </QueryClientProvider>
-)
+);

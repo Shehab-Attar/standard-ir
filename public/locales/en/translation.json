@@ -2,7 +2,9 @@
     "title": {
         "main": "Abdulmohsen Alhokair Group for Tourism and Development",
         "subtitle": "ALHOKAIR GROUP",
-        "more": "More"
+        "more": "More",
+        "languageMismatch": "The content cannot be loaded in the selected language",
+        "loading": "Loading..."
     },
     "sidebar": {
         "overview": "Overview",
@@ -95,12 +97,23 @@
         }
     },
     "disclosures": {
-        "mainTitle": "Disclosures"
+        "mainTitle": "Disclosures",
+        "notAvailable": "This article is not available in English language"
     },
     "analyst_estimates": {
         "mainTitle": "Analyst Estimates"
     },
     "argaam_reports": {
         "mainTitle": "Argaam Reports"
+    },
+    "chartTicker": {
+        "title": "Chart Ticker",
+        "zoom": "Zoom",
+        "1M": "1M",
+        "3M": "3M",
+        "6M": "6M",
+        "YTD": "YTD",
+        "1Y": "1Y",
+        "View All": "View All"
     }
 }
