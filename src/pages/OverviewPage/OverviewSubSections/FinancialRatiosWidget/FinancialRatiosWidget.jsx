@@ -21,8 +21,8 @@ const FinancialRatiosWidget = ({data}) => {
             {data.financialRatios.fields?.map((field) => (
               <tr key={field.ratioName}>
                 <th>{i18n.language === 'ar' ? field.nameAr : field.nameEn}:</th>
-                <td>
-                  {formatValue(field.values.value, field.isCurrency, field.isPercentage)}
+                <td style={{ color: field.values.value < 0 ? 'red' : null }}>
+                  {field.values.value < 0 ? `(${Math.abs(field.values.value)})` : field.values.value}
                 </td>
               </tr>
             ))}

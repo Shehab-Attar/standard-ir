@@ -8,7 +8,6 @@ const AnalystEstimatesWidget = ({ data }) => {
   
     // Filter articles based on the current language
     const analystEstimates = data?.analystEstimates
-      .filter(analystEstimate => analystEstimate.language === currentLanguage)
       .slice(0, 3);
   
     if (analystEstimates.length === 0) return null;

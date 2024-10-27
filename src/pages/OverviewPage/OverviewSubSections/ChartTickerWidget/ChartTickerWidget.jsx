@@ -21,10 +21,10 @@ const ChartTickerWidget = () => {
     { display: t("chartTicker.1Y"), value: "1Y" },
     { display: t("chartTicker.2Y"), value: "2Y" },
     { display: t("chartTicker.5Y"), value: "5Y" },
-    { display: t('chartTicker.View All'), value: "View All" },
+    { display: t('chartTicker.View All'), value: "AY" },
   ];
 
-  const { data: chartTickerData, isLoading, error } = useQuery({
+  const { data: chartTickerData, isLoading } = useQuery({
     queryKey: ["chartTickerData", period],
     queryFn: async () => {
       const token = await getToken();

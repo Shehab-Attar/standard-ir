@@ -10,7 +10,6 @@ const LatestNewsWidget = ({ data }) => {
 
   // Filter articles based on the current language
   const latestNews = data?.latestNews
-    .filter(article => article.language === currentLanguage)
     .slice(0, 3);
 
   if (latestNews.length === 0) return null;

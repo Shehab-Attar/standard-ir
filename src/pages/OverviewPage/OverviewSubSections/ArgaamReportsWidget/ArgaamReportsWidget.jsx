@@ -8,7 +8,6 @@ const ArgaamReportsWidget = ({ data }) => {
   
     // Filter articles based on the current language
     const argaamReports = data?.argaamReports
-      .filter(argaamReport => argaamReport.language === currentLanguage)
       .slice(0, 5);
   
     if (argaamReports.length === 0) return null;

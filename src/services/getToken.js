@@ -7,12 +7,13 @@ let tokenData = {
 };
 
 export const getToken = async () => {
-
   const currentTime = new Date().getTime();
-  const tokenExpiry = tokenData.expires ? new Date(tokenData.expires).getTime() : 0;
+  const storedToken = sessionStorage.getItem('jwtToken');
+  const storedExpiry = sessionStorage.getItem('tokenExpiry');
+  const tokenExpiry = storedExpiry ? new Date(storedExpiry).getTime() : 0;
 
   // Check if the token is absent or has expired
-  if (!tokenData.token || currentTime >= tokenExpiry) {
+  if (!storedToken || currentTime >= tokenExpiry) {
     try {
       // Authenticate and get a new token
       const response = await axios.post("https://data.argaam.com/authenticate", {
@@ -24,13 +25,18 @@ export const getToken = async () => {
         // Update tokenData with the new token and expiration
         const { jwtToken, expires } = response.data;
         tokenData = { token: jwtToken, expires };
+        
+        // Store the token and expiration date in sessionStorage
+        sessionStorage.setItem('jwtToken', jwtToken);
+        sessionStorage.setItem('tokenExpiry', expires);
       } else {
         return false;
       }
     } catch (err) {
       console.log(err);
-      
     }
+  } else {
+    tokenData.token = storedToken;
   }
 
   return tokenData.token; // Return the current valid token
