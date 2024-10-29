@@ -1,14 +1,10 @@
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
 import MoreButton from "../../../../components/MoreButton";
+import { useNavigate } from "react-router-dom";
 
 const DisclousersWidget = ({ data }) => {
-  const { t } = useTranslation();
-  const [selectedDisclosure, setSelectedDisclosure] = useState(null);
-
-  const handleDisclosureClick = (disclosure) => {
-    setSelectedDisclosure(disclosure);
-  };
+  const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -22,10 +18,10 @@ const DisclousersWidget = ({ data }) => {
             return (
               <div key={idx} className="p-1 px-2 border-bottom">
                 <span
-                  data-bs-toggle="modal"
-                  data-bs-target="#disclosure-modal"
                   className="news-title link-color hovered fs-14"
-                  onClick={() => handleDisclosureClick(elm)}
+                  onClick={() =>
+                    navigate(`/${i18n.language}/disclosures/${elm.articleID}`)
+                  }
                 >
                   {elm.title}
                 </span>
@@ -41,10 +37,10 @@ const DisclousersWidget = ({ data }) => {
           })}
         </div>
 
-        <MoreButton path="disclosures" />
+        <MoreButton path="disclosures/disc" />
       </div>
       {/* Modal */}
-      <div
+      {/* <div
         className="modal fade"
         id="disclosure-modal"
         tabIndex="-1"
@@ -74,7 +70,8 @@ const DisclousersWidget = ({ data }) => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+      {/* End Modal */}
     </>
   );
 };

@@ -1,10 +1,10 @@
-import './Sidebar.css';
-import { NavLink } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import "./Sidebar.css";
+import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Sidebar = () => {
   const { t, i18n } = useTranslation();
-  const isRTL = i18n.dir() === 'rtl';
+  const isRTL = i18n.dir() === "rtl";
 
   return (
     <>
@@ -13,7 +13,10 @@ const Sidebar = () => {
         data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasSidebar"
         aria-controls="offcanvasSidebar"
-        style={{ left: isRTL ? '10px' : 'auto', right: isRTL ? 'auto' : '10px' }}
+        style={{
+          left: isRTL ? "10px" : "auto",
+          right: isRTL ? "auto" : "10px",
+        }}
       >
         <svg
           stroke="currentColor"
@@ -32,7 +35,7 @@ const Sidebar = () => {
         </svg>
       </i>
       <div
-        className={`offcanvas offcanvas-position-${isRTL ? 'end' : 'start'}`}
+        className={`offcanvas offcanvas-position-${isRTL ? "end" : "start"}`}
         tabIndex="-1"
         id="offcanvasSidebar"
         aria-labelledby="offcanvasSidebarLabel"
@@ -51,9 +54,7 @@ const Sidebar = () => {
                     className="nestedNavLink"
                     end
                   >
-                    <span className="mx-2">
-                      {t("sidebar.overview")}
-                    </span>
+                    <span className="mx-2">{t("sidebar.overview")}</span>
                   </NavLink>
                 </li>
                 <li className="asideList border-bottom">
@@ -61,9 +62,7 @@ const Sidebar = () => {
                     to={`/${i18n.language}/profile`}
                     className="nestedNavLink"
                   >
-                    <span className="mx-2">
-                      {t("sidebar.profile")}
-                    </span>
+                    <span className="mx-2">{t("sidebar.profile")}</span>
                   </NavLink>
                 </li>
                 <li className="asideList border-bottom">
@@ -71,9 +70,7 @@ const Sidebar = () => {
                     to={`/${i18n.language}/board-management`}
                     className="nestedNavLink"
                   >
-                    <span className="mx-2">
-                      {t("sidebar.board")}
-                    </span>
+                    <span className="mx-2">{t("sidebar.board")}</span>
                   </NavLink>
                 </li>
                 <li className="asideList border-bottom">
@@ -81,9 +78,7 @@ const Sidebar = () => {
                     to={`/${i18n.language}/chart`}
                     className="nestedNavLink"
                   >
-                    <span className="mx-2">
-                      {t("sidebar.chart")}
-                    </span>
+                    <span className="mx-2">{t("sidebar.chart")}</span>
                   </NavLink>
                 </li>
                 <li className="asideList border-bottom">
@@ -101,9 +96,7 @@ const Sidebar = () => {
                     to={`/${i18n.language}/financial-information`}
                     className="nestedNavLink"
                   >
-                    <span className="mx-2">
-                      {t("sidebar.financial_info")}
-                    </span>
+                    <span className="mx-2">{t("sidebar.financial_info")}</span>
                   </NavLink>
                 </li>
                 <li className="asideList border-bottom">
@@ -118,12 +111,10 @@ const Sidebar = () => {
                 </li>
                 <li className="asideList border-bottom">
                   <NavLink
-                    to={`/${i18n.language}/disclosures`}
+                    to={`/${i18n.language}/disclosures/latest-news`}
                     className="nestedNavLink"
                   >
-                    <span className="mx-2">
-                      {t("sidebar.disclosures")}
-                    </span>
+                    <span className="mx-2">{t("sidebar.disclosures")}</span>
                   </NavLink>
                 </li>
                 <li className="asideList border-bottom">
@@ -161,9 +152,7 @@ const Sidebar = () => {
                     to={`/${i18n.language}/projects`}
                     className="nestedNavLink"
                   >
-                    <span className="mx-2">
-                      {t("sidebar.projects")}
-                    </span>
+                    <span className="mx-2">{t("sidebar.projects")}</span>
                   </NavLink>
                 </li>
                 <li className="asideList border-bottom">
@@ -171,9 +160,7 @@ const Sidebar = () => {
                     to={`/${i18n.language}/mergers-acquisitions`}
                     className="nestedNavLink"
                   >
-                    <span className="mx-2">
-                      {t("sidebar.merges_acq")}
-                    </span>
+                    <span className="mx-2">{t("sidebar.merges_acq")}</span>
                   </NavLink>
                 </li>
                 <li className="asideList border-bottom">
@@ -181,9 +168,7 @@ const Sidebar = () => {
                     to={`/${i18n.language}/estimates`}
                     className="nestedNavLink"
                   >
-                    <span className="mx-2">
-                      {t("sidebar.estimates")}
-                    </span>
+                    <span className="mx-2">{t("sidebar.estimates")}</span>
                   </NavLink>
                 </li>
                 <li className="asideList border-bottom">
@@ -191,9 +176,7 @@ const Sidebar = () => {
                     to={`/${i18n.language}/contact-ir`}
                     className="nestedNavLink"
                   >
-                    <span className="mx-2">
-                      {t("sidebar.contact_ir")}
-                    </span>
+                    <span className="mx-2">{t("sidebar.contact_ir")}</span>
                   </NavLink>
                 </li>
               </ul>

@@ -1,0 +1,19 @@
+.tablinks {
+    color: #212529;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.tablinks.active {
+    position: relative;
+}
+
+.tablinks.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: #2f3e4e;
+}

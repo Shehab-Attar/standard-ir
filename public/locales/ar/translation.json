@@ -117,5 +117,13 @@
         "2Y": "2 سنة",
         "5Y": "5 سنوات",
         "View All": "عرض الكل"
+    },
+    "disclosures_latest_news": {
+        "date": "التاريخ",
+        "title": "الخبر",
+        "source": "المصدر"
+    },
+    "disclosures_disc": {
+        "title": "الإفصاح"
     }
 }

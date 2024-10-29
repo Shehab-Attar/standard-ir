@@ -1,0 +1,13 @@
+span.main-title {
+  font-size: 14px;
+  color: #374c5f;
+  font-weight: 500;
+}
+
+.link-color {
+  color: #374c5f;
+}
+
+.modal .btn-close.ar {
+  margin-right: 50% !important;
+}

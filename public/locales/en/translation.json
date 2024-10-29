@@ -117,5 +117,13 @@
         "2Y": "2Y",
         "5Y": "5Y",
         "View All": "View All"
+    },
+    "disclosures_latest_news": {
+        "date": "Date",
+        "title": "New",
+        "source": "Source"
+    },
+    "disclosures_disc": {
+        "title": "Disclosure"
     }
 }

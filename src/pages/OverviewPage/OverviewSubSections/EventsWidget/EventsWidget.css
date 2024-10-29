@@ -23,3 +23,7 @@ th, td{
     display: block;
     padding-right: 17px;
 }
+
+.modal .btn-close.ar {
+    margin-right: 50% !important;
+  }
