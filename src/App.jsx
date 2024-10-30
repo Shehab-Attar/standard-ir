@@ -24,9 +24,9 @@ import ChartPage from "./pages/ChartPage/ChartPage";
 
 // Details Pages
 import DisclosureDetailsPage from "./pages/OverviewPage/OverviewSubSections/DisclousersWidget/DisclosureDetailsPage/DisclosureDetailsPage";
-// import LatestNewsDetailsPage from "./pages/OverviewPage/OverviewSubSections/LatestNewsWidget/LatestNewsDetailsPage/LatestNewsDetailsPage";
-// import ArgaamReportsDetailsPage from "./pages/OverviewPage/OverviewSubSections/ArgaamReportsWidget/ArgaamReportsDetailsPage/ArgaamReportsDetailsPage";
-// import AnalystEstimatesDetailsPage from "./pages/OverviewPage/OverviewSubSections/AnalystEstimatesWidget/AnalystEstimatesDetailsPage/AnalystEstimatesDetailsPage";
+import LatestNewsDetailsPage from "./pages/OverviewPage/OverviewSubSections/LatestNewsWidget/LatestNewsDetailsPage/LatestNewsDetailsPage";
+import ArgaamReportsDetailsPage from "./pages/OverviewPage/OverviewSubSections/ArgaamReportsWidget/ArgaamReportsDetailsPage/ArgaamReportsDetailsPage";
+import AnalystEstimatesDetailsPage from "./pages/OverviewPage/OverviewSubSections/AnalystEstimatesWidget/AnalystEstimatesDetailsPage/AnalystEstimatesDetailsPage";
 
 // Sub Links
 import DisclousersPageLatestNewsSubLink from "./pages/DisclosuresPage/DisclousersPageSubLinks/DisclousersPageLatestNewsSubLink";
@@ -73,7 +73,6 @@ function App() {
                 element={<InvestorsPresentationPage />}
               />
               {/* Disclousers */}
-
               <Route
                 path={`/${i18n.language}/disclosures`}
                 element={<DisclosuresPage />}
@@ -91,16 +90,11 @@ function App() {
                   element={<DisclousersPageEventsSubLink />}
                 />
               </Route>
-              <Route
-                path={`/${i18n.language}/disclosures/:id`}
-                element={<DisclosureDetailsPage />}
-              />
 
               {/* 
                 <Route path="earnings" element={<DisclousersPageEarningsSubLink />} />
                  */}
 
-              {/* Disclousers */}
               <Route
                 path={`/${i18n.language}/corporate-actions`}
                 element={<CorporateActionsPage />}
@@ -130,20 +124,22 @@ function App() {
                 element={<ContactIRPage />}
               />
               {/* Details Pages */}
-
-              {/* 
               <Route
-                path={`/${i18n.language}/latest-news/:articleID`}
+                path={`/${i18n.language}/disclosures/:id`}
+                element={<DisclosureDetailsPage />}
+              />
+              <Route
+                path={`/${i18n.language}/latest-news/:id`}
                 element={<LatestNewsDetailsPage />}
               />
               <Route
-                path={`/${i18n.language}/argaam-reports/:articleID`}
+                path={`/${i18n.language}/argaam-reports/:id`}
                 element={<ArgaamReportsDetailsPage />}
               />
               <Route
-                path={`/${i18n.language}/estimates/:articleID`}
+                path={`/${i18n.language}/estimates/:id`}
                 element={<AnalystEstimatesDetailsPage />}
-              /> */}
+              />
               {/* End Details Pages */}
               <Route path="*" element={<div>Not Found</div>} />
             </Routes>

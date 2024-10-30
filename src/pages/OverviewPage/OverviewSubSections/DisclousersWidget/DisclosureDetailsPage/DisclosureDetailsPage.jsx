@@ -6,7 +6,7 @@ import { getToken } from "../../../../../services/getToken";
 
 const DisclosureDetailsPage = () => {
   const { id } = useParams();
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["disclosure", id, i18n.language],
@@ -27,12 +27,12 @@ const DisclosureDetailsPage = () => {
       return res.data;
     },
   });
-  const foundDisclosure = data.discloser.find(
+  const foundDisclosure = data?.discloser.find(
     (d) => d.articleID === parseInt(id)
   );
 
   if (isLoading) {
-    return <div>{t("loading")}</div>;
+    return <div>{t("title.loading")}</div>;
   }
 
   if (isError) {

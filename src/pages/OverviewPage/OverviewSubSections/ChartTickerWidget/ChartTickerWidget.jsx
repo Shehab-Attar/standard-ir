@@ -1,38 +1,41 @@
-import { useTranslation } from 'react-i18next';
-import { useQuery } from '@tanstack/react-query';
-import { getToken } from '../../../../services/getToken';
-import { useState } from 'react'
-import MoreButton from '../../../../components/MoreButton';
-import Highcharts from 'highcharts'
-import HighchartsReact from 'highcharts-react-official'
-import { Oval } from 'react-loader-spinner';
+import { useTranslation } from "react-i18next";
+import { useQuery } from "@tanstack/react-query";
+import { getToken } from "../../../../services/getToken";
+import { useState } from "react";
+import MoreButton from "../../../../components/MoreButton";
+import Highcharts from "highcharts";
+import HighchartsReact from "highcharts-react-official";
+import { Oval } from "react-loader-spinner";
 
-import axios from 'axios';
-import './ChartTickerWidget.css';
+import axios from "axios";
+import "./ChartTickerWidget.css";
 
 const ChartTickerWidget = () => {
   const { t } = useTranslation();
   const [period, setPeriod] = useState("1D");
   const timePeriods = [
-    { display: t("chartTicker.1D"), value: "1D" },
-    { display: t("chartTicker.5D"), value: "5D" },
-    { display: t("chartTicker.3M"), value: "3M" },
-    { display: t("chartTicker.6M"), value: "6M" },
-    { display: t("chartTicker.1Y"), value: "1Y" },
-    { display: t("chartTicker.2Y"), value: "2Y" },
-    { display: t("chartTicker.5Y"), value: "5Y" },
-    { display: t('chartTicker.View All'), value: "AY" },
+    { display: t("overview.chartTicker.1D"), value: "1D" },
+    { display: t("overview.chartTicker.5D"), value: "5D" },
+    { display: t("overview.chartTicker.3M"), value: "3M" },
+    { display: t("overview.chartTicker.6M"), value: "6M" },
+    { display: t("overview.chartTicker.1Y"), value: "1Y" },
+    { display: t("overview.chartTicker.2Y"), value: "2Y" },
+    { display: t("overview.chartTicker.5Y"), value: "5Y" },
+    { display: t("overview.chartTicker.View All"), value: "AY" },
   ];
 
   const { data: chartTickerData, isLoading } = useQuery({
     queryKey: ["chartTickerData", period],
     queryFn: async () => {
       const token = await getToken();
-      const res = await axios.get(`https://data-ir.argaam.com/api/v1/json/ir-api/charts-data/0/${period}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const res = await axios.get(
+        `https://data-ir.argaam.com/api/v1/json/ir-api/charts-data/0/${period}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       return res.data;
     },
     enabled: !!period, // Ensure the query runs only when a period is selected
@@ -54,7 +57,9 @@ const ChartTickerWidget = () => {
 
   const yAxisMin = chartTickerData?.configurations.min;
   const yAxisMax = chartTickerData?.configurations.max;
-  const lastDataPoint = chartData?.length ? chartData[chartData.length - 1] : null;
+  const lastDataPoint = chartData?.length
+    ? chartData[chartData.length - 1]
+    : null;
   const lastCloseValue = lastDataPoint ? lastDataPoint.y.toFixed(2) : 0;
   const lastDate = lastDataPoint
     ? new Date(lastDataPoint.x).toLocaleString(undefined, {
@@ -114,14 +119,16 @@ const ChartTickerWidget = () => {
 
   return (
     <div className="chart-ticker-widget border">
-      <h6 className="p-2 main-title">{t('chartTicker.title')}</h6>
+      <h6 className="p-2 main-title">{t("overview.chartTicker.title")}</h6>
       <hr className="m-2 mb-0 icons-color" />
       <div className="container-lg table-responsive">
         <ul className="nav nav-tabs mb-3 p-0">
           {timePeriods.map((option, index) => (
             <li className="nav-item" key={`${option.value}-${index}`}>
               <button
-                className={`nav-link ${period === option.value ? "active" : ""}`}
+                className={`nav-link ${
+                  period === option.value ? "active" : ""
+                }`}
                 onClick={() => handlePeriodChange(option.value)}
               >
                 {option.display}
@@ -129,23 +136,28 @@ const ChartTickerWidget = () => {
             </li>
           ))}
         </ul>
-        <div className="chart-container" style={{ position: 'relative' }}>
+        <div className="chart-container" style={{ position: "relative" }}>
           {isLoading && (
-            <div className="loading-overlay" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-              <Oval
-                color="#00BFFF"
-                height={80}
-                width={80}
-                visible={true}
-              />
+            <div
+              className="loading-overlay"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "100%",
+              }}
+            >
+              <Oval color="#00BFFF" height={80} width={80} visible={true} />
             </div>
           )}
-          {chartTickerData && <HighchartsReact highcharts={Highcharts} options={options} />}
+          {chartTickerData && (
+            <HighchartsReact highcharts={Highcharts} options={options} />
+          )}
         </div>
         <MoreButton path={"chart"} />
       </div>
     </div>
   );
-}
+};
 
 export default ChartTickerWidget;

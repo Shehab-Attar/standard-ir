@@ -2,11 +2,11 @@ import axios from "axios";
 import { useTranslation } from "react-i18next";
 import { useQuery } from "@tanstack/react-query";
 import { getToken } from "../../../services/getToken";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const DisclousersPageDisclosuresSubLink = () => {
   const { t, i18n } = useTranslation();
-  const [selectedDisclosure, setSelectedDisclosure] = useState(null);
+  const navigate = useNavigate();
   const { data } = useQuery({
     queryKey: ["DisclousersPageDisclosuresSubLink"],
     queryFn: async () => {
@@ -31,10 +31,6 @@ const DisclousersPageDisclosuresSubLink = () => {
     },
   });
 
-  const handleDisclosureClick = (disclosure) => {
-    setSelectedDisclosure(disclosure);
-  };
-
   return (
     <div>
       <div className="continer-lg my-1 mx-0 px-0">
@@ -42,9 +38,9 @@ const DisclousersPageDisclosuresSubLink = () => {
           <table className="table table-hover">
             <thead>
               <tr>
-                <th>{t("disclosures_latest_news.date")}</th>
-                <th>{t("disclosures_disc.title")}</th>
-                <th>{t("disclosures_latest_news.source")}</th>
+                <th>{t("disclosures.latest_news.date")}</th>
+                <th>{t("disclosures.disc.title")}</th>
+                <th>{t("disclosures.latest_news.source")}</th>
               </tr>
             </thead>
             <tbody>
@@ -54,7 +50,13 @@ const DisclousersPageDisclosuresSubLink = () => {
                     {item.publishedOn.split(" ")[0]}
                   </td>
                   <td style={{ minWidth: "135px", cursor: "pointer" }}>
-                    <span onClick={() => handleDisclosureClick(item)}>
+                    <span
+                      onClick={() =>
+                        navigate(
+                          `/${i18n.language}/disclosures/${item.articleID}`
+                        )
+                      }
+                    >
                       {item.title}
                     </span>
                   </td>

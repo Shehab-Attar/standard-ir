@@ -3,11 +3,9 @@ import { useTranslation } from "react-i18next";
 import { useQuery } from "@tanstack/react-query";
 import { getToken } from "../../../services/getToken";
 import { useNavigate } from "react-router-dom";
-
 const DisclousersPageLatestNewsSubLink = () => {
-  const navigate = useNavigate();
   const { t, i18n } = useTranslation();
-
+  const navigate = useNavigate();
   const { data } = useQuery({
     queryKey: ["DisclousersPageLatestNewsSubLink"],
     queryFn: async () => {
@@ -35,14 +33,12 @@ const DisclousersPageLatestNewsSubLink = () => {
   return (
     <div>
       <div className="continer-lg my-1 mx-0 px-0">
-        <div className="container-lg my-3 table-responsive">
+        <div className="container-lg my-3 table-responsive ">
           <table className="table table-hover">
             <thead>
-              <tr>
-                <th>{t("disclosures_latest_news.date")}</th>
-                <th>{t("disclosures_latest_news.title")}</th>
-                <th>{t("disclosures_latest_news.source")}</th>
-              </tr>
+              <th>{t("disclosures.latest_news.date")}</th>
+              <th>{t("disclosures.latest_news.title")}</th>
+              <th>{t("disclosures.latest_news.source")}</th>
             </thead>
             <tbody>
               {data?.map((item, idx) => (
@@ -50,15 +46,16 @@ const DisclousersPageLatestNewsSubLink = () => {
                   <td style={{ minWidth: "100px" }}>
                     {item.publishedOn.split(" ")[0]}
                   </td>
-                  <td
-                    onClick={() =>
-                      navigate(
-                        `/${i18n.language}/disclosures/${item.articleID}`
-                      )
-                    }
-                    style={{ minWidth: "135px", cursor: "pointer" }}
-                  >
-                    <span>{item.title}</span>
+                  <td style={{ minWidth: "135px", cursor: "pointer" }}>
+                    <span
+                      onClick={() =>
+                        navigate(
+                          `/${i18n.language}/latest-news/${item.articleID}`
+                        )
+                      }
+                    >
+                      {item.title}
+                    </span>
                   </td>
                   <td style={{ width: "150px" }}>{item.source}</td>
                 </tr>

@@ -1,57 +1,54 @@
-// import axios from 'axios'
-// import { useState, useEffect } from 'react'
-// import { useParams } from 'react-router-dom'
-// import { useTranslation } from 'react-i18next'
-// import { getToken } from '../../../../../services/getToken'
+import axios from "axios";
+import { useTranslation } from "react-i18next";
+import { useQuery } from "@tanstack/react-query";
+import { useParams } from "react-router-dom";
+import { getToken } from "../../../../../services/getToken";
 
-// const ArgaamReportsDetailsPage = () => {
-//   const [argaamReports, setArgaamReports] = useState(null)
-//   const [languageMismatch, setLanguageMismatch] = useState(false)
-//   const { articleID } = useParams()
-//   const { t, i18n } = useTranslation()
+const ArgaamReportsDetailsPage = () => {
+  const { id } = useParams();
+  const { t, i18n } = useTranslation();
 
-//   useEffect(() => {
-//     const fetchArgaamReports = async () => {
-//       try {
-//         const token = await getToken()
-//         const response = await axios.get(`https://data.argaam.com/api/v1.0/json/ir-api/overview`, {
-//           headers: {
-//             Authorization: `Bearer ${token}`,
-//           },
-//           params: {
-//             langId: i18n.language === 'ar' ? 1 : 2,
-//           },
-//         })
+  const { data, isLoading, isError, error } = useQuery({
+    queryKey: ["Reports", id, i18n.language],
+    queryFn: async () => {
+      const token = await getToken();
+      if (!token) {
+        throw new Error("Unable to authenticate");
+      }
+      const res = await axios.get(
+        `https://data.argaam.com/api/v1.0/json/ir-api/overview/${i18n.language}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Encoding": "gzip",
+          },
+        }
+      );
+      console.log(res.data);
+      return res.data;
+    },
+  });
+  const foundReports = data?.argaamReports.find(
+    (d) => d.articleID === parseInt(id)
+  );
 
-//         const foundArgaamReports = response.data.argaamReports.find(d => d.articleID === parseInt(articleID))
-//         if (foundArgaamReports.language !== i18n.language) {
-//           setLanguageMismatch(true)
-//         } else {
-//           setArgaamReports(foundArgaamReports)
-//           setLanguageMismatch(false)
-//         }
+  if (isLoading) {
+    return <div>{t("title.loading")}</div>;
+  }
 
-//       } catch (err) {
-//         console.log(err)
-//       }
-//     }
+  if (isError) {
+    return <div>Error: {error.message}</div>;
+  }
 
-//     fetchArgaamReports()
-//   }, [articleID, i18n.language])
+  if (!foundReports) {
+    return <div>Error loading argaam reports details.</div>;
+  }
 
-//   if (languageMismatch) {
-//     return <div className="fw-bold">{t('title.languageMismatch')}</div>
-//   }
+  return (
+    <div className="argaam-reports-details">
+      <div dangerouslySetInnerHTML={{ __html: foundReports.body }} />
+    </div>
+  );
+};
 
-//   if (!argaamReports) {
-//     return null
-//   }
-
-//   return (
-//     <div className="argaam-reports-details">
-//       <div dangerouslySetInnerHTML={{ __html: argaamReports.body }} />
-//     </div>
-//   )
-// }
-
-// export default ArgaamReportsDetailsPage
+export default ArgaamReportsDetailsPage;

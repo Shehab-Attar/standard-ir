@@ -23,107 +23,137 @@
         "estimates": "Estimates",
         "contact_ir": "Contact IR"
     },
-    "market_data": {
-        "title": "Market Data",
-        "last_trade": "Last Trade",
-        "volume": "Volume",
-        "change": "Change",
-        "turnover": "Turnover",
-        "change_percent": "Change%",
-        "transactions": "Transactions",
-        "open": "Open",
-        "market_value": "Market Value",
-        "low": "Low",
-        "avg_volume_3m": "Avg Volume 3 M",
-        "high": "High",
-        "avg_turnover_3m": "Avg Turnover 3 M",
-        "prev_close": "Prev. Close",
-        "avg_transactions_3m": "Avg Transactions 3 M",
-        "change_3m": "Change 3 M",
-        "change_12m": "Change 12 M",
-        "change_6m": "Change 6 M",
-        "ytd": "YTD"
-    },
-    "financial_ratios": {
-        "title": "Financial Ratios"
-    },
-    "events": {
-        "mainTitle": "Events",
-        "date": "Date",
-        "event": "Event",
-        "venue": "Venue",
-        "details": "Details",
-        "market": "Market",
-        "company": "Company",
-        "type": "Type"
-    },
-    "corporate_actions": {
-        "recent_changes": "Recent Changes",
-        "previous_capital": "Previous Capital",
-        "previous_no_of_shares": "Previous No. of Shares (M)",
-        "capital_change": "Capital Change",
-        "current_capital": "Current Capital",
-        "current_capital_currency": "(M)",
-        "current_capital_currency_sar": "(M SAR)",
-        "current_capital_currency_riyal": "(Million Riyal)",
-        "current_no_of_shares": "Current No. of Shares (M)",
-        "type": "Type",
-        "announcement": "Announcement",
-        "recent_dividends": "Recent Dividends",
-        "capital": "Capital",
-        "shares": "Shares (mn)",
-        "dividend_percentage": "Dividends/Capital (%)",
-        "cash_dividend": "Cash Dividend",
-        "dividend_policy": "Dividend Policy"
-    },
-    "analyst_recommendations": {
-        "mainTitle": "Analyst Recommendations",
-        "date": "Date",
-        "research_firm": "Research Firm",
-        "rating": "Rating"
-    },
-    "latest_news": {
-        "mainTitle": "Latest News"
-    },
-    "earnings": {
-        "title": "Earnings",
-        "report": "Report",
-        "interim": "Interim",
-        "year": "Year",
-        "fiscalPeriods": {
-            "I1": "3 M",
-            "I2": "6 M",
-            "I3": "9 M",
-            "YEAR": "12 M"
+
+    "overview": {
+        "market_data": {
+            "title": "Market Data",
+            "last_trade": "Last Trade",
+            "volume": "Volume",
+            "change": "Change",
+            "turnover": "Turnover",
+            "change_percent": "Change%",
+            "transactions": "Transactions",
+            "open": "Open",
+            "market_value": "Market Value",
+            "low": "Low",
+            "avg_volume_3m": "Avg Volume 3 M",
+            "high": "High",
+            "avg_turnover_3m": "Avg Turnover 3 M",
+            "prev_close": "Prev. Close",
+            "avg_transactions_3m": "Avg Transactions 3 M",
+            "change_3m": "Change 3 M",
+            "change_12m": "Change 12 M",
+            "change_6m": "Change 6 M",
+            "ytd": "YTD"
+        },
+        "financial_ratios": {
+            "title": "Financial Ratios"
+        },
+        "events": {
+            "mainTitle": "Events",
+            "date": "Date",
+            "event": "Event",
+            "venue": "Venue",
+            "details": "Details",
+            "market": "Market",
+            "company": "Company",
+            "type": "Type"
+        },
+        "corporate_actions": {
+            "recent_changes": "Recent Changes",
+            "previous_capital": "Previous Capital",
+            "previous_no_of_shares": "Previous No. of Shares (M)",
+            "capital_change": "Capital Change",
+            "current_capital": "Current Capital",
+            "current_capital_currency": "(M)",
+            "current_capital_currency_sar": "(M SAR)",
+            "current_capital_currency_riyal": "(Million Riyal)",
+            "current_no_of_shares": "Current No. of Shares (M)",
+            "type": "Type",
+            "announcement": "Announcement",
+            "recent_dividends": "Recent Dividends",
+            "capital": "Capital",
+            "shares": "Shares (mn)",
+            "dividend_percentage": "Dividends/Capital (%)",
+            "cash_dividend": "Cash Dividend",
+            "dividend_policy": "Dividend Policy"
+        },
+        "analyst_recommendations": {
+            "mainTitle": "Analyst Recommendations",
+            "date": "Date",
+            "research_firm": "Research Firm",
+            "rating": "Rating"
+        },
+        "latest_news": {
+            "mainTitle": "Latest News"
+        },
+        "earnings": {
+            "title": "Earnings",
+            "report": "Report",
+            "interim": "Interim",
+            "year": "Year",
+            "fiscalPeriods": {
+                "I1": "3 M",
+                "I2": "6 M",
+                "I3": "9 M",
+                "YEAR": "12 M"
+            }
+        },
+        "disclosures": {
+            "mainTitle": "Disclosures",
+            "notAvailable": "This article is not available in English language"
+        },
+        "analyst_estimates": {
+            "mainTitle": "Analyst Estimates"
+        },
+        "argaam_reports": {
+            "mainTitle": "Argaam Reports"
+        },
+        "chartTicker": {
+            "title": "Chart Ticker",
+            "1D": "1D",
+            "5D": "5D",
+            "3M": "3M",
+            "6M": "6M",
+            "1Y": "1Y",
+            "2Y": "2Y",
+            "5Y": "5Y",
+            "View All": "View All"
+        }
+    },      
+    "disclosures": {
+        "latest_news": {
+            "date": "Date",
+            "title": "New",
+            "source": "Source"
+        },
+        "disc": {
+            "title": "Disclosure"
         }
     },
-    "disclosures": {
-        "mainTitle": "Disclosures",
-        "notAvailable": "This article is not available in English language"
-    },
-    "analyst_estimates": {
-        "mainTitle": "Analyst Estimates"
-    },
-    "argaam_reports": {
-        "mainTitle": "Argaam Reports"
-    },
-    "chartTicker": {
-        "title": "Chart Ticker",
-        "1D": "1D",
-        "5D": "5D",
-        "3M": "3M",
-        "6M": "6M",
-        "1Y": "1Y",
-        "2Y": "2Y",
-        "5Y": "5Y",
-        "View All": "View All"
-    },
-    "disclosures_latest_news": {
-        "date": "Date",
-        "title": "New",
-        "source": "Source"
-    },
-    "disclosures_disc": {
-        "title": "Disclosure"
+    "profile": {
+        "info": {
+            "business": "Business",
+            "summary": "Summary",
+            "basicInfo": "Basic Information",
+            "city": "City",
+            "country": "Country",
+            "countryName": "Saudi Arabia",
+            "ownershipType": "Ownership Type",
+            "jointStock": "Joint Stock",
+            "establishDate": "Establishment Date",
+            "commercialRegister": "Commercial Register",
+            "website": "Website",
+            "phone": "Phone",
+            "email": "Email",
+            "fax": "Fax",
+            "poBox": "PO Box",
+            "address": "Address"
+        },
+        "financialHighlights": {
+            "title": "Financials Highlights (M SAR)",
+            "usd": "USD",
+            "riyal": "Riyal"
+        }
     }
 }

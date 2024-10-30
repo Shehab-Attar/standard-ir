@@ -9,7 +9,9 @@ const DisclousersWidget = ({ data }) => {
   return (
     <>
       <div className="border border-top-0">
-        <h6 className="p-2 main-title">{t("disclosures.mainTitle")}</h6>
+        <h6 className="p-2 main-title">
+          {t("overview.disclosures.mainTitle")}
+        </h6>
 
         <hr className="m-2 mb-0 icons-color" />
 

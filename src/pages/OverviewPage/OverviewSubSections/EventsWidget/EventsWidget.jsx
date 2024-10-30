@@ -16,15 +16,15 @@ const EventsWidget = ({ data }) => {
 
   return (
     <div className="border border-top-0">
-      <h6 className="p-2 main-title">{t("events.mainTitle")}</h6>
+      <h6 className="p-2 main-title">{t("overview.events.mainTitle")}</h6>
       <hr className="m-2 mb-0 icons-color" />
       <div className="container table-responsive">
         <table className="table mb-0 table-hover">
           <thead className="table-light">
             <tr>
-              <th>{t("events.date")}</th>
-              <th>{t("events.event")}</th>
-              <th>{t("events.venue")}</th>
+              <th>{t("overview.events.date")}</th>
+              <th>{t("overview.events.event")}</th>
+              <th>{t("overview.events.venue")}</th>
             </tr>
           </thead>
           <tbody>
@@ -72,7 +72,7 @@ const EventsWidget = ({ data }) => {
                   ? i18n.language === "ar"
                     ? selectedEvent.titleAr
                     : selectedEvent.titleEn
-                  : t("events.details")}
+                  : t("overview.events.details")}
               </h5>
               <button
                 type="button"
@@ -89,7 +89,7 @@ const EventsWidget = ({ data }) => {
                   <table className="table mb-0 table-hover">
                     <tbody>
                       <tr>
-                        <td>{t("events.market")}</td>
+                        <td>{t("overview.events.market")}</td>
                         <td>
                           {i18n.language === "ar"
                             ? selectedEvent.marketNameAr
@@ -97,7 +97,7 @@ const EventsWidget = ({ data }) => {
                         </td>
                       </tr>
                       <tr>
-                        <td>{t("events.company")}</td>
+                        <td>{t("overview.events.company")}</td>
                         <td>
                           {i18n.language === "ar"
                             ? selectedEvent.companyNameAr
@@ -105,7 +105,7 @@ const EventsWidget = ({ data }) => {
                         </td>
                       </tr>
                       <tr>
-                        <td>{t("events.date")}</td>
+                        <td>{t("overview.events.date")}</td>
                         <td>
                           {new Date(
                             selectedEvent.occursOn
@@ -113,7 +113,7 @@ const EventsWidget = ({ data }) => {
                         </td>
                       </tr>
                       <tr>
-                        <td>{t("events.type")}</td>
+                        <td>{t("overview.events.type")}</td>
                         <td>
                           {i18n.language === "ar"
                             ? selectedEvent.typeNameAr
@@ -121,7 +121,7 @@ const EventsWidget = ({ data }) => {
                         </td>
                       </tr>
                       <tr>
-                        <td>{t("events.venue")}</td>
+                        <td>{t("overview.events.venue")}</td>
                         <td>
                           {i18n.language === "ar"
                             ? selectedEvent.eventLocationAr
@@ -135,7 +135,7 @@ const EventsWidget = ({ data }) => {
                     </tbody>
                   </table>
                   <div className="mt-3">
-                    <h6 className="mb-2">{t("events.details")}</h6>
+                    <h6 className="mb-2">{t("overview.events.details")}</h6>
                     <div
                       dangerouslySetInnerHTML={{
                         __html:

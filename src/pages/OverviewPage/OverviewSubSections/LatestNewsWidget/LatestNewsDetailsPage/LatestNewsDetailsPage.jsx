@@ -1,60 +1,53 @@
-// import axios from 'axios'
-// import { useState, useEffect } from 'react'
-// import { useParams } from 'react-router-dom'
-// import { useTranslation } from 'react-i18next'
-// import { getToken } from '../../../../../services/getToken'
+import axios from "axios";
+import { useTranslation } from "react-i18next";
+import { useQuery } from "@tanstack/react-query";
+import { useParams } from "react-router-dom";
+import { getToken } from "../../../../../services/getToken";
 
-// const LatestNewsDetailsPage = () => {
-//   const [latestNews, setLatestNews] = useState(null)
-//   const [languageMismatch, setLanguageMismatch] = useState(false)
-//   const { articleID } = useParams()
-//   const { t, i18n } = useTranslation()
+const LatestNewsDetailsPage = () => {
+  const { id } = useParams();
+  const { t, i18n } = useTranslation();
 
-//   useEffect(() => {
-//     const fetchLatestNews = async () => {
-//       try {
-//         const token = await getToken()
-//         const response = await axios.get(`https://data.argaam.com/api/v1.0/json/ir-api/overview`, {
-//           headers: {
-//             Authorization: `Bearer ${token}`,
-//           },
-//           params: {
-//             langId: i18n.language === 'ar' ? 1 : 2,
-//           },
-//         })
-        
-//         const foundLatestNews = response.data.latestNews.find(d => d.articleID === parseInt(articleID))
-//         if (foundLatestNews) {
-//           if (foundLatestNews.language !== i18n.language) {
-//             setLanguageMismatch(true)
-//           } else {
-//             setLatestNews(foundLatestNews)
-//             setLanguageMismatch(false)
-//           }
-//         }
-        
-//       } catch (err) {
-//         console.log(err)
-//       }
-//     }
+  const { data, isLoading, isError, error } = useQuery({
+    queryKey: ["latestNews", id, i18n.language],
+    queryFn: async () => {
+      const token = await getToken();
+      if (!token) {
+        throw new Error("Unable to authenticate");
+      }
+      const res = await axios.get(
+        `https://data.argaam.com/api/v1.0/json/ir-api/overview/${i18n.language}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Encoding": "gzip",
+          },
+        }
+      );
+      return res.data;
+    },
+  });
+  const foundLatestNews = data?.latestNews?.find((d) => {
+    return d.articleID === parseInt(id);
+  });
 
-//     fetchLatestNews()
-//   }, [articleID, i18n.language])
+  if (isLoading) {
+    return <div>{t("title.loading")}</div>;
+  }
 
+  if (isError) {
+    return <div>Error: {error.message}</div>;
+  }
 
-//   if (languageMismatch) {
-//     return <div className="fw-bold">{t('title.languageMismatch')}</div>
-//   }
+  if (!foundLatestNews) {
+    return <div>Error loading latest news details.</div>;
+  }
 
-//   if (!latestNews) {
-//     return null
-//   }
+  return (
+    <div className="latest-news-details">
+      <div dangerouslySetInnerHTML={{ __html: foundLatestNews.body }} />
+    </div>
+  );
+};
 
-//   return (
-//     <div className="latest-news-details">
-//       <div dangerouslySetInnerHTML={{ __html: latestNews.body }} />
-//     </div>
-//   )
-// }
-
-// export default LatestNewsDetailsPage
+export default LatestNewsDetailsPage;
