@@ -2,14 +2,14 @@ import axios from "axios";
 import { useTranslation } from "react-i18next";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
-import { getToken } from "../../../../../services/getToken";
+import { getToken } from "../../services/getToken";
 
-const DisclosureDetailsPage = () => {
+const ArgaamReportsDetailsPage = () => {
   const { id } = useParams();
   const { t, i18n } = useTranslation();
 
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["estimates", id, i18n.language],
+    queryKey: ["argaamReports", id, i18n.language],
     queryFn: async () => {
       const token = await getToken();
       if (!token) {
@@ -27,7 +27,7 @@ const DisclosureDetailsPage = () => {
       return res.data;
     },
   });
-  const foundEstimates = data?.analystEstimates.find(
+  const foundReports = data?.argaamReports.find(
     (d) => d.articleID === parseInt(id)
   );
 
@@ -39,15 +39,15 @@ const DisclosureDetailsPage = () => {
     return <div>Error: {error.message}</div>;
   }
 
-  if (!foundEstimates) {
-    return <div>Error loading estimates details.</div>;
+  if (!foundReports) {
+    return <div>Error loading reports details.</div>;
   }
 
   return (
     <div className="disclosure-details">
-      <div dangerouslySetInnerHTML={{ __html: foundEstimates.body }} />
+      <div dangerouslySetInnerHTML={{ __html: foundReports.body }} />
     </div>
   );
 };
 
-export default DisclosureDetailsPage;
+export default ArgaamReportsDetailsPage;

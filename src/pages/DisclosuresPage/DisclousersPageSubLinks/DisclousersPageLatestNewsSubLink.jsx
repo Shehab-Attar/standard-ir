@@ -36,9 +36,11 @@ const DisclousersPageLatestNewsSubLink = () => {
         <div className="container-lg my-3 table-responsive ">
           <table className="table table-hover">
             <thead>
-              <th>{t("disclosures.latest_news.date")}</th>
-              <th>{t("disclosures.latest_news.title")}</th>
-              <th>{t("disclosures.latest_news.source")}</th>
+              <tr>
+                <th>{t("disclosures.latest_news.date")}</th>
+                <th>{t("disclosures.latest_news.title")}</th>
+                <th>{t("disclosures.latest_news.source")}</th>
+              </tr>
             </thead>
             <tbody>
               {data?.map((item, idx) => (

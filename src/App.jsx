@@ -19,14 +19,12 @@ import BusinessSegmentsPage from "./pages/BusinessSegmentsPage/BusinessSegmentsP
 import ProjectsPage from "./pages/ProjectsPage/ProjectsPage";
 import MergersAcquisitionsPage from "./pages/MergersAcquisitionsPage/MergersAcquisitionsPage";
 import EstimatesPage from "./pages/EstimatesPage/EstimatesPage";
-import ContactIRPage from "./pages/ContactIRPage/ContactIRPage";
-import ChartPage from "./pages/ChartPage/ChartPage";
 
 // Details Pages
-import DisclosureDetailsPage from "./pages/OverviewPage/OverviewSubSections/DisclousersWidget/DisclosureDetailsPage/DisclosureDetailsPage";
-import LatestNewsDetailsPage from "./pages/OverviewPage/OverviewSubSections/LatestNewsWidget/LatestNewsDetailsPage/LatestNewsDetailsPage";
-import ArgaamReportsDetailsPage from "./pages/OverviewPage/OverviewSubSections/ArgaamReportsWidget/ArgaamReportsDetailsPage/ArgaamReportsDetailsPage";
-import AnalystEstimatesDetailsPage from "./pages/OverviewPage/OverviewSubSections/AnalystEstimatesWidget/AnalystEstimatesDetailsPage/AnalystEstimatesDetailsPage";
+import DisclosureDetailsPage from "./components/DetailsPages/DisclosureDetailsPage";
+import LatestNewsDetailsPage from "./components/DetailsPages/LatestNewsDetailsPage";
+import ArgaamReportsDetailsPage from "./components/DetailsPages/ArgaamReportsDetailsPage";
+import AnalystEstimatesDetailsPage from "./components/DetailsPages/AnalystEstimatesDetailsPage";
 
 // Sub Links
 import DisclousersPageLatestNewsSubLink from "./pages/DisclosuresPage/DisclousersPageSubLinks/DisclousersPageLatestNewsSubLink";
@@ -59,7 +57,6 @@ function App() {
                 path={`/${i18n.language}/board-management`}
                 element={<BoardManagementPage />}
               />
-              <Route path={`/${i18n.language}/chart`} element={<ChartPage />} />
               <Route
                 path={`/${i18n.language}/share-performance`}
                 element={<SharePerformancePage />}
@@ -118,10 +115,6 @@ function App() {
               <Route
                 path={`/${i18n.language}/estimates`}
                 element={<EstimatesPage />}
-              />
-              <Route
-                path={`/${i18n.language}/contact-ir`}
-                element={<ContactIRPage />}
               />
               {/* Details Pages */}
               <Route

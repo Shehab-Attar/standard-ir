@@ -1,13 +1,20 @@
 .profile-title {
   font-size: 16px;
   color: #374c5f !important;
-  background-color: white !important;
+  font-weight: 700;
 }
 
 .container-lg {
   padding: 0px 12px !important;
 }
 
-.highlights-header {
-  width: 100% !important;
+.CurrBtn.active {
+  background-color: #374c5f !important;
+  color: white !important;
 }
+
+.buttons-container {
+  border-radius: 6px;
+  border: 1px solid #374c5f;
+}
+

@@ -71,11 +71,11 @@ const DisclousersPageEventsSubLink = () => {
                 </td>
               </tr>
               <tr className="bg-light shadow-sm table-light border">
-                <th>{t("events.event")}</th>
-                <th>{t("events.type")}</th>
-                <th>{t("events.company")}</th>
-                <th>{t("events.venue")}</th>
-                <th>{t("events.details")}</th>
+                <th>{t("overview.events.event")}</th>
+                <th>{t("overview.events.type")}</th>
+                <th>{t("overview.events.company")}</th>
+                <th>{t("overview.events.venue")}</th>
+                <th>{t("overview.events.details")}</th>
               </tr>
             </thead>
             <tbody className="shadow-sm">
@@ -108,7 +108,7 @@ const DisclousersPageEventsSubLink = () => {
                     data-bs-toggle="modal"
                     data-bs-target="#events-modal"
                   >
-                    {t("events.details")}
+                    {t("overview.events.details")}
                   </div>
                 </td>
               </tr>
@@ -132,7 +132,7 @@ const DisclousersPageEventsSubLink = () => {
                   ? i18n.language === "ar"
                     ? selectedEvent.titleAr
                     : selectedEvent.titleEn
-                  : t("events.details")}
+                  : t("overview.events.details")}
               </h5>
               <button
                 type="button"
@@ -149,7 +149,7 @@ const DisclousersPageEventsSubLink = () => {
                   <table className="table mb-0 table-hover">
                     <tbody>
                       <tr>
-                        <td>{t("events.market")}</td>
+                        <td>{t("overview.events.market")}</td>
                         <td>
                           {i18n.language === "ar"
                             ? selectedEvent.marketNameAr
@@ -157,7 +157,7 @@ const DisclousersPageEventsSubLink = () => {
                         </td>
                       </tr>
                       <tr>
-                        <td>{t("events.company")}</td>
+                        <td>{t("overview.events.company")}</td>
                         <td>
                           {i18n.language === "ar"
                             ? selectedEvent.companyNameAr
@@ -165,7 +165,7 @@ const DisclousersPageEventsSubLink = () => {
                         </td>
                       </tr>
                       <tr>
-                        <td>{t("events.date")}</td>
+                        <td>{t("overview.events.date")}</td>
                         <td>
                           {new Date(
                             selectedEvent.occursOn
@@ -173,7 +173,7 @@ const DisclousersPageEventsSubLink = () => {
                         </td>
                       </tr>
                       <tr>
-                        <td>{t("events.type")}</td>
+                        <td>{t("overview.events.type")}</td>
                         <td>
                           {i18n.language === "ar"
                             ? selectedEvent.typeNameAr
@@ -181,7 +181,7 @@ const DisclousersPageEventsSubLink = () => {
                         </td>
                       </tr>
                       <tr>
-                        <td>{t("events.venue")}</td>
+                        <td>{t("overview.events.venue")}</td>
                         <td>
                           {i18n.language === "ar"
                             ? selectedEvent.eventLocationAr
@@ -195,7 +195,7 @@ const DisclousersPageEventsSubLink = () => {
                     </tbody>
                   </table>
                   <div className="mt-3">
-                    <h6 className="mb-2">{t("events.details")}</h6>
+                    <h6 className="mb-2">{t("overview.events.details")}</h6>
                     <div
                       dangerouslySetInnerHTML={{
                         __html:

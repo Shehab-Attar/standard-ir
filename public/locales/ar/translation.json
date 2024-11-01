@@ -126,6 +126,7 @@
     
     "disclosures": {
         "latest_news": {
+            "mainTitle": "اخر الاخبار",
             "date": "التاريخ",
             "title": "الخبر",
             "source": "المصدر"
@@ -155,9 +156,72 @@
             "address": "العنوان"
         },
         "financialHighlights": {
-            "title": "ملخص النتائج المالية (مليون ريال سعودي)",
+            "titleUSD": "ملخص النتائج المالية (مليون دولار أمريكي)",
+            "titleSAR": "ملخص النتائج المالية (مليون ريال سعودي)",
             "usd": "دولار أمريكي",
-            "riyal": "ريال"
+            "riyal": "ريال",
+            "description": "البيان",
+            "chart": "تشارت"
+        },
+        "tradingData": {
+            "tradingTitle": "بيانات التداول",
+            "market": "سوق التداول",
+            "fiscalYearEnd": "نهاية السنة المالية",
+            "freeFloat": "الأسهم الحرة (مليون)",
+            "freeFloatPercentage": "الأسهم الحرة %",
+            "weightIndex": "وزن الشركة %",
+            "3MAvgVolume": "متوسط حجم التداول (سهم) لآخر 3 أشهر",
+            "3MAvgTransaction": "متوسط عدد الصفقات اليومية - آخر 3 أشهر"
+        },
+        "stockInformation": {
+            "stockTitle": "بيانات السهم",
+            "sharesOutstanding": "عدد الأسهم (مليون)",
+            "parValueUSD": "القيمة الاسمية (دولار أمريكي)",
+            "parValueSAR": "القيمة الاسمية (ريال سعودي)",
+            "bookValueUSD": "القيمة الدفترية للسهم (دولار أمريكي)",
+            "bookValueSAR": "القيمة الدفترية للسهم (ريال سعودي)",
+            "marketValue": "القيمة السوقية (مليون)"
+        },
+        "majorShareholders": {
+            "title": "كبار المساهمين",
+            "name": "اسم المساهم",
+            "shares": "عدد الأسهم (مليون)",
+            "holding": "نسبة الملكية",
+            "founders": "مؤسسي جبل عمر",
+            "macca": "شركة مكه للأنشاء والتعمير"
+        },
+        "subsidiaries": {
+            "title": "الشركات التابعة والزميلة",
+            "company": "الشركة",
+            "country": "الدولة",
+            "percentage": "النسبة"
+        },
+        "milestones": {
+            "title": "التطورات الرئيسية"
         }
+    },
+    "investorsPresentation": {
+        "date": "تاريخ",
+        "reports": "التقرير",
+        "type": "نوع التقرير",
+        "download": "تحميل"
+    },
+    "mergersAcquisitions": {
+        "date": "التاريخ",
+        "firstParty": "الطرف الاول",
+        "secondParty": "الطرف الثاني",
+        "relatedParties": "أطراف ذات علاقة",
+        "value": "القيمة",
+        "type": "النوع",
+        "status": "الحالة"
+    },
+    "projects": {
+        "date": "التاريخ",
+        "projects": "المشاريع",
+        "country": "الدولة",
+        "status": "حالة المشروع",
+        "start": "تاريخ البدء",
+        "completion": "تاريخ الانتهاء",
+        "NYD": "غير معلن"
     }
 }

@@ -75,14 +75,6 @@ const Sidebar = () => {
                 </li>
                 <li className="asideList border-bottom">
                   <NavLink
-                    to={`/${i18n.language}/chart`}
-                    className="nestedNavLink"
-                  >
-                    <span className="mx-2">{t("sidebar.chart")}</span>
-                  </NavLink>
-                </li>
-                <li className="asideList border-bottom">
-                  <NavLink
                     to={`/${i18n.language}/share-performance`}
                     className="nestedNavLink"
                   >
@@ -169,14 +161,6 @@ const Sidebar = () => {
                     className="nestedNavLink"
                   >
                     <span className="mx-2">{t("sidebar.estimates")}</span>
-                  </NavLink>
-                </li>
-                <li className="asideList border-bottom">
-                  <NavLink
-                    to={`/${i18n.language}/contact-ir`}
-                    className="nestedNavLink"
-                  >
-                    <span className="mx-2">{t("sidebar.contact_ir")}</span>
                   </NavLink>
                 </li>
               </ul>

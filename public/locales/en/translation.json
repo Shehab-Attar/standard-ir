@@ -123,12 +123,13 @@
     },      
     "disclosures": {
         "latest_news": {
+            "mainTitle": "Latest News",
             "date": "Date",
             "title": "New",
             "source": "Source"
         },
         "disc": {
-            "title": "Disclosure"
+            "title": "Disclosures" 
         }
     },
     "profile": {
@@ -151,9 +152,70 @@
             "address": "Address"
         },
         "financialHighlights": {
-            "title": "Financials Highlights (M SAR)",
+            "titleUSD": "Financials Highlights (M USD)",
+            "titleSAR": "Financials Highlights (M SAR)",
             "usd": "USD",
-            "riyal": "Riyal"
+            "riyal": "Riyal",
+            "description": "Description",
+            "chart": "Chart"
+        },
+        "tradingData": {
+            "tradingTitle": "Trading Data",
+            "market": "Stock Market",
+            "fiscalYearEnd": "Fiscal Year End",
+            "freeFloat": "Free Float (M)",
+            "freeFloatPercentage": "Free Float %",
+            "weightIndex": "Weight in Index %",
+            "3MAvgVolume": "3M Avgerage Volume",
+            "3MAvgTransaction": "3M Avgerage Transaction"
+        },
+        "stockInformation": {
+            "stockTitle": "Stock Information",
+            "sharesOutstanding": "Shares Outstanding (M)",
+            "parValueUSD": "Par Value (USD)",
+            "parValueSAR": "Par Value (SAR)",
+            "bookValueUSD": "Book Value (USD)",
+            "bookValueSAR": "Book Value (SAR)",
+            "marketValue": "Market Value (M)"
+        },
+        "majorShareholders": {
+            "title": "Major Shareholders",
+            "name": "Name",
+            "shares": "Number of Shares (M)",
+            "holding": "Holding"
+        },
+        "subsidiaries": {
+            "title": "Subsidiaries & Associates",
+            "company": "Company",
+            "country": "Country",
+            "percentage": "Percentage"
+        },
+        "milestones": {
+            "title": "Milestones"
         }
+    },
+    "investorsPresentation": {
+        "date": "Date",
+        "reports": "Reports",
+        "type": "Report Type",
+        "download": "Downloads"
+    },
+    "mergersAcquisitions": {
+        "date": "Date",
+        "firstParty": "First Party",
+        "secondParty": "Second Party",
+        "relatedParties": "Related Parties",
+        "value": "Value",
+        "type": "Type",
+        "status": "Status"
+    },
+    "projects": {
+        "date": "Date",
+        "projects": "Projects",
+        "country": "Country",
+        "status": "Status",
+        "start": "Start",
+        "completion": "Completion",
+        "NYD": "NYD"
     }
 }

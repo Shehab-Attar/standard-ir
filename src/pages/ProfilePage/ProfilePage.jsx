@@ -5,8 +5,14 @@ import { useTranslation } from "react-i18next";
 import "./ProfilePage.css";
 
 // Sub Sections
-import ProfileIntro from "./ProfilePageSubSections/ProfileIntro";
-import ProfileFinancialHighlights from "./ProfilePageSubSections/ProfileFinancialHighlights";
+import Intro from "./ProfilePageSubSections/Intro.jsx";
+import FinancialHighlights from "./ProfilePageSubSections/FinancialHighlights.jsx";
+import TradingData from "./ProfilePageSubSections/TradingData";
+import StockInfo from "./ProfilePageSubSections/StockInfo";
+import MajorShareholders from "./ProfilePageSubSections/MajorShareholders.jsx";
+import Subsidaries from "./ProfilePageSubSections/Subsidaries";
+import Milestones from "./ProfilePageSubSections/Milestones";
+
 const ProfilePage = () => {
   const { t } = useTranslation();
 
@@ -40,10 +46,17 @@ const ProfilePage = () => {
   // == isLoading
 
   return (
-    <div className="">
+    <div>
       <div>
-        <ProfileIntro data={data} />
-        <ProfileFinancialHighlights data={data} />
+        <Intro data={data} />
+        <FinancialHighlights data={data} />
+        <div className="d-flex flex-wrap">
+          <TradingData data={data} />
+          <StockInfo data={data} />
+        </div>
+        <MajorShareholders data={data} />
+        <Subsidaries data={data} />
+        <Milestones data={data} />
       </div>
     </div>
   );

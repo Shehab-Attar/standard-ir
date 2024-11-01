@@ -2,14 +2,14 @@ import axios from "axios";
 import { useTranslation } from "react-i18next";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
-import { getToken } from "../../../../../services/getToken";
+import { getToken } from "../../services/getToken";
 
-const LatestNewsDetailsPage = () => {
+const DisclosureDetailsPage = () => {
   const { id } = useParams();
   const { t, i18n } = useTranslation();
 
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["latestNews", id, i18n.language],
+    queryKey: ["estimates", id, i18n.language],
     queryFn: async () => {
       const token = await getToken();
       if (!token) {
@@ -27,9 +27,9 @@ const LatestNewsDetailsPage = () => {
       return res.data;
     },
   });
-  const foundLatestNews = data?.latestNews?.find((d) => {
-    return d.articleID === parseInt(id);
-  });
+  const foundEstimates = data?.analystEstimates.find(
+    (d) => d.articleID === parseInt(id)
+  );
 
   if (isLoading) {
     return <div>{t("title.loading")}</div>;
@@ -39,15 +39,15 @@ const LatestNewsDetailsPage = () => {
     return <div>Error: {error.message}</div>;
   }
 
-  if (!foundLatestNews) {
-    return <div>Error loading latest news details.</div>;
+  if (!foundEstimates) {
+    return <div>Error loading estimates details.</div>;
   }
 
   return (
-    <div className="latest-news-details">
-      <div dangerouslySetInnerHTML={{ __html: foundLatestNews.body }} />
+    <div className="disclosure-details">
+      <div dangerouslySetInnerHTML={{ __html: foundEstimates.body }} />
     </div>
   );
 };
 
-export default LatestNewsDetailsPage;
+export default DisclosureDetailsPage;
