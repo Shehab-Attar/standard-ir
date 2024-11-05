@@ -16,7 +16,7 @@ const TradingData = ({ data }) => {
 
   return (
     <div className="flex-grow-1">
-      <div className="continer my-1">
+      <div className="my-1">
         <h6 className="header-title mx-2">
           {t("profile.tradingData.tradingTitle")}
         </h6>

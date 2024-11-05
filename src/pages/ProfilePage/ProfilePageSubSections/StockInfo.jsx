@@ -15,7 +15,7 @@ const StockInfo = ({ data }) => {
   const conversionRate = 3.751;
   return (
     <div className="flex-grow-1">
-      <div className="continer my-1 mx-0 px-0">
+      <div className="my-1 mx-0 px-0">
         <div className="highlights-header d-flex justify-content-between align-items-center">
           <h6 className="m-0 p-0 mx-2 header-title">
             {t("profile.stockInformation.stockTitle")}

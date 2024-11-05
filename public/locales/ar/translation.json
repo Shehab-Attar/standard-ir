@@ -223,5 +223,105 @@
         "start": "تاريخ البدء",
         "completion": "تاريخ الانتهاء",
         "NYD": "غير معلن"
+    },
+    "major_shareholders": {
+        "majorShareholders": "المساهمين الرئيسيين",
+        "historicalChanges": "التطورات التاريخية",
+        "shareholders":{
+            "shareholder": "المالك",
+            "type": "النوع",
+            "noOfShares": "عدد الأسهم (مليون)",
+            "holding": "نسبة الملكية",
+            "marketValue": "القيمة السوقية (مليون)",
+            "foreignOwnership": "ملكية الأجانب",
+            "company": "الشركة",
+            "totalForeignOwnership": "ملكيه جميع المستثمرين الأجانب",
+            "limit": "الحد الأعلى",
+            "actual": "الملكية الفعلية"
+        },
+        "historical": {
+            "date": "التاريخ",
+            "shareholder": "المالك",
+            "prevHolding": "نسبة الملكية السابقة",
+            "newHolding": "الملكية الحالية",
+            "change": "التغير",
+            "notes": "ملاحظات",
+            "lessThan5": "أقل من 5 في المئة"
+        }
+    },
+    "corporateActions": {
+        "recentChanges": {
+            "title": "تطور رأس المال",
+            "previousCapital": "رأس المال السابق",
+            "previousNoOfShares": "عدد الأسهم قبل التغير",
+            "capitalChange": "تطور رأس المال",
+            "currentCapital": "رأس المال بعد التغير (مليون ريال)",
+            "currentNoOfShares": "عدد الأسهم بعد التغير (مليون)",
+            "type": "النوع",
+            "announcedDate": "تاريخ الإعلان",
+            "exDividend": "تاريخ الاستحقاق",
+            "paymentDate": "تاريخ التوزيع",
+            "notes": "ملاحظات",
+            "M_Riyal": "(مليون ريال)"
+        },
+        "capitalChange": {
+            "title": "تطور رأس المال",
+            "date": "تاريخ",
+            "type": "النوع",
+            "before": "قبل التغير",
+            "after": "بعد التغير",
+            "change": "معدل التغير",
+            "notes": "ملاحظات",
+            "link": "رابط",
+            "capital": "رأس المال",
+            "shares": "عدد الأسهم",
+            "M_SAR": "(مليون ريال)",
+            "M": "(مليون)"
+        },
+        "recentDividends": {
+            "title": "أحدث التوزيعات النقدية",
+            "capital": "رأس المال",
+            "shares": "عدد الأسهم",
+            "dividend/capital": "النسبة من رأس المال",
+            "cashDividend": "توزيعات أرباح نقدية",
+            "type": "النوع",
+            "announcedDate": "تاريخ الإعلان",
+            "dueDate": "تاريخ الأحقية",
+            "paymentDate": "تاريخ التوزيع",
+            "notes": "ملاحظات",
+            "M_N": "(مليون)"
+        },
+        "capitalDividendHistory": {
+            "title": "التطور التاريخي للتوزيعات النقدية",
+            "announcement": "تاريخ الإعلان",
+            "exDividend": "تاريخ الإستحقاق",
+            "payment": "تاريخ التوزيع",
+            "dividendsRiyal": "إجمالي التوزيعات النقدية (مليون ريال)",
+            "dividends": "التوزيع النقدي",
+            "notes": "ملاحظات"
+        },
+        "historicalDividends": {
+            "title": "تطور التوزيعات النقدية"
+        }
+    },
+    "boardManagement": {
+        "board": "المديرين",
+        "executives": "المديرون التنفيذيون",
+        "salaries": "الرواتب والمكافآت",
+        "highlights": "أبرز المعلومات",
+        "companyName": "الشركة",
+        "title": "المنصب",
+        "startDate": "من",
+        "endDate": "إلى",
+        "salary": {
+            "salaries_title": "الرواتب",
+            "details": "التفاصيل",
+            "members": "الأعضاء",
+            "executives": "المديرون التنفيذيون",
+            "total": "الاجمالي",
+            "bonuses": "المكافآت",
+            "otherRewards": "المكافآت الأخرى",
+            "salaryUnit": "(مليون ريال)"
+        }
     }
 }

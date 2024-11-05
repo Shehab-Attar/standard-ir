@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useQuery } from "@tanstack/react-query";
 import { getToken } from "../../../services/getToken";
 import { useNavigate } from "react-router-dom";
+import "../DisclosuresPage.css";
 
 const DisclousersPageDisclosuresSubLink = () => {
   const { t, i18n } = useTranslation();
@@ -46,10 +47,8 @@ const DisclousersPageDisclosuresSubLink = () => {
             <tbody>
               {data?.map((item, idx) => (
                 <tr key={idx}>
-                  <td style={{ minWidth: "100px" }}>
-                    {item.publishedOn.split(" ")[0]}
-                  </td>
-                  <td style={{ minWidth: "135px", cursor: "pointer" }}>
+                  <td>{item.publishedOn.split(" ")[0]}</td>
+                  <td style={{ minWidth: "650px", cursor: "pointer" }}>
                     <span
                       onClick={() =>
                         navigate(
@@ -60,7 +59,7 @@ const DisclousersPageDisclosuresSubLink = () => {
                       {item.title}
                     </span>
                   </td>
-                  <td style={{ width: "150px" }}>{item.source}</td>
+                  <td>{item.source}</td>
                 </tr>
               ))}
             </tbody>

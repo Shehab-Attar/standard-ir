@@ -149,14 +149,6 @@ const Sidebar = () => {
                 </li>
                 <li className="asideList border-bottom">
                   <NavLink
-                    to={`/${i18n.language}/mergers-acquisitions`}
-                    className="nestedNavLink"
-                  >
-                    <span className="mx-2">{t("sidebar.merges_acq")}</span>
-                  </NavLink>
-                </li>
-                <li className="asideList border-bottom">
-                  <NavLink
                     to={`/${i18n.language}/estimates`}
                     className="nestedNavLink"
                   >

@@ -1,3 +1,5 @@
+// milestones details page not finished, need help in catching the data
+
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { getToken } from "../../services/getToken.js";

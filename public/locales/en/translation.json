@@ -217,5 +217,105 @@
         "start": "Start",
         "completion": "Completion",
         "NYD": "NYD"
+    },
+    "major_shareholders": {
+        "majorShareholders": "Major Shareholders",
+        "historicalChanges": "Historical Changes",
+        "shareholders":{
+            "shareholder": "Shareholder",
+            "type": "Type",
+            "noOfShares": "Number of Shares (M)",
+            "holding": "Holding",
+            "marketValue": "Market Value (M)",
+            "foreignOwnership": "Foreign Ownership",
+            "company": "Company",
+            "totalForeignOwnership": "Total Foreign Ownership",
+            "limit": "MAXIMUM LIMIT",
+            "actual": "ACTUAL"
+        },
+        "historical": {
+            "date": "Date",
+            "shareholder": "Shareholder",
+            "prevHolding": "Prev. Holding",
+            "newHolding": "Current Holding",
+            "change": "Change",
+            "notes": "Notes",
+            "lessThan5": "Less Than 5%"
+        }
+    },
+    "corporateActions": {
+        "recentChanges": {
+            "title": "Recent Changes",
+            "previousCapital": "Previous Capital",
+            "previousNoOfShares": "Previous No. of Shares (M)",
+            "capitalChange": "Capital Change",
+            "currentCapital": "Current Capital (M SAR)",
+            "currentNoOfShares": "Current No. of Shares (M)",
+            "type": "Type",
+            "announcedDate": "Announcement",
+            "exDividend": "Ex-Dividend",
+            "paymentDate": "Payment",
+            "notes": "Notes",
+            "M_Riyal": "(Million Riyal)"
+        },
+        "capitalChange": {
+            "title": "Capital Change",
+            "date": "Date",
+            "type": "Type",
+            "before": "Before",
+            "after": "After",
+            "change": "Change",
+            "notes": "Notes",
+            "link": "Link",
+            "capital": "Capital",
+            "shares": "Shares",
+            "M_SAR": "(M SAR)",
+            "M": "(M)"
+        },  
+        "recentDividends": {
+            "title": "Recent Dividends",
+            "capital": "Capital",
+            "shares": "Shares",
+            "dividend/capital": "Dividends/Capital (%)",
+            "cashDividend": "Cash Dividend",
+            "type": "Type",
+            "announcedDate": "Announcement",
+            "dueDate": "Due Date",
+            "paymentDate": "Payment",
+            "notes": "Notes",
+            "M_N": "(mn)"
+        },
+        "capitalDividendHistory": {
+            "title": "Dividend History",
+            "announcement": "Announcement",
+            "exDividend": "Ex-Dividend",
+            "payment": "Payment",
+            "dividendsRiyal": "Dividends (M Riyal)",
+            "dividends": "Dividends",
+            "notes": "Notes"
+        },
+        "historicalDividends": {
+            "title": "Historical Dividends"
+        }
+    },
+    "boardManagement": {
+        "board": "Board & Management",
+        "executives": "Executives",
+        "salaries": "Salaries & Bonuses",
+        "highlights": "Highlights",
+        "companyName": "Company",
+        "title": "Title",
+        "startDate": "From",
+        "endDate": "To",
+        "salary": {
+            "salaries_title": "Salaries",
+            "details": "Details",
+            "members": "Members",
+            "executives": "Executives",
+            "total": "Total",
+            "bonuses": "Bonuses",
+            "otherRewards": "Other Rewards",
+            "salaryUnit": "(Million Riyal)"
+        }
     }
 }

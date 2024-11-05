@@ -80,10 +80,10 @@ const DisclousersPageEventsSubLink = () => {
             </thead>
             <tbody className="shadow-sm">
               <tr>
-                <td style={{ width: 300, minWidth: 250 }}>
+                <td style={{ width: "300", minWidth: "250" }}>
                   {i18n.language === "ar" ? item.titleAr : item.titleEn}
                 </td>
-                <td style={{ width: 200 }}>
+                <td style={{ width: "200" }}>
                   {i18n.language === "ar" ? item.typeNameAr : item.typeNameEn}
                 </td>
                 <td>

@@ -26,6 +26,7 @@ const Intro = ({ data }) => {
         </div>
         <div>
           <h6 className="fw-bold header-title">{t("profile.info.summary")}</h6>
+          <hr className="m-2 mb-0 icons-color" />
           <div
             dangerouslySetInnerHTML={{
               __html:

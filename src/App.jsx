@@ -1,5 +1,5 @@
-import { useTranslation } from "react-i18next";
 import { Route, Routes, Navigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 //Layouts
 import CompanyInfo from "./layouts/CompanyInfo/CompanyInfo";
@@ -17,7 +17,6 @@ import CorporateActionsPage from "./pages/CorporateActionsPage/CorporateActionsP
 import MajorShareholdersPage from "./pages/MajorShareholdersPage/MajorShareholdersPage";
 import BusinessSegmentsPage from "./pages/BusinessSegmentsPage/BusinessSegmentsPage";
 import ProjectsPage from "./pages/ProjectsPage/ProjectsPage";
-import MergersAcquisitionsPage from "./pages/MergersAcquisitionsPage/MergersAcquisitionsPage";
 import EstimatesPage from "./pages/EstimatesPage/EstimatesPage";
 
 // Details Pages
@@ -25,7 +24,7 @@ import DisclosureDetailsPage from "./components/DetailsPages/DisclosureDetailsPa
 import LatestNewsDetailsPage from "./components/DetailsPages/LatestNewsDetailsPage";
 import ArgaamReportsDetailsPage from "./components/DetailsPages/ArgaamReportsDetailsPage";
 import AnalystEstimatesDetailsPage from "./components/DetailsPages/AnalystEstimatesDetailsPage";
-
+import BoardDetailsPage from "./components/DetailsPages/BoardDetailsPage";
 // Sub Links
 import DisclousersPageLatestNewsSubLink from "./pages/DisclosuresPage/DisclousersPageSubLinks/DisclousersPageLatestNewsSubLink";
 import DisclousersPageDisclosuresSubLink from "./pages/DisclosuresPage/DisclousersPageSubLinks/DisclousersPageDisclosuresSubLink";
@@ -109,10 +108,6 @@ function App() {
                 element={<ProjectsPage />}
               />
               <Route
-                path={`/${i18n.language}/mergers-acquisitions`}
-                element={<MergersAcquisitionsPage />}
-              />
-              <Route
                 path={`/${i18n.language}/estimates`}
                 element={<EstimatesPage />}
               />
@@ -132,6 +127,10 @@ function App() {
               <Route
                 path={`/${i18n.language}/estimates/:id`}
                 element={<AnalystEstimatesDetailsPage />}
+              />
+              <Route
+                path={`/${i18n.language}/board-management/:id`}
+                element={<BoardDetailsPage />}
               />
               {/* End Details Pages */}
               <Route path="*" element={<div>Not Found</div>} />
