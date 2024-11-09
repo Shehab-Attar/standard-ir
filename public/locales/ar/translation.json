@@ -323,5 +323,26 @@
             "otherRewards": "المكافآت الأخرى",
             "salaryUnit": "(مليون ريال)"
         }
+    },
+    "estimates": {
+        "analystEstimates": {
+            "title": "متوسط توقعات المحللين",
+            "details": "التفاصيل",
+            "annual": "سنوي",
+            "quarterly": "ربعي",
+            "currSAR": "ريال",
+            "currUSD": "دولار"
+        },
+        "opinions": {
+            "title": "آراء",
+            "date": "التاريخ",
+            "firm": "شركة الأبحاث",
+            "prevRating": "التقييم الماضي",
+            "rating": "التقييم الحالي",
+            "currPrice": "السعر الحالي",
+            "targetPrice": "السعر المطلوب",
+            "change": "التغيير",
+            "downloads": "المرفقات"
+        }
     }
 }

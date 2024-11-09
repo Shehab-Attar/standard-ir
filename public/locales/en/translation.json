@@ -317,5 +317,26 @@
             "otherRewards": "Other Rewards",
             "salaryUnit": "(Million Riyal)"
         }
+    },
+    "estimates": {
+        "analystEstimates": {
+            "title": "Analyst Estimates",
+            "details": "Details",
+            "annual": "Annual",
+            "quarterly": "Quarterly",
+            "currSAR": "SAR",
+            "currUSD": "USD"
+        },
+        "opinions": {
+            "title": "Opinions",
+            "date": "Date",
+            "firm": "Research Firm",
+            "prevRating": "Previous Rating",
+            "rating": "Rating",
+            "currPrice": "Current Price",
+            "targetPrice": "Target Price",
+            "change": "Change",
+            "downloads": "Downloads"
+        }
     }
 }

@@ -47,7 +47,10 @@ const DisclousersPageEventsSubLink = () => {
           >
             <thead>
               <tr>
-                <td className="border border-0  text-start bg-white">
+                <td
+                  className="border border-0  text-start bg-white"
+                  style={{ width: "1000px" }}
+                >
                   <svg
                     stroke="currentColor"
                     fill="currentColor"
@@ -83,7 +86,7 @@ const DisclousersPageEventsSubLink = () => {
                 <td style={{ width: "300", minWidth: "250" }}>
                   {i18n.language === "ar" ? item.titleAr : item.titleEn}
                 </td>
-                <td style={{ width: "200" }}>
+                <td style={{ width: 200 }}>
                   {i18n.language === "ar" ? item.typeNameAr : item.typeNameEn}
                 </td>
                 <td>

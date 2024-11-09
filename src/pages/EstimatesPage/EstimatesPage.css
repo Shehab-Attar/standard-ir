@@ -1,0 +1,20 @@
+.justify-content-between {
+  justify-content: space-between !important;
+}
+
+.acc-title {
+  color: white !important;
+  font-size: 16px !important;
+  margin: 0px 0px 8px !important;
+  padding: 8px !important;
+  background-color: #9DA07C !important;
+}
+
+.field-name {
+  width: 250px !important;
+}
+
+.accordion-button-ar::after {
+  margin-right: 80%;
+  color: white !important;
+}
