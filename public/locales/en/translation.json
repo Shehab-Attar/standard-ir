@@ -338,5 +338,21 @@
             "change": "Change",
             "downloads": "Downloads"
         }
+    },
+    "businessSegments": {
+        "segmentDistribution": "Segment Distribution",
+        "sales": "Sales",
+        "fiscalPeriod": "Fiscal Period",
+        "chart": "Chart",
+        "businessSegments": "Business Segments",
+        "isNetIncome": "IS Net Income",
+        "totalIncome": "Total Income",
+        "totalAssets": "Total Assets",
+        "totalLiabilities": "Total Liabilities"
+    },
+    "financialInformation": {
+        "statements": "Financial Statements",
+        "ratios": "Financial Ratios",
+        "reports": "Financial Reports"
     }
 }

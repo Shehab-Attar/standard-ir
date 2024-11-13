@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 import { useQuery } from "@tanstack/react-query";
 import { getToken } from "../../services/getToken.js";
 
-
 //Pages
 import MarketDataWidget from "./OverviewSubSections/MarketDataWidget/MarketDataWidget";
 import FinancialRatiosWidget from "./OverviewSubSections/FinancialRatiosWidget/FinancialRatiosWidget.jsx";
@@ -18,7 +17,7 @@ import AnalystEstimatesWidget from "./OverviewSubSections/AnalystEstimatesWidget
 import ArgaamReportsWidget from "./OverviewSubSections/ArgaamReportsWidget/ArgaamReportsWidget.jsx";
 import ChartTickerWidget from "./OverviewSubSections/ChartTickerWidget/ChartTickerWidget.jsx";
 
-const OverviewPage = () => {  
+const OverviewPage = () => {
   const { t, i18n } = useTranslation();
 
   // == Get Overview Data
@@ -27,7 +26,7 @@ const OverviewPage = () => {
     queryFn: async () => {
       // Ensure token is valid
       const token = await getToken();
-      
+
       if (!token) {
         throw new Error("Unable to authenticate");
       }
@@ -48,7 +47,7 @@ const OverviewPage = () => {
   // == Get Overview Data
 
   // == isLoading
-  if (isLoading) return <div>{t('title.loading')}</div>;
+  if (isLoading) return <div>{t("title.loading")}</div>;
   // == isLoading
 
   return (

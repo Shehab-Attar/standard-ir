@@ -25,116 +25,131 @@ import LatestNewsDetailsPage from "./components/DetailsPages/LatestNewsDetailsPa
 import ArgaamReportsDetailsPage from "./components/DetailsPages/ArgaamReportsDetailsPage";
 import AnalystEstimatesDetailsPage from "./components/DetailsPages/AnalystEstimatesDetailsPage";
 import BoardDetailsPage from "./components/DetailsPages/BoardDetailsPage";
-// Sub Links
+// Disclosures Sub Links
 import DisclousersPageLatestNewsSubLink from "./pages/DisclosuresPage/DisclousersPageSubLinks/DisclousersPageLatestNewsSubLink";
 import DisclousersPageDisclosuresSubLink from "./pages/DisclosuresPage/DisclousersPageSubLinks/DisclousersPageDisclosuresSubLink";
 import DisclousersPageEventsSubLink from "./pages/DisclosuresPage/DisclousersPageSubLinks/DisclousersPageEventsSubLink/DisclousersPageEventsSubLink";
+// Financial Information Sub Links
+import FinantialStatements from "./pages/FinancialInformationPage/FinancialInformationPageSubLinks/FinantialStatements";
+import FinancialRatios from "./pages/FinancialInformationPage/FinancialInformationPageSubLinks/FinancialRatios";
+import FinancialReports from "./pages/FinancialInformationPage/FinancialInformationPageSubLinks/FinancialReports";
 
 function App() {
   const { i18n } = useTranslation();
 
   return (
-    <div className="container-lg">
+    <div className="container-fluid">
       <div className="row justify-content-between mb-5 mt-4 g-0">
-        <div className="col-xl-3 col-lg-3 d-flex px-2">
+        <div className="col-xl-2 col-lg-3 d-flex justify-content-end px-2">
           <Sidebar />
         </div>
-        <div className="col-lg-9 col-12 mb-5">
-          <CompanyInfo />
-          <div className="content container-lg">
-            <Routes>
-              <Route
-                path="/"
-                element={<Navigate to={`/${i18n.language}`} replace />}
-              />
-              <Route path={`/${i18n.language}`} element={<OverviewPage />} />
-              <Route
-                path={`/${i18n.language}/profile`}
-                element={<ProfilePage />}
-              />
-              <Route
-                path={`/${i18n.language}/board-management`}
-                element={<BoardManagementPage />}
-              />
-              <Route
-                path={`/${i18n.language}/share-performance`}
-                element={<SharePerformancePage />}
-              />
-              <Route
-                path={`/${i18n.language}/financial-information`}
-                element={<FinancialInformationPage />}
-              />
-              <Route
-                path={`/${i18n.language}/investors-presentation`}
-                element={<InvestorsPresentationPage />}
-              />
-              {/* Disclousers */}
-              <Route
-                path={`/${i18n.language}/disclosures`}
-                element={<DisclosuresPage />}
-              >
+        <div className="col-xl-10 col-lg-9 col-12 mb-5">
+          <div className="container-lg mb-2">
+            <div className="d-flex flex-wrap">
+              <CompanyInfo />
+            </div>
+            <div className="content">
+              <Routes>
                 <Route
-                  element={<DisclousersPageLatestNewsSubLink />}
-                  path="latest-news"
+                  path="/"
+                  element={<Navigate to={`/${i18n.language}`} replace />}
+                />
+                <Route path={`/${i18n.language}`} element={<OverviewPage />} />
+                <Route
+                  path={`/${i18n.language}/profile`}
+                  element={<ProfilePage />}
                 />
                 <Route
-                  path="disc"
-                  element={<DisclousersPageDisclosuresSubLink />}
+                  path={`/${i18n.language}/board-management`}
+                  element={<BoardManagementPage />}
                 />
                 <Route
-                  path="events"
-                  element={<DisclousersPageEventsSubLink />}
+                  path={`/${i18n.language}/share-performance`}
+                  element={<SharePerformancePage />}
                 />
-              </Route>
+                <Route
+                  path={`/${i18n.language}/financial-information`}
+                  element={<FinancialInformationPage />}
+                >
+                  <Route
+                    path="financial-statements"
+                    element={<FinantialStatements />}
+                  />
+                  <Route path="ratios" element={<FinancialRatios />} />
+                  <Route path="reports" element={<FinancialReports />} />
+                </Route>
+                <Route
+                  path={`/${i18n.language}/investors-presentation`}
+                  element={<InvestorsPresentationPage />}
+                />
+                {/* Disclousers */}
+                <Route
+                  path={`/${i18n.language}/disclosures`}
+                  element={<DisclosuresPage />}
+                >
+                  <Route
+                    element={<DisclousersPageLatestNewsSubLink />}
+                    path="latest-news"
+                  />
+                  <Route
+                    path="disc"
+                    element={<DisclousersPageDisclosuresSubLink />}
+                  />
+                  <Route
+                    path="events"
+                    element={<DisclousersPageEventsSubLink />}
+                  />
+                </Route>
 
-              {/* 
+                {/* 
                 <Route path="earnings" element={<DisclousersPageEarningsSubLink />} />
                  */}
 
-              <Route
-                path={`/${i18n.language}/corporate-actions`}
-                element={<CorporateActionsPage />}
-              />
-              <Route
-                path={`/${i18n.language}/major-shareholders`}
-                element={<MajorShareholdersPage />}
-              />
-              <Route
-                path={`/${i18n.language}/business-segments`}
-                element={<BusinessSegmentsPage />}
-              />
-              <Route
-                path={`/${i18n.language}/projects`}
-                element={<ProjectsPage />}
-              />
-              <Route
-                path={`/${i18n.language}/estimates`}
-                element={<EstimatesPage />}
-              />
-              {/* Details Pages */}
-              <Route
-                path={`/${i18n.language}/disclosures/:id`}
-                element={<DisclosureDetailsPage />}
-              />
-              <Route
-                path={`/${i18n.language}/latest-news/:id`}
-                element={<LatestNewsDetailsPage />}
-              />
-              <Route
-                path={`/${i18n.language}/argaam-reports/:id`}
-                element={<ArgaamReportsDetailsPage />}
-              />
-              <Route
-                path={`/${i18n.language}/estimates/:id`}
-                element={<AnalystEstimatesDetailsPage />}
-              />
-              <Route
-                path={`/${i18n.language}/board-management/:id`}
-                element={<BoardDetailsPage />}
-              />
-              {/* End Details Pages */}
-              <Route path="*" element={<div>Not Found</div>} />
-            </Routes>
+                <Route
+                  path={`/${i18n.language}/corporate-actions`}
+                  element={<CorporateActionsPage />}
+                />
+                <Route
+                  path={`/${i18n.language}/major-shareholders`}
+                  element={<MajorShareholdersPage />}
+                />
+                <Route
+                  path={`/${i18n.language}/business-segments`}
+                  element={<BusinessSegmentsPage />}
+                />
+                <Route
+                  path={`/${i18n.language}/projects`}
+                  element={<ProjectsPage />}
+                />
+                <Route
+                  path={`/${i18n.language}/estimates`}
+                  element={<EstimatesPage />}
+                />
+                {/* Details Pages */}
+                <Route
+                  path={`/${i18n.language}/disclosures/:id`}
+                  element={<DisclosureDetailsPage />}
+                />
+                <Route
+                  path={`/${i18n.language}/latest-news/:id`}
+                  element={<LatestNewsDetailsPage />}
+                />
+                <Route
+                  path={`/${i18n.language}/argaam-reports/:id`}
+                  element={<ArgaamReportsDetailsPage />}
+                />
+                <Route
+                  path={`/${i18n.language}/estimates/:id`}
+                  element={<AnalystEstimatesDetailsPage />}
+                />
+                <Route
+                  path={`/${i18n.language}/board-management/:id`}
+                  element={<BoardDetailsPage />}
+                />
+                {/* End Details Pages */}
+                <Route path="*" element={<div>Not Found</div>} />
+              </Routes>
+            </div>
           </div>
         </div>
       </div>

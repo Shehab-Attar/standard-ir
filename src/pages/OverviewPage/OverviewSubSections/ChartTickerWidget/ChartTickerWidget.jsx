@@ -1,13 +1,12 @@
-import { useTranslation } from "react-i18next";
+import axios from "axios";
+import { Oval } from "react-loader-spinner";
 import { useQuery } from "@tanstack/react-query";
 import { getToken } from "../../../../services/getToken";
 import { useState } from "react";
-import MoreButton from "../../../../components/MoreButton";
-import Highcharts from "highcharts";
+import { useTranslation } from "react-i18next";
+import Highcharts from "highcharts/highstock"; // Use Highstock for navigator and rangeSelector
 import HighchartsReact from "highcharts-react-official";
-import { Oval } from "react-loader-spinner";
-
-import axios from "axios";
+import MoreButton from "../../../../components/MoreButton";
 import "./ChartTickerWidget.css";
 
 const ChartTickerWidget = () => {
@@ -38,7 +37,7 @@ const ChartTickerWidget = () => {
       );
       return res.data;
     },
-    enabled: !!period, // Ensure the query runs only when a period is selected
+    enabled: !!period,
   });
 
   const handlePeriodChange = (time) => {
@@ -49,70 +48,56 @@ const ChartTickerWidget = () => {
     .map((item) => ({
       x: new Date(item.date).getTime(),
       y: parseFloat(item.close),
-      open: parseFloat(item.open),
-      high: parseFloat(item.high),
-      low: parseFloat(item.low),
     }))
     .sort((a, b) => a.x - b.x);
-
-  const yAxisMin = chartTickerData?.configurations.min;
-  const yAxisMax = chartTickerData?.configurations.max;
-  const lastDataPoint = chartData?.length
-    ? chartData[chartData.length - 1]
-    : null;
-  const lastCloseValue = lastDataPoint ? lastDataPoint.y.toFixed(2) : 0;
-  const lastDate = lastDataPoint
-    ? new Date(lastDataPoint.x).toLocaleString(undefined, {
-        day: "numeric",
-        month: "short",
-        hour: "2-digit",
-        minute: "2-digit",
-      })
-    : "";
 
   const options = {
     title: {
       text: "",
     },
     chart: {
+      type: "area",
       zoomType: "x",
+    },
+    rangeSelector: {
+      enabled: true,
+      selected: 1,
+      inputEnabled: true,
+      buttons: [],
+    },
+    navigator: {
+      enabled: true,
     },
     xAxis: {
       type: "datetime",
-      crosshair: true,
     },
     yAxis: {
-      min: yAxisMin,
-      max: yAxisMax + 0.01,
-      labels: {
-        formatter: function () {
-          return this.value.toFixed(2);
-        },
+      title: {
+        text: null,
       },
-      crosshair: true,
-      opposite: true,
     },
     tooltip: {
-      shared: true,
-      crosshairs: true,
-      pointFormat:
-        `<b>Open:</b> {point.open}<br/>` +
-        `<b>High:</b> {point.high}<br/>` +
-        `<b>Low:</b> {point.low}<br/>` +
-        `<b>Close:</b> {point.y}`,
+      shared: false,
+      pointFormat: `<b>Al Hokair:</b> {point.y}`,
     },
     series: [
       {
         type: "area",
-        name: `Close: ${lastCloseValue} | Date: ${lastDate}`,
         data: chartData || [],
-        color: "#6B8ABC",
+        color: "#3085c2",
+        fillColor: {
+          linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+          stops: [
+            [0, "#6B8ABC"],
+            [1, "rgba(107, 138, 188, 0)"],
+          ],
+        },
       },
     ],
-    accessibility: {
+    credits: {
       enabled: false,
     },
-    credits: {
+    legend: {
       enabled: false,
     },
   };
@@ -151,7 +136,11 @@ const ChartTickerWidget = () => {
             </div>
           )}
           {chartTickerData && (
-            <HighchartsReact highcharts={Highcharts} options={options} />
+            <HighchartsReact
+              highcharts={Highcharts}
+              constructorType={"stockChart"}
+              options={options}
+            />
           )}
         </div>
         <MoreButton path={"chart"} />

@@ -47,7 +47,7 @@ const Sidebar = () => {
               className="offcanvas-body m-0 p-0 d-flex flex-column fs-6"
               id="sidebar"
             >
-              <ul className="navbar-nav w-100 p-0 list-unstyled w-100 justify-content-start">
+              <ul className="navbar-nav p-0 list-unstyled justify-content-start">
                 <li className="asideList border-bottom">
                   <NavLink
                     to={`/${i18n.language}`}

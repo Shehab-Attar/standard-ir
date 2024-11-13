@@ -29,18 +29,17 @@ const EventsWidget = ({ data }) => {
           </thead>
           <tbody>
             {events.map((event) => (
-              <tr
-                key={event.calendarEventID}
-                data-bs-toggle="modal"
-                data-bs-target="#events-modal"
-                onClick={() => handleEventClick(event)}
-                style={{ cursor: "pointer" }}
-              >
+              <tr key={event.calendarEventID}>
                 <td>{new Date(event.occursOn).toLocaleDateString()}</td>
-                <td>
+                <td
+                  data-bs-toggle="modal"
+                  data-bs-target="#events-modal"
+                  onClick={() => handleEventClick(event)}
+                  style={{ cursor: "pointer" }}
+                >
                   {i18n.language === "ar" ? event.typeNameAr : event.typeNameEn}
                 </td>
-                <td className="text-center">
+                <td>
                   {i18n.language === "ar"
                     ? event.eventLocationAr
                       ? event.eventLocationAr

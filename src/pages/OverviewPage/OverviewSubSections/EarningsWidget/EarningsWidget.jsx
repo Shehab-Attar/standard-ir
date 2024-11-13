@@ -20,9 +20,9 @@ const EarningsWidget = ({ data }) => {
           <tbody>
             {data.earnings.slice(0, 3).map((earning, index) => (
               <tr key={index}>
-                <td>
+                <td style={{ width: "1000px" }}>
                   <a
-                    className="text-decoration-none text-dark fs-14"
+                    className="text-decoration-none text-dark"
                     href={
                       i18n.language === "ar"
                         ? earning.fileURLAr
@@ -34,7 +34,7 @@ const EarningsWidget = ({ data }) => {
                     {earning.title}
                   </a>
                 </td>
-                <td className="value">
+                <td className="value text-start">
                   {t(`overview.earnings.fiscalPeriods.${earning.fiscalValue}`)}
                 </td>
                 <td>{earning.forYear}</td>

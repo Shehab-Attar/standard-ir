@@ -51,7 +51,7 @@ const CorporateActionsWidget = ({ data }) => {
               <tbody>
                 <tr>
                   <th>{t("overview.corporate_actions.previous_capital")}</th>
-                  <td>
+                  <td className="corp-td">
                     {data.cpaitalSummary.currentCapital}{" "}
                     {i18n.language === "ar"
                       ? data.cpaitalSummary.currencyNameAr
@@ -62,7 +62,7 @@ const CorporateActionsWidget = ({ data }) => {
                   <th>
                     {t("overview.corporate_actions.previous_no_of_shares")}
                   </th>
-                  <td>
+                  <td className="corp-td">
                     {data.cpaitalSummary.currentShares}{" "}
                     {i18n.language === "ar"
                       ? data.cpaitalSummary.currencyNameAr
@@ -71,7 +71,7 @@ const CorporateActionsWidget = ({ data }) => {
                 </tr>
                 <tr>
                   <th>{t("overview.corporate_actions.capital_change")}</th>
-                  <td>
+                  <td className="corp-td">
                     {Math.abs(
                       ((data.cpaitalSummary.newCapital -
                         data.cpaitalSummary.currentCapital) /
@@ -88,18 +88,18 @@ const CorporateActionsWidget = ({ data }) => {
                       "overview.corporate_actions.current_capital_currency_sar"
                     )}
                   </th>
-                  <td>{data.cpaitalSummary.newCapital}</td>
+                  <td className="corp-td">{data.cpaitalSummary.newCapital}</td>
                 </tr>
                 <tr>
                   <th>
                     {t("overview.corporate_actions.current_no_of_shares")}{" "}
                     {t("overview.corporate_actions.current_capital_currency")}
                   </th>
-                  <td>{data.cpaitalSummary.newShares}</td>
+                  <td className="corp-td">{data.cpaitalSummary.newShares}</td>
                 </tr>
                 <tr>
                   <th>{t("overview.corporate_actions.type")}</th>
-                  <td>
+                  <td className="corp-td">
                     {i18n.language === "ar"
                       ? data.cpaitalSummary.companyCapitalStatusNameAr
                       : data.cpaitalSummary.companyCapitalStatusNameEn}
@@ -107,7 +107,7 @@ const CorporateActionsWidget = ({ data }) => {
                 </tr>
                 <tr>
                   <th>{t("overview.corporate_actions.announcement")}</th>
-                  <td>
+                  <td className="corp-td">
                     {new Date(
                       data.cpaitalSummary.announcedDate
                     ).toLocaleDateString()}
@@ -131,7 +131,7 @@ const CorporateActionsWidget = ({ data }) => {
                       "overview.corporate_actions.current_capital_currency_sar"
                     )}
                   </th>
-                  <td>{data?.dividandInfo?.capital?.toFixed(2)}</td>
+                  <td className="corp-td">{data?.dividandInfo?.capital?.toFixed(2)}</td>
                 </tr>
                 <tr>
                   <th>
@@ -140,15 +140,15 @@ const CorporateActionsWidget = ({ data }) => {
                       ? t("overview.corporate_actions.current_capital_currency")
                       : null}
                   </th>
-                  <td>{data?.dividandInfo?.numberOfShares?.toFixed(2)}</td>
+                  <td className="corp-td">{data?.dividandInfo?.numberOfShares?.toFixed(2)}</td>
                 </tr>
                 <tr>
                   <th>{t("overview.corporate_actions.dividend_percentage")}</th>
-                  <td>{data?.dividandInfo?.dividendPercentage?.toFixed(2)}%</td>
+                  <td className="corp-td">{data?.dividandInfo?.dividendPercentage?.toFixed(2)}%</td>
                 </tr>
                 <tr>
                   <th>{t("overview.corporate_actions.cash_dividend")}</th>
-                  <td>
+                  <td className="corp-td">
                     {data?.dividandInfo?.cashDividend?.toFixed(2)}{" "}
                     {t(
                       "overview.corporate_actions.current_capital_currency_sar"
@@ -157,7 +157,7 @@ const CorporateActionsWidget = ({ data }) => {
                 </tr>
                 <tr>
                   <th>{t("overview.corporate_actions.dividend_policy")}</th>
-                  <td>
+                  <td className="corp-td">
                     {i18n.language === "ar"
                       ? t("overview.corporate_actions.dividend_policy_ar")
                       : data?.dividandInfo?.dividendPolicy}
@@ -165,7 +165,7 @@ const CorporateActionsWidget = ({ data }) => {
                 </tr>
                 <tr>
                   <th>{t("overview.corporate_actions.type")}</th>
-                  <td>
+                  <td className="corp-td">
                     {i18n.language === "ar"
                       ? data?.dividandInfo?.companyDividendStatusNameAr
                       : data?.dividandInfo?.companyDividendStatusNameEn}
@@ -173,7 +173,7 @@ const CorporateActionsWidget = ({ data }) => {
                 </tr>
                 <tr>
                   <th>{t("overview.corporate_actions.announcement")}</th>
-                  <td>
+                  <td className="corp-td">
                     {new Date(
                       data?.dividandInfo?.dividendAnnouncedDate
                     ).toLocaleDateString()}

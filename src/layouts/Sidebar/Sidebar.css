@@ -3,21 +3,24 @@
     top: 0;
     left: 0;
     height: fit-content;
-    width: fit-content; 
+    width: 80%; 
     padding: 1rem;
     background-color: white;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     z-index: 1045;
 }
+.navbar-nav {
+    width: 200px !important;
+}
 
 
-@media (max-width: 992px) {
+/* @media (max-width: 992px) {
     #offcanvasSidebar {
         position: absolute;
         width: fit-content;
         height: 100vh;
     }
-}
+} */
 
 .asideList {
     font-size: 13px !important;
@@ -74,8 +77,19 @@
         right: 10px;
         z-index: 1000;
     }
+    #offcanvasSidebar {
+        position: absolute;
+        width: fit-content;
+        height: 100vh;
+    }
 
     .sidebar {
         display: none !important;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1500px) {
+    #offcanvasSidebar {
+        width: 200px;
     }
 }

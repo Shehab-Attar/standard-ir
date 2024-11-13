@@ -10,7 +10,7 @@ const MarketDataWidget = ({ data }) => {
     <div className="border border-top-0">
       <h6 className="p-2 main-title">{t("overview.market_data.title")}</h6>
       <hr className="m-2 mb-0 icons-color" />
-      <div className="container-lg table-responsive">
+      <div className="container-lg">
         <table className="table table-hover fs-14 mb-0">
           <tbody>
             <tr>

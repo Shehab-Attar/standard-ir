@@ -1,5 +1,3 @@
-// first render does not show the data
-
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
@@ -90,7 +88,7 @@ const MajorShareholdersPage = () => {
         </ul>
         <div className="tab-content" id="myTabContent">
           <div
-            className="tab-pane fade mx-0 border-0"
+            className="tab-pane active mx-0 border-0"
             id="majorShareholders-pane"
             role="tabpanel"
             aria-labelledby="majorShareholders-tab"

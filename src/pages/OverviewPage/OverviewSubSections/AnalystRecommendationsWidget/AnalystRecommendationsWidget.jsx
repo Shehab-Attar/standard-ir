@@ -32,7 +32,7 @@ const AnalystRecommendationsWidget = ({ data }) => {
                     ? recommendation.brokerNameAr
                     : recommendation.brokerNameEn}
                 </td>
-                <td className="text-center">
+                <td>
                   {i18n.language === "ar"
                     ? recommendation.companyAnalystOpinionTypeNameAr
                     : recommendation.companyAnalystOpinionTypeNameEn}

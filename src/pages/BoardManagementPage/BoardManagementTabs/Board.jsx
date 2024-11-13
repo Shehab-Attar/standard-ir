@@ -32,7 +32,7 @@ const Board = ({ data }) => {
       {boardDataArray.slice(0, 1).map((item, index) => (
         <div
           type="button"
-          className="d-flex flex-wrap flex-md-nowrap justify-content-center justify-content-lg-center my-4 mb-5"
+          className="d-flex flex-wrap flex-md-nowrap my-4 mb-5"
           key={index}
           onClick={() => {
             const resumeHighlight =

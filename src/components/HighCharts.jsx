@@ -14,17 +14,29 @@ const Chart = ({ data }) => {
       text: null,
     },
     xAxis: {
+      title: {
+        text: null,
+      },
       categories: data.years || [],
+    },
+    yAxis: {
+      title: {
+        text: null,
+      },
+    },
+    tooltip: {
+      enabled: true,
     },
     series: [
       {
-        name:
-          i18n.language === "ar"
-            ? data.DisplayNameAr || "Default Name"
-            : data.DisplayNameEn || "Default Name",
-        data: data.values || [],
+        name: i18n.language === "ar" ? data.DisplayNameAr : data.DisplayNameEn,
+        data: data.values.slice(0, 5) || [],
+        color: "#374C5F",
       },
     ],
+    credits: {
+      enabled: false,
+    },
   };
 
   return <HighchartsReact highcharts={Highcharts} options={options} />;
