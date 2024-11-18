@@ -1,5 +1,3 @@
-// Chart is not available for this page
-
 import axios from "axios";
 import { useState } from "react";
 import { Dropdown } from "react-bootstrap";
@@ -10,7 +8,7 @@ import { formatChange } from "../../../utils/Helpers";
 import ModalComponent from "../../../components/Modal";
 import "../FinancialInformationPage.css";
 
-const FinancialRatios = () => {
+const FinancialStatements = () => {
   const { t, i18n } = useTranslation();
   const [modal, setModal] = useState(false);
   const [selectedField, setSelectedField] = useState(null);
@@ -29,14 +27,14 @@ const FinancialRatios = () => {
   const conversionRate = 3.751; // Conversion rate from SAR to USD
 
   const { data, isLoading } = useQuery({
-    queryKey: ["FinantialRatios", periodType],
+    queryKey: ["FinantialStatements", periodType],
     queryFn: async () => {
       const token = await getToken();
       if (!token) {
         throw new Error("Unable to authenticate");
       }
       const res = await axios.get(
-        `https://data.argaam.com/api/v1.0/json/ir-api/financial-ratios?fiscalPeriodType=${periodType}`,
+        `https://data.argaam.com/api/v1.0/json/ir-api/financial-statements/:lang?fiscalPeriodType=${periodType}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -111,19 +109,17 @@ const FinancialRatios = () => {
               <th className="p-1 px-4">
                 {t("financialInformation.financialStatements.chart")}
               </th>
-              {data.financialRatioFieldsGroups[0].financialRatioFieldsGroupFields[0].values
-                .slice(0, 5)
-                .map((value, index) => (
-                  <th key={index} className="px-5 py-1">
-                    {periodType === "year" ? value.year : value.period}
-                  </th>
-                ))}
+              {data.tabs[0].fields[0].values.slice(0, 5).map((value, index) => (
+                <th key={index} className="px-5 py-1">
+                  {periodType === "year" ? value.forYear : value.fiscalPeriod}
+                </th>
+              ))}
             </tr>
           </thead>
         </table>
 
         <div className="accordion mt-2" id="accordionExample">
-          {data.financialRatioFieldsGroups.map((tab, tabIndex) => (
+          {data.tabs.map((tab, tabIndex) => (
             <div className="accordion-item" key={tabIndex}>
               <h2 className="accordion-header" id={`flush-heading${tabIndex}`}>
                 <button
@@ -136,7 +132,7 @@ const FinancialRatios = () => {
                   aria-expanded="true"
                   aria-controls={`flush-collapse${tabIndex}`}
                 >
-                  {i18n.language === "en" ? tab.fieldGroupEn : tab.fieldGroupAr}
+                  {i18n.language === "en" ? tab.tabNameEn : tab.tabNameAr}
                 </button>
               </h2>
               <div
@@ -150,61 +146,57 @@ const FinancialRatios = () => {
                 <div className="accordion-body">
                   <table className="table">
                     <tbody>
-                      {tab.financialRatioFieldsGroupFields.map(
-                        (field, fieldIndex) => (
-                          <tr key={fieldIndex}>
-                            <td className="details-td">
-                              {i18n.language === "en"
-                                ? field.nameEn
-                                : field.nameAr}
-                            </td>
-                            <td>
-                              <button
+                      {tab.fields.map((field, fieldIndex) => (
+                        <tr key={fieldIndex}>
+                          <td className="details-td">
+                            {i18n.language === "en"
+                              ? field.displayNameEn
+                              : field.displayNameAr}
+                          </td>
+                          <td>
+                            <button
+                              type="button"
+                              className="btn btn-light"
+                              onClick={() => toggleModal(field)}
+                            >
+                              <svg
+                                stroke="currentColor"
+                                fill="currentColor"
+                                strokeWidth="0"
+                                viewBox="0 0 16 16"
                                 type="button"
-                                className="btn btn-light"
-                                onClick={() => toggleModal(field)}
+                                className="icons-color"
+                                height="0.8em"
+                                width="0.8em"
+                                xmlns="http://www.w3.org/2000/svg"
                               >
-                                <svg
-                                  stroke="currentColor"
-                                  fill="currentColor"
-                                  strokeWidth="0"
-                                  viewBox="0 0 16 16"
-                                  type="button"
-                                  className="icons-color"
-                                  height="0.8em"
-                                  width="0.8em"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2z"></path>
-                                </svg>
-                              </button>
+                                <path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2z"></path>
+                              </svg>
+                            </button>
+                          </td>
+                          {field.values.slice(0, 5).map((value, valueIndex) => (
+                            <td
+                              key={valueIndex}
+                              style={{
+                                color:
+                                  value.value === null || value.value === 0
+                                    ? null
+                                    : value.value < 0
+                                    ? "red"
+                                    : "green",
+                              }}
+                            >
+                              {value.value === null
+                                ? "-"
+                                : formatChange(
+                                    currency === "USD"
+                                      ? value.value / conversionRate
+                                      : value.value
+                                  )}
                             </td>
-                            {field.values
-                              .slice(0, 5)
-                              .map((value, valueIndex) => (
-                                <td
-                                  key={valueIndex}
-                                  style={{
-                                    color:
-                                      value.value === null || value.value === 0
-                                        ? null
-                                        : value.value < 0
-                                        ? "red"
-                                        : "green",
-                                  }}
-                                >
-                                  {value.value === null || isNaN(value.value)
-                                    ? "-"
-                                    : formatChange(
-                                        currency === "USD"
-                                          ? value.value / conversionRate
-                                          : value.value
-                                      )}
-                                </td>
-                              ))}
-                          </tr>
-                        )
-                      )}
+                          ))}
+                        </tr>
+                      ))}
                     </tbody>
                   </table>
                 </div>
@@ -223,4 +215,4 @@ const FinancialRatios = () => {
   );
 };
 
-export default FinancialRatios;
+export default FinancialStatements;

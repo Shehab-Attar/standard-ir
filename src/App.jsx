@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 //Layouts
 import CompanyInfo from "./layouts/CompanyInfo/CompanyInfo";
 import Sidebar from "./layouts/Sidebar/Sidebar";
+import Footer from "./layouts/Footer/Footer";
 
 //Pages
 import OverviewPage from "./pages/OverviewPage/OverviewPage";
@@ -30,7 +31,7 @@ import DisclousersPageLatestNewsSubLink from "./pages/DisclosuresPage/Disclouser
 import DisclousersPageDisclosuresSubLink from "./pages/DisclosuresPage/DisclousersPageSubLinks/DisclousersPageDisclosuresSubLink";
 import DisclousersPageEventsSubLink from "./pages/DisclosuresPage/DisclousersPageSubLinks/DisclousersPageEventsSubLink/DisclousersPageEventsSubLink";
 // Financial Information Sub Links
-import FinantialStatements from "./pages/FinancialInformationPage/FinancialInformationPageSubLinks/FinantialStatements";
+import FinancialStatements from "./pages/FinancialInformationPage/FinancialInformationPageSubLinks/FinancialStatements";
 import FinancialRatios from "./pages/FinancialInformationPage/FinancialInformationPageSubLinks/FinancialRatios";
 import FinancialReports from "./pages/FinancialInformationPage/FinancialInformationPageSubLinks/FinancialReports";
 
@@ -67,13 +68,18 @@ function App() {
                   path={`/${i18n.language}/share-performance`}
                   element={<SharePerformancePage />}
                 />
+                {/* Financial Information */}
                 <Route
                   path={`/${i18n.language}/financial-information`}
                   element={<FinancialInformationPage />}
                 >
                   <Route
+                    index
+                    element={<Navigate to="financial-statements" replace />}
+                  />
+                  <Route
+                    element={<FinancialStatements />}
                     path="financial-statements"
-                    element={<FinantialStatements />}
                   />
                   <Route path="ratios" element={<FinancialRatios />} />
                   <Route path="reports" element={<FinancialReports />} />
@@ -151,6 +157,9 @@ function App() {
               </Routes>
             </div>
           </div>
+        </div>
+        <div className="fixed-bottom w-100 text-center">
+          <Footer />
         </div>
       </div>
     </div>

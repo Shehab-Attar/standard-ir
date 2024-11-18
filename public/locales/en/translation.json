@@ -4,7 +4,8 @@
         "subtitle": "ALHOKAIR GROUP",
         "more": "More",
         "languageMismatch": "The content cannot be loaded in the selected language",
-        "loading": "Loading..."
+        "loading": "Loading...",
+        "poweredBy": "Powered By"
     },
     "sidebar": {
         "overview": "Overview",
@@ -353,6 +354,19 @@
     "financialInformation": {
         "statements": "Financial Statements",
         "ratios": "Financial Ratios",
-        "reports": "Financial Reports"
+        "reports": "Financial Reports",
+        "financialReports": {
+            "year": "Year",
+            "Q1": "Q1",
+            "Q2": "Q2",
+            "Q3": "Q3",
+            "Q4": "Q4",
+            "annual": "Annual",
+            "boardReport": "Board Report"
+        },
+        "financialStatements": {
+            "details": "Details",
+            "chart": "Chart"
+        }
     }
 }

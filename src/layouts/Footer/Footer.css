@@ -1,0 +1,32 @@
+.Argaam {
+  font-weight: 700;
+  color: rgb(238, 123, 11);
+  font-size: 0.9rem;
+  transition: 0.4s;
+  margin: 0 5px;
+  border-bottom: 1px solid transparent;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.Argaam:hover {
+  text-decoration: underline !important;
+}
+.poweredBy:hover {
+  color: rgb(76, 74, 72) !important;
+}
+
+.poweredBy {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #000;
+  transition: 0.3s;
+  margin: 0 5px;
+}
+
+.footer {
+  backdrop-filter: blur(15px);
+  margin-bottom: 0px !important;
+}

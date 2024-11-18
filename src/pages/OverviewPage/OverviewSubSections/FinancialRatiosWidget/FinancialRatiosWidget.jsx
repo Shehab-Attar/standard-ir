@@ -30,7 +30,7 @@ const FinancialRatiosWidget = ({ data }) => {
             ))}
           </tbody>
         </table>
-        <MoreButton path="financial-information" />
+        <MoreButton path="financial-information/ratios" />
       </div>
     </div>
   );

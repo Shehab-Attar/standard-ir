@@ -64,80 +64,98 @@ const AnalystEstimates = ({ data, periodType, setPeriodType }) => {
           </button>
         </div>
       </div>
+
       <div className="accordion mt-3" id="accordionExample">
-        {estimatesArray.map((category, index) => (
-          <div className="accordion-item" key={index}>
-            <h2 className="accordion-header">
-              <button
-                className={`accordion-button ${
-                  i18n.language === "ar" ? "accordion-button-ar" : ""
-                } acc-title`}
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target={`#collapse${index}`}
-                aria-expanded="true"
-                aria-controls={`collapse${index}`}
-              >
-                {i18n.language === "ar"
-                  ? category.fsFieldCategoryNameAr
-                  : category.fsFieldCategoryNameEn}
-              </button>
-            </h2>
-            <div
-              id={`collapse${index}`}
-              className="accordion-collapse collapse show"
-              data-bs-parent="#accordionExample"
-            >
-              <div className="accordion-body">
-                <table className="table">
-                  <thead className="table-light">
-                    <tr>
-                      <th>{t("estimates.analystEstimates.details")}</th>
-                      {category.fieldsValues[0].periodValues.map(
-                        (period, index) => (
-                          <th key={index}>
-                            {periodType === "year"
-                              ? `${period.forYear}`
-                              : `${period.fiscalPeriodValue} ${period.forYear}`}
-                          </th>
-                        )
-                      )}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {category.fieldsValues.map((field, fieldIndex) => (
-                      <tr key={fieldIndex}>
-                        <td className="field-name">
-                          {i18n.language === "ar"
-                            ? field.fsFieldNameAr
-                            : field.fsFieldNameEn}
-                        </td>
-                        {field.periodValues.map((value, valIndex) => {
-                          const displayValue =
-                            value.actualValue !== null
-                              ? convertCurrency(value.actualValue)
-                              : "-";
-                          const isPositive = parseFloat(displayValue) >= 0;
-                          const formattedValue = isPositive
-                            ? displayValue
-                            : `(${Math.abs(displayValue)})`;
-                          return (
-                            <td
-                              key={valIndex}
-                              style={{ color: isPositive ? "green" : "red" }}
-                            >
-                              {formattedValue}
-                            </td>
-                          );
-                        })}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        ))}
+        <table className="table">
+          <thead className="table-light">
+            <tr>
+              <th className="p-1 px-4">
+                {t("estimates.analystEstimates.details")}
+              </th>
+              {estimatesArray[0].fieldsValues[0].periodValues.map(
+                (period, index) => (
+                  <th key={index} className="px-5 py-1">
+                    {periodType === "year"
+                      ? `${period.forYear}`
+                      : `${period.fiscalPeriodValue} ${period.forYear}`}
+                  </th>
+                )
+              )}
+            </tr>
+          </thead>
+          <tbody>
+            {estimatesArray.map((category, index) => (
+              <tr key={index}>
+                <td
+                  colSpan={
+                    estimatesArray[0].fieldsValues[0].periodValues.length + 1
+                  }
+                >
+                  <div className="accordion-item">
+                    <h2 className="accordion-header">
+                      <button
+                        className={`accordion-button ${
+                          i18n.language === "ar" ? "accordion-button-ar" : ""
+                        } acc-title`}
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target={`#collapse${index}`}
+                        aria-expanded="true"
+                        aria-controls={`collapse${index}`}
+                      >
+                        {i18n.language === "ar"
+                          ? category.fsFieldCategoryNameAr
+                          : category.fsFieldCategoryNameEn}
+                      </button>
+                    </h2>
+                    <div
+                      id={`collapse${index}`}
+                      className="accordion-collapse collapse show"
+                      data-bs-parent="#accordionExample"
+                    >
+                      <div className="accordion-body">
+                        <table className="table">
+                          <tbody>
+                            {category.fieldsValues.map((field, fieldIndex) => (
+                              <tr key={fieldIndex}>
+                                <td className="field-name">
+                                  {i18n.language === "ar"
+                                    ? field.fsFieldNameAr
+                                    : field.fsFieldNameEn}
+                                </td>
+                                {field.periodValues.map((value, valIndex) => {
+                                  const displayValue =
+                                    value.actualValue !== null
+                                      ? convertCurrency(value.actualValue)
+                                      : "-";
+                                  const isPositive =
+                                    parseFloat(displayValue) >= 0;
+                                  const formattedValue = isPositive
+                                    ? displayValue
+                                    : `(${Math.abs(displayValue)})`;
+                                  return (
+                                    <td
+                                      key={valIndex}
+                                      style={{
+                                        color: isPositive ? "green" : "red",
+                                      }}
+                                    >
+                                      {formattedValue}
+                                    </td>
+                                  );
+                                })}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

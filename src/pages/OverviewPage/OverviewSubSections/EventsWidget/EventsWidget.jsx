@@ -52,7 +52,7 @@ const EventsWidget = ({ data }) => {
             ))}
           </tbody>
         </table>
-        <MoreButton path="disclosures/events" />
+      <MoreButton path="disclosures/events" />
       </div>
 
       {/* Modal */}

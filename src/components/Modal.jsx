@@ -19,19 +19,33 @@ const mapDataToChartProps = (data, isUSD, conversionRate) => {
     values = data.periodicValues.map((item) =>
       isUSD ? item.value / conversionRate : item.value
     );
-  } else {
-    // Default case
-    years = Object.keys(data).filter((key) => !isNaN(key) && key < 2024);
-    values = Object.entries(data)
-      .filter(([key]) => !isNaN(key) && key < 2024)
-      .map(([, value]) => (isUSD ? value / conversionRate : value));
+  } else if (data.values) {
+    // Example for financial statements
+    years = data.values.map((item) => item.forDate || item.year);
+    values = data.values.map((item) =>
+      isUSD ? item.value / conversionRate : item.value
+    );
+  } else if (data.financialRatioFieldsGroups) {
+    // Example for financial ratios
+    years = data.financialRatioFieldsGroups.map((item) => item.values.year);
+    values = data.financialRatioFieldsGroups.map((item) =>
+      isUSD ? item.values.value / conversionRate : item.values.value
+    );
   }
 
   // Determine the display names based on available fields
   const displayNameEn =
-    data.DisplayNameEn || data.businessSegmentNameEn || "Default Name En";
+    data.DisplayNameEn ||
+    data.businessSegmentNameEn ||
+    data.displayNameEn ||
+    data.nameEn ||
+    "Default Name En";
   const displayNameAr =
-    data.DisplayNameAr || data.businessSegmentNameAr || "Default Name Ar";
+    data.DisplayNameAr ||
+    data.businessSegmentNameAr ||
+    data.displayNameAr ||
+    data.nameAr ||
+    "Default Name Ar";
 
   return {
     years,

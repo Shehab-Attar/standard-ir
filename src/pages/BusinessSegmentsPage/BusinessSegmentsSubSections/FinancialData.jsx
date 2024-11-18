@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useState } from "react";
 import { formatChange } from "../../../utils/Helpers";
 import ModalComponent from "../../../components/Modal";
 import SimpleBar from "simplebar-react";
@@ -45,7 +45,10 @@ const FinancialData = ({ data, currency, fieldName, titleKey }) => {
       <div>
         <h5 className="header-title">{t(titleKey)}</h5>
         <SimpleBar style={{ maxHeight: "400px", overflowX: "auto" }}>
-          <table className="table table-hover" style={{ minWidth: "800px" }}>
+          <table
+            className="table table-hover financial-data-table"
+            style={{ minWidth: "800px" }}
+          >
             <thead className="table-light">
               <tr>
                 <th>{t("businessSegments.fiscalPeriod")}</th>
