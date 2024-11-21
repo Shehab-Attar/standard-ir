@@ -34,6 +34,18 @@ import DisclousersPageEventsSubLink from "./pages/DisclosuresPage/DisclousersPag
 import FinancialStatements from "./pages/FinancialInformationPage/FinancialInformationPageSubLinks/FinancialStatements";
 import FinancialRatios from "./pages/FinancialInformationPage/FinancialInformationPageSubLinks/FinancialRatios";
 import FinancialReports from "./pages/FinancialInformationPage/FinancialInformationPageSubLinks/FinancialReports";
+// Share Performance Sub Links
+import Chart from "./pages/SharePerformancePage/SharePerformanceSubLinks/Chart/Chart";
+import Peers from "./pages/SharePerformancePage/SharePerformanceSubLinks/Peers/Peers";
+import NegotiatedDeals from "./pages/SharePerformancePage/SharePerformanceSubLinks/NegotiatedDeals/NegotiatedDeals";
+import InvestmentCalculator from "./pages/SharePerformancePage/SharePerformanceSubLinks/InvestmentCalculator/InvestmentCalculator";
+// Peers Sub Links
+import General from "./pages/SharePerformancePage/SharePerformanceSubLinks/Peers/PeersSubTabs/General";
+import Ranking from "./pages/SharePerformancePage/SharePerformanceSubLinks/Peers/PeersSubTabs/Ranking";
+import Growth from "./pages/SharePerformancePage/SharePerformanceSubLinks/Peers/PeersSubTabs/Growth";
+import MarketPerformance from "./pages/SharePerformancePage/SharePerformanceSubLinks/Peers/PeersSubTabs/MarketPerformance";
+import PerShareData from "./pages/SharePerformancePage/SharePerformanceSubLinks/Peers/PeersSubTabs/PerShareData";
+import SalariesBenefits from "./pages/SharePerformancePage/SharePerformanceSubLinks/Peers/PeersSubTabs/SalariesBenefits";
 
 function App() {
   const { i18n } = useTranslation();
@@ -64,10 +76,38 @@ function App() {
                   path={`/${i18n.language}/board-management`}
                   element={<BoardManagementPage />}
                 />
+                {/* Share Performance */}
                 <Route
                   path={`/${i18n.language}/share-performance`}
                   element={<SharePerformancePage />}
-                />
+                >
+                  <Route index element={<Navigate to="chart" replace />} />
+                  <Route path="chart" element={<Chart />} />
+                  <Route path="peers" element={<Peers />}>
+                    <Route index element={<Navigate to="general" replace />} />
+                    <Route path="general" element={<General />} />
+                    <Route path="ranking" element={<Ranking />} />
+                    <Route path="growth" element={<Growth />} />
+                    <Route
+                      path="market-performance"
+                      element={<MarketPerformance />}
+                    />
+                    <Route path="per-share-data" element={<PerShareData />} />
+                    <Route
+                      path="salaries-benefits"
+                      element={<SalariesBenefits />}
+                    />
+                  </Route>
+                  <Route
+                    path="negotiated-deals"
+                    element={<NegotiatedDeals />}
+                  />
+                  <Route
+                    path="investment-calculator"
+                    element={<InvestmentCalculator />}
+                  />
+                </Route>
+                {/* End Share Performance */}
                 {/* Financial Information */}
                 <Route
                   path={`/${i18n.language}/financial-information`}
@@ -88,6 +128,7 @@ function App() {
                   path={`/${i18n.language}/investors-presentation`}
                   element={<InvestorsPresentationPage />}
                 />
+                {/* End Financial Information */}
                 {/* Disclousers */}
                 <Route
                   path={`/${i18n.language}/disclosures`}
@@ -110,7 +151,7 @@ function App() {
                 {/* 
                 <Route path="earnings" element={<DisclousersPageEarningsSubLink />} />
                  */}
-
+                {/* End Disclousers */}
                 <Route
                   path={`/${i18n.language}/corporate-actions`}
                   element={<CorporateActionsPage />}

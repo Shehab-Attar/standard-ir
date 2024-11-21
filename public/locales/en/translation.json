@@ -368,5 +368,103 @@
             "details": "Details",
             "chart": "Chart"
         }
+    },
+    "sharePerformance": {
+        "chart": {
+            "title": "Chart",
+            "tradingDetails": {
+                "title": "Trading Details",
+                "date": "Date",
+                "price": "Price",
+                "change": "Change",
+                "change%": "Change %",
+                "volume": "Volume",
+                "turnover": "Turnover",
+                "open": "Open",
+                "high": "High",
+                "low": "Low"
+            }
+        },
+        "peers": {
+            "title": "Peers",
+            "general": {
+                "title": "General",
+                "company": "Company",
+                "sector": "Sector",
+                "city": "City",
+                "phone": "Phone",
+                "fax": "Fax",
+                "email": "Email",
+                "website": "Website"
+            },
+            "ranking": {
+                "title": "Ranking",
+                "company": "Company",
+                "sector": "ِArgaam Sectors",
+                "marketCap": "Market Cap M",
+                "revenue": "Revenues",
+                "netIncome": "Net Income",
+                "assets": "Assets",
+                "year": "Year",
+                "quarter": "Quarter",
+                "interim": "Interim",
+                "period": "Period",
+                "yearly": "Annual"
+            },
+            "growth": {
+                "title": "Growth",
+                "assets": "Assets",
+                "netIncome": "Net Income",
+                "revenues": "Revenues",
+                "bookValue": "Book Value"
+            },
+            "marketPerformance": {
+                "title": "Market Performance",
+                "month1": "Month",
+                "month3": "3 Months",
+                "month6": "6 Months",
+                "month12": "12 Months",
+                "ytd": "YTD",
+                "priceEarnings": "P/E (TTM)",
+                "pricePerBook": "Price/Book",
+                "dividendYield": "Dividend Yield",
+                "moreThan50": "More Than 50",
+                "negative": "NEG"
+            },
+            "perShareData": {
+                "title": "Per Share Data (SAR)",
+                "company": "Company",
+                "bookValue": "Book Value",
+                "eps": "EPS",
+                "cashDividend": "Cash Dividend Per Share (SAR)",
+                "dividend": "Dividends"
+            },
+            "salariesBenefits": {
+                "title": "Salaries & Benefits",
+                "company": "Company",
+                "board": "Board",
+                "executives": "Executives",
+                "salaries": "Salaries",
+                "bonus": "Bonuses",
+                "others": "Others",
+                "total": "Total",
+                "year": "Year"
+            }   
+        },
+        "negotiated_deals": {
+            "title": "Negotiated Deals",
+            "start": "From",
+            "end": "To",
+            "date": "Date",
+            "marketPrice": "Market Price",
+            "negotiatedPrice": "Negotiated Price",
+            "negotiatedMarket": "Negotiated to Market",
+            "volume": "Volume Traded",
+            "value": "Value Traded",
+            "noDataFound": "No Data Found"
+        },
+        "investment_calculator": {
+            "title": "Investment Calculator"
+        }
     }
 }

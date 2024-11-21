@@ -1,0 +1,35 @@
+.ant-picker {
+  box-sizing: border-box;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.88);
+  font-size: 14px;
+  line-height: 1;
+  list-style: none;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+input {
+  border-width: 0 !important;
+}
+
+/* Style the clear button */
+.react-datepicker__close-icon {
+  border-radius: 50%; 
+  padding-inline-end: 5px; 
+}
+
+/* Style the input field */
+.custom-datepicker {
+  font-size: 14px;
+  border: 2px solid #ccc; 
+  padding: 5px 15px 5px 15px; 
+  border-radius: 4px; 
+  width: 100%; 
+}
+

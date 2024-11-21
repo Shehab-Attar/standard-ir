@@ -2,12 +2,13 @@ import axios from "axios";
 import { useTranslation } from "react-i18next";
 import { useQuery } from "@tanstack/react-query";
 import { getToken } from "../../services/getToken";
+import { Spin } from "antd";
 import "./CompanyInfo.css";
 
 const CompanyInfo = () => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["companyInfo"],
     queryFn: async () => {
       const token = await getToken();
@@ -27,6 +28,10 @@ const CompanyInfo = () => {
     },
   });
 
+  if (isLoading) {
+    return <Spin />;
+  }
+
   return (
     <div className="container-lg mb-2 px-xl-0">
       <div className="d-flex border-bottom flex-wrap">
@@ -35,12 +40,14 @@ const CompanyInfo = () => {
         </div>
         <div className="px-lg-3 fw-bold">
           <div className="main-title fw-bold dynamicTitle">
-            {t("title.main")}
+            {i18n.language === "ar" ? data?.shortNameAr : data?.shortNameEn}
             &nbsp; (
             {i18n.language === "ar" ? data?.shortNameAr : data?.shortNameEn})
           </div>
           <div className="dynamicTitle mb-1">
-            <span style={{ color: "black" }}>{data?.closeValue}</span>
+            <span style={{ color: "black" }}>
+              {data?.closeValue.toFixed(2)}
+            </span>
             <span className="mx-1">
               <svg
                 stroke="currentColor"
@@ -63,13 +70,13 @@ const CompanyInfo = () => {
               className="mx-1"
               style={{ color: data?.change > 0 ? "green" : "red" }}
             >
-              ({Math.abs(data?.change)})
+              ({Math.abs(data?.change).toFixed(2)})
             </span>
             <span
               className="mx-1"
               style={{ color: data?.change > 0 ? "green" : "red" }}
             >
-              ({Math.abs(data?.percentageChange)} %)
+              ({Math.abs(data?.percentageChange).toFixed(2)} %)
             </span>
           </div>
         </div>

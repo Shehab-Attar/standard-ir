@@ -373,5 +373,104 @@
             "details": "التفاصيل",
             "chart": "تشارت"
         }
+    },
+    "sharePerformance": {
+        "chart": {
+            "title": "الرسم البياني",
+            "tradingDetails": {
+                "title": "تفاصيل التداول",
+                "date": "التاريخ",
+                "price": "السعر",
+                "change": "التغيير",
+                "change%": "التغيير %",
+                "volume": "حجم التداول",
+                "turnover": "قيمة التداول",
+                "open": "الافتتاح",
+                "high": "الأعلى",
+                "low": "الادنى"
+            }
+        },
+        "peers": {
+            "title": "شركات القطاع",
+            "general": {
+                "title": "معلومات عامة",
+                "company": "الشركة",
+                "sector": "قطاع ارقام",
+                "city": "المدينة",
+                "phone": "الهاتف",
+                "fax": "الفاكس",
+                "email": "البريد الإلكتروني",
+                "website": "الموقع الإلكتروني"
+            },
+            "ranking": {
+                "title": "ترتيب الشركات",
+                "rank": "الترتيب",
+                "company": "الشركة",
+                "sector": "قطاع ارقام",
+                "marketCap": "القيمة السوقية (مليون)",
+                "revenue": "الايرادات",
+                "netIncome": "صافي الدخل",
+                "assets": "الاصول",
+                "year": "السنة",
+                "quarter": "ربع سنوي",
+                "interim": "معدل سنويا",
+                "period": "الفترة",
+                "yearly": "سنوي"
+            },
+            "growth": {
+                "title": "النمو",
+                "assets": "الاصول",
+                "netIncome": "صافي الدخل",
+                "revenues": "الايرادات",
+                "bookValue": "القيمة الدفترية"
+            },
+            "marketPerformance": {
+                "title": "اداء الشركة",
+                "month1": "شهر",
+                "month3": "3 أشهر",
+                "month6": "6 أشهر",
+                "month12": "12 شهرا",
+                "ytd": "التغير من بداية السنة",
+                "priceEarnings": "مكرر الأرباح (اخر 12)",
+                "pricePerBook": "مضاعف القيمة الدفترية",
+                "dividendYield": "عائد التوزيع النقدي",
+                "moreThan50": "أكثر من 50",
+                "negative": "سالب"
+            },
+            "perShareData": {
+                "title": "بيانات السهم (ريال)",
+                "company": "الشركة",
+                "bookValue": "القيمة الدفترية",
+                "eps": "العائد على السهم",
+                "cashDividend": "التوزيع النقدي للسهم (ريال)",
+                "dividend": "توزيعات أرباح"
+            },
+            "salariesBenefits": {
+                "title": "المكافئات والمزايا",
+                "company": "الشركة",
+                "board": "مكافئات مجلس الإدارة",
+                "executives": "مكافئات كبار التنفيذيين",
+                "salaries": "الرواتب",
+                "bonus": "المكافآت",
+                "others": "آخرى",
+                "total": "الإجمالي",
+                "year": "السنة"
+            }
+        },
+        "negotiated_deals": {
+            "title": "الصفقات الخاصة",
+            "start": "من",
+            "end": "إلى",
+            "date": "التاريخ",
+            "marketPrice": "سعر السهم",
+            "negotiatedPrice": "سعر الصفقة",
+            "negotiatedMarket": "سعر الصفقة إلى السهم",
+            "volume": "قيمة الصفقة",
+            "value": "كمية الصفقة",
+            "noDataFound": "لا يوجد بيانات"
+        },
+        "investment_calculator": {
+            "title": "حاسبة الاستثمار"
+        }
     }
 }
