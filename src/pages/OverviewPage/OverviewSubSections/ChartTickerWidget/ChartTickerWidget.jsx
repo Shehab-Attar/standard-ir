@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getToken } from "../../../../services/getToken";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import Highcharts from "highcharts/highstock"; // Use Highstock for navigator and rangeSelector
+import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
 import MoreButton from "../../../../components/MoreButton";
 import "./ChartTickerWidget.css";
@@ -100,6 +100,11 @@ const ChartTickerWidget = () => {
     legend: {
       enabled: false,
     },
+    stockTools: {
+      gui: {
+        enabled: false,
+      },
+    },
   };
 
   return (
@@ -143,7 +148,7 @@ const ChartTickerWidget = () => {
             />
           )}
         </div>
-        <MoreButton path={"chart"} />
+        <MoreButton path={"share-performance/chart"} />
       </div>
     </div>
   );

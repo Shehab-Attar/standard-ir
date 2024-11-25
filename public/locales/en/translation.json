@@ -5,7 +5,8 @@
         "more": "More",
         "languageMismatch": "The content cannot be loaded in the selected language",
         "loading": "Loading...",
-        "poweredBy": "Powered By"
+        "poweredBy": "Powered By",
+        "noDataFound": "No data found"
     },
     "sidebar": {
         "overview": "Overview",
@@ -464,7 +465,23 @@
             "noDataFound": "No Data Found"
         },
         "investment_calculator": {
-            "title": "Investment Calculator"
+            "title": "Investment Calculator",
+            "byAmount": "By Amount Invested",
+            "byShares": "By Shares Bought",
+            "start-end": "Start-End Date of Investment",
+            "amount": "Amount Invested",
+            "shares": "Number of Shares Invested",
+            "initialInvestment": "Initial Investment",
+            "endValue": "End Value",
+            "result": "Show Results",
+            "value": "Value",
+            "sharesPrice": "Share Price",
+            "sharesBought": "Shares Bought",
+            "change": "Change SAR",
+            "changePercentage": "Change %",
+            "annualizedChange": "Annualized Change (%)",
+            "cumulative": "Cumulative Change",
+            "periodic": "Periodic Change"
         }
     }
 }

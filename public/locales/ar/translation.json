@@ -5,7 +5,8 @@
     "subtitle": "مجموعة الحكير",
     "more": "المزيد",
     "loading": "جاري التحميل...",
-    "poweredBy": "بواسطة"
+    "poweredBy": "بواسطة",
+    "noDataFound": "لا يوجد بيانات"
     },
     "sidebar": {
         "overview": "معلومات الشركة",
@@ -470,7 +471,23 @@
             "noDataFound": "لا يوجد بيانات"
         },
         "investment_calculator": {
-            "title": "حاسبة الاستثمار"
+            "title": "حاسبة الاستثمار",
+            "byAmount": "محفوظات سعر السهم",
+            "byShares": "تنزيل سعر السهم",
+            "start-end": "تاريخ البداية والنهاية",
+            "amount": "المبلغ المستثمر",
+            "shares": "عدد الأسهم المستثمرة",
+            "initialInvestment": "الاستثمار الأولي",
+            "endValue": "القيمة النهائية",
+            "result": "اظهار النتائج",
+            "value": "القيمة السوقية",
+            "sharesPrice": "سعر السهم",
+            "sharesBought": "الاسهم المشتراة",
+            "change": "التغير SAR",
+            "changePercentage": "التغير %",
+            "annualizedChange": "معدل سنويا التغير (%)",
+            "cumulative": "التغير التراكمي",
+            "periodic": "التغير الدوري"
         }
     }
 }

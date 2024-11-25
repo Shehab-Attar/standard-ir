@@ -116,28 +116,38 @@ const NegotiatedDeals = () => {
             </tr>
           </thead>
           <tbody>
-            {filteredDeals.map((item) => (
-              <tr key={item.date}>
-                <td>{new Date(item.date).toLocaleDateString()}</td>
-                <td style={{ color: item.marketPrice > 0 ? "green" : "red" }}>
-                  {formatChange(item.marketPrice)}
+            {filteredDeals.length > 0 ? (
+              filteredDeals.map((item) => (
+                <tr key={item.date}>
+                  <td>{new Date(item.date).toLocaleDateString()}</td>
+                  <td style={{ color: item.marketPrice > 0 ? "green" : "red" }}>
+                    {formatChange(item.marketPrice)}
+                  </td>
+                  <td
+                    style={{
+                      color: item.negotiatedPrice > 0 ? "green" : "red",
+                    }}
+                  >
+                    {formatChange(item.negotiatedPrice)}
+                  </td>
+                  <td
+                    style={{
+                      color: item.negotiatedToMarketprice > 0 ? "green" : "red",
+                    }}
+                  >
+                    ({formatChange(item.negotiatedToMarketprice)} %)
+                  </td>
+                  <td>{item.volumeTraded}</td>
+                  <td>{item.valueTraded}</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="6" className="text-center">
+                  No data found
                 </td>
-                <td
-                  style={{ color: item.negotiatedPrice > 0 ? "green" : "red" }}
-                >
-                  {formatChange(item.negotiatedPrice)}
-                </td>
-                <td
-                  style={{
-                    color: item.negotiatedToMarketprice > 0 ? "green" : "red",
-                  }}
-                >
-                  ({formatChange(item.negotiatedToMarketprice)} %)
-                </td>
-                <td>{item.volumeTraded}</td>
-                <td>{item.valueTraded}</td>
               </tr>
-            ))}
+            )}
           </tbody>
         </table>
       </div>

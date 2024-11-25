@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Highcharts, { color } from "highcharts";
+import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import { useTranslation } from "react-i18next";
 const CapitalChange = ({ data }) => {

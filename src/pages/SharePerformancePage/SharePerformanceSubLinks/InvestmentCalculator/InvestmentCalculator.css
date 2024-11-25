@@ -1,0 +1,18 @@
+.result-button {
+  background-color: #374c5f;
+  color: #fff;
+  transition: 0.4s ease;
+  font-size: 13px !important;
+}
+
+.result-button:hover {
+  background-color: #9da07c;
+  color: white;
+}
+
+.result-button:disabled {
+  background-color: initial;
+  color: initial;
+  cursor: not-allowed;
+  transition: none;
+}

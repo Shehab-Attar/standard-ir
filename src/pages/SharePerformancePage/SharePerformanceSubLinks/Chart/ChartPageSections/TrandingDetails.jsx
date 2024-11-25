@@ -144,33 +144,43 @@ const TrandingDetails = () => {
             </tr>
           </thead>
           <tbody>
-            {tradingDetailsArray.map((item, index) => (
-              <tr key={index}>
-                <td>{new Date(item.forDate).toLocaleDateString()}</td>
-                <td style={{ color: item.close > 0 ? "green" : "red" }}>
-                  {formatChange(item.close)}
-                </td>
-                <td style={{ color: item.change > 0 ? "green" : "red" }}>
-                  {formatChange(item.change)}
-                </td>
-                <td
-                  style={{ color: item.percentageChange > 0 ? "green" : "red" }}
-                >
-                  {formatChange(item.percentageChange)}
-                </td>
-                <td>{item.volume.toLocaleString()}</td>
-                <td>{item.amount.toLocaleString()}</td>
-                <td style={{ color: item.open > 0 ? "green" : "red" }}>
-                  {formatChange(item.open)}
-                </td>
-                <td style={{ color: item.max > 0 ? "green" : "red" }}>
-                  {formatChange(item.max)}
-                </td>
-                <td style={{ color: item.min > 0 ? "green" : "red" }}>
-                  {formatChange(item.min)}
+            {tradingDetailsArray.length > 0 ? (
+              tradingDetailsArray.map((item, index) => (
+                <tr key={index}>
+                  <td>{new Date(item.forDate).toLocaleDateString()}</td>
+                  <td style={{ color: item.close > 0 ? "green" : "red" }}>
+                    {formatChange(item.close)}
+                  </td>
+                  <td style={{ color: item.change > 0 ? "green" : "red" }}>
+                    {formatChange(item.change)}
+                  </td>
+                  <td
+                    style={{
+                      color: item.percentageChange > 0 ? "green" : "red",
+                    }}
+                  >
+                    {formatChange(item.percentageChange)}
+                  </td>
+                  <td>{item.volume.toLocaleString()}</td>
+                  <td>{item.amount.toLocaleString()}</td>
+                  <td style={{ color: item.open > 0 ? "green" : "red" }}>
+                    {formatChange(item.open)}
+                  </td>
+                  <td style={{ color: item.max > 0 ? "green" : "red" }}>
+                    {formatChange(item.max)}
+                  </td>
+                  <td style={{ color: item.min > 0 ? "green" : "red" }}>
+                    {formatChange(item.min)}
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="9" className="text-center">
+                  No data found
                 </td>
               </tr>
-            ))}
+            )}
           </tbody>
         </table>
       </div>
