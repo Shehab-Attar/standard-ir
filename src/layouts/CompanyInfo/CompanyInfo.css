@@ -4,7 +4,7 @@
   
 .dynamicTitle {
     font-size: clamp(.8rem + 2vw, 1.5rem);
-    color: #374c5f;
+    color: #175754;
 }
 .dynamicTitle .span{
     color: #6C757D

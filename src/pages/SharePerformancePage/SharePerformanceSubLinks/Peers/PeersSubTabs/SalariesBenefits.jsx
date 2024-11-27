@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Dropdown } from "react-bootstrap";
 import { getToken } from "../../../../../services/getToken.js";
 import { useTranslation } from "react-i18next";
+import { formatChange } from "../../../../../utils/Helpers";
 
 const SalariesBenefits = () => {
   const { t, i18n } = useTranslation();
@@ -49,7 +50,9 @@ const SalariesBenefits = () => {
 
   const convertCurrency = (value) => {
     if (value == null) return "-";
-    return currency === "USD" ? (value / 3.751).toFixed(2) : value.toFixed(2);
+    return currency === "USD"
+      ? formatChange(value / 3.751)
+      : formatChange(value);
   };
 
   return (
@@ -77,19 +80,19 @@ const SalariesBenefits = () => {
             </Dropdown.Menu>
           </Dropdown>
         </div>
-        <div className="d-flex m-0 rounded px-1 mb-2">
+        <div className="buttons-container">
           <button
             onClick={() => setCurrency("SAR")}
-            className={`btn ${
-              currency === "SAR" ? "btn-secondary" : "btn-light"
+            className={`btn rounded CurrBtn ${
+              currency === "SAR" ? "active" : ""
             }`}
           >
             {t("estimates.analystEstimates.currSAR")}
           </button>
           <button
             onClick={() => setCurrency("USD")}
-            className={`btn ${
-              currency === "SAR" ? "btn-light" : "btn-secondary"
+            className={`btn rounded CurrBtn ${
+              currency === "USD" ? "active" : ""
             } ml-2`}
           >
             {t("estimates.analystEstimates.currUSD")}

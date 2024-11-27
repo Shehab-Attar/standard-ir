@@ -20,7 +20,7 @@ const CapitalChange = ({ data }) => {
         type: "column",
         backgroundColor: "transparent",
       },
-      colors: ["#374c5f"],
+      colors: ["#175754"],
       title: {
         text: null,
       },

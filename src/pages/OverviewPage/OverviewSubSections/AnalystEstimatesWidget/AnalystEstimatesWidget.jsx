@@ -8,7 +8,9 @@ const AnalystEstimatesWidget = ({ data }) => {
 
   return (
     <div className="border border-top-0">
-      <h6 className="p-2 main-title">{t("overview.analyst_estimates.mainTitle")}</h6>
+      <h6 className="p-2 main-title">
+        {t("overview.analyst_estimates.mainTitle")}
+      </h6>
       <hr className="m-2 mb-0 icons-color" />
       <div className="fs-14">
         {data?.analystEstimates.slice(0, 3).map((analystEstimate, idx) => {

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useTranslation } from "react-i18next";
 import { useQuery } from "@tanstack/react-query";
 import { getToken } from "../../services/getToken";
+import { formatChange } from "../../utils/Helpers";
 import { Spin } from "antd";
 import "./CompanyInfo.css";
 
@@ -46,7 +47,7 @@ const CompanyInfo = () => {
           </div>
           <div className="dynamicTitle mb-1">
             <span style={{ color: "black" }}>
-              {data?.closeValue.toFixed(2)}
+              {formatChange(data?.closeValue)}
             </span>
             <span className="mx-1">
               <svg
@@ -70,13 +71,13 @@ const CompanyInfo = () => {
               className="mx-1"
               style={{ color: data?.change > 0 ? "green" : "red" }}
             >
-              ({Math.abs(data?.change).toFixed(2)})
+              ({formatChange(data?.change)})
             </span>
             <span
               className="mx-1"
               style={{ color: data?.change > 0 ? "green" : "red" }}
             >
-              ({Math.abs(data?.percentageChange).toFixed(2)} %)
+              ({formatChange(data?.percentageChange)} %)
             </span>
           </div>
         </div>

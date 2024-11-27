@@ -33,7 +33,7 @@ const Milestones = ({ data }) => {
                   }}
                   style={{
                     cursor: item.bodyEn || item.bodyAr ? "pointer" : "default",
-                    color: item.bodyEn || item.bodyAr ? "#374c5f" : "inherit",
+                    color: item.bodyEn || item.bodyAr ? "#175754" : "inherit",
                   }}
                 >
                   {i18n.language === "ar" ? item.titleAr : item.titleEn}

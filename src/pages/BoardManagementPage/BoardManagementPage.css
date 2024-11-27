@@ -32,7 +32,7 @@
 
 .yearsBtn.active {
   scale: 1.2;
-  background-color: #9da07c !important;
+  background-color: #6ca19f !important;
   color: white !important;
 }
 
@@ -45,6 +45,6 @@
   height: 0;
   border-left: 5px solid transparent;
   border-right: 7px solid transparent;
-  border-top: 20px solid #9da07c;
+  border-top: 20px solid #6ca19f;
   transform: translate(-50%);
 }

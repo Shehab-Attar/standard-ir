@@ -39,12 +39,12 @@
 }
 
 .asideList .nestedNavLink.active {
-    background-color: #374C5F !important;
+    background-color: #175754 !important;
     color: white;
 }
 
 .asideList .nestedNavLink:hover {
-    background-color: #9DA07C;
+    background-color: #6ca19f;
     color: white;
 }
 

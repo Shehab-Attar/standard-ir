@@ -4,6 +4,7 @@ import { Dropdown } from "react-bootstrap";
 import { useQuery } from "@tanstack/react-query";
 import { getToken } from "../../../../../services/getToken.js";
 import { useTranslation } from "react-i18next";
+import { formatChange } from "../../../../../utils/Helpers";
 
 const Ranking = () => {
   const { t, i18n } = useTranslation();
@@ -45,7 +46,9 @@ const Ranking = () => {
 
   const convertCurrency = (value) => {
     if (value == null) return "-";
-    return currency === "USD" ? (value / 3.751).toFixed(2) : value.toFixed(2);
+    return currency === "USD"
+      ? formatChange(value / 3.751)
+      : formatChange(value);
   };
 
   const periodOptions =
@@ -57,7 +60,7 @@ const Ranking = () => {
     <div>
       <div>
         <div className="d-flex justify-content-between my-3">
-          <div className="d-flex m-0 rounded px-1 mb-2 space-between">
+          <div className="d-flex m-0 rounded px-1 mb-0 space-between">
             <button
               onClick={() => setPeriodType("year")}
               className={`btn ${
@@ -135,19 +138,19 @@ const Ranking = () => {
               </>
             )}
           </div>
-          <div className="d-flex m-0 rounded px-1 mb-2">
+          <div className="buttons-container">
             <button
               onClick={() => setCurrency("SAR")}
-              className={`btn ${
-                currency === "SAR" ? "btn-secondary" : "btn-light"
+              className={`btn rounded CurrBtn ${
+                currency === "SAR" ? "active" : ""
               }`}
             >
               {t("estimates.analystEstimates.currSAR")}
             </button>
             <button
               onClick={() => setCurrency("USD")}
-              className={`btn ${
-                currency === "SAR" ? "btn-light" : "btn-secondary"
+              className={`btn rounded CurrBtn ${
+                currency === "USD" ? "active" : ""
               } ml-2`}
             >
               {t("estimates.analystEstimates.currUSD")}

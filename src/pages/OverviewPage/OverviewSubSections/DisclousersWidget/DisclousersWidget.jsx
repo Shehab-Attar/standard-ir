@@ -1,10 +1,37 @@
 import { useTranslation } from "react-i18next";
 import MoreButton from "../../../../components/MoreButton";
 import { useNavigate } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { getToken } from "../../../../services/getToken";
+import axios from "axios";
 
-const DisclousersWidget = ({ data }) => {
+const DisclousersWidget = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
+
+  const { data } = useQuery({
+    queryKey: ["DisclousersWidget"],
+    queryFn: async () => {
+      // Ensure token is valid
+      const token = await getToken();
+
+      if (!token) {
+        throw new Error("Unable to authenticate");
+      }
+      // Get Overview Data
+      const res = await axios.get(
+        `https://data.argaam.com/api/v1/json/ir-widget/disclosures-articles-with-body/${i18n.language}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Encoding": "gzip",
+          },
+        }
+      );
+
+      return res.data;
+    },
+  });
 
   return (
     <>
@@ -16,7 +43,7 @@ const DisclousersWidget = ({ data }) => {
         <hr className="m-2 mb-0 icons-color" />
 
         <div className="fs-14">
-          {data?.discloser.slice(0, 3).map((elm, idx) => {
+          {data?.slice(0, 3).map((elm, idx) => {
             return (
               <div key={idx} className="p-1 px-2 border-bottom">
                 <span

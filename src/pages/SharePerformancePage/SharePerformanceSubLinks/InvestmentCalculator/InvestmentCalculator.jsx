@@ -1,5 +1,3 @@
-// Cumulative and Periodic Charts are not working yet
-
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import ByAmount from "./CalculatorCharts/ByAmount";

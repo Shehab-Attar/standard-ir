@@ -2,7 +2,7 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { getToken } from "../../../services/getToken";
 import { useTranslation } from "react-i18next";
-
+import { formatChange } from "../../../utils/Helpers";
 const Opinions = () => {
   const { t, i18n } = useTranslation();
 
@@ -81,13 +81,13 @@ const Opinions = () => {
                   : item.currentOpinionEn}
               </td>
               <td style={{ color: item.currentPrice > 0 ? "green" : "red" }}>
-                {item.currentPrice.toFixed(2)}
+                {formatChange(item.currentPrice)}
               </td>
               <td style={{ color: item.targetPrice > 0 ? "green" : "red" }}>
-                {item.targetPrice.toFixed(2)}
+                {formatChange(item.targetPrice)}
               </td>
               <td style={{ color: item.change > 0 ? "green" : "red" }}>
-                {item.change.toFixed(2)}
+                {formatChange(item.change)}
               </td>
               <td>
                 {i18n.language === "ar" && item.attachLinkURLAr ? (

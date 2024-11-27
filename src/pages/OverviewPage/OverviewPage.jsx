@@ -56,16 +56,16 @@ const OverviewPage = () => {
         <div className="row sections">
           <div className="col-md-6">
             <ChartTickerWidget />
-            <LatestNewsWidget data={data} />
+            <LatestNewsWidget />
             <EarningsWidget data={data} />
-            <DisclousersWidget data={data} />
+            <DisclousersWidget />
             <AnalystEstimatesWidget data={data} />
             <ArgaamReportsWidget data={data} />
           </div>
           <div className="col-md-6">
             <MarketDataWidget data={data} />
             <FinancialRatiosWidget data={data} />
-            <EventsWidget data={data} />
+            <EventsWidget />
             <CorporateActionsWidget data={data} />
             <AnalystRecommendationsWidget data={data} />
           </div>

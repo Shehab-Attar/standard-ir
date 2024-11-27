@@ -2,6 +2,7 @@ import React from "react";
 import { Dropdown } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
+import { formatChange } from "../../../utils/Helpers";
 const AnalystEstimates = ({ data, periodType, setPeriodType }) => {
   const { t, i18n } = useTranslation();
 
@@ -14,7 +15,9 @@ const AnalystEstimates = ({ data, periodType, setPeriodType }) => {
   const estimatesArray = Array.isArray(data.tabs) ? data.tabs : [data.tabs];
 
   const convertCurrency = (value) => {
-    return currency === "USD" ? (value / 3.751).toFixed(2) : value.toFixed(2);
+    return currency === "USD"
+      ? formatChange(value / 3.751)
+      : formatChange(value);
   };
 
   return (
@@ -45,19 +48,19 @@ const AnalystEstimates = ({ data, periodType, setPeriodType }) => {
           </Dropdown.Menu>
         </Dropdown>
 
-        <div className="d-flex m-0 rounded px-1">
+        <div className="buttons-container">
           <button
             onClick={() => setCurrency("SAR")}
-            className={`btn ${
-              currency === "SAR" ? "btn-secondary" : "btn-light"
+            className={`btn rounded CurrBtn ${
+              currency === "SAR" ? "active" : ""
             }`}
           >
             {t("estimates.analystEstimates.currSAR")}
           </button>
           <button
             onClick={() => setCurrency("USD")}
-            className={`btn ${
-              currency === "SAR" ? "btn-light" : "btn-secondary"
+            className={`btn rounded CurrBtn ${
+              currency === "USD" ? "active" : ""
             } ml-2`}
           >
             {t("estimates.analystEstimates.currUSD")}

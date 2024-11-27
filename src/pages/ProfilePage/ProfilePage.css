@@ -1,6 +1,6 @@
 .profile-title {
   font-size: 16px;
-  color: #374c5f !important;
+  color: #175754 !important;
   font-weight: 700;
 }
 
@@ -9,12 +9,12 @@
 }
 
 .CurrBtn.active {
-  background-color: #374c5f !important;
+  background-color: #175754 !important;
   color: white !important;
 }
 
 .buttons-container {
   border-radius: 6px;
-  border: 1px solid #374c5f;
+  border: 1px solid #175754;
 }
 

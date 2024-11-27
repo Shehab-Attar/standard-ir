@@ -54,19 +54,19 @@ const FinancialRatios = () => {
     <>
       <div>
         <div className="d-flex justify-content-between align-items-center mt-3 mb-2">
-          <div className="d-flex m-0 rounded btnsBorder">
+          <div className="buttons-container">
             <button
               onClick={() => setCurrency("SAR")}
-              className={`btn ${
-                currency === "SAR" ? "btn-secondary" : "btn-light"
+              className={`btn rounded CurrBtn ${
+                currency === "SAR" ? "active" : ""
               }`}
             >
               {t("estimates.analystEstimates.currSAR")}
             </button>
             <button
               onClick={() => setCurrency("USD")}
-              className={`btn ${
-                currency === "SAR" ? "btn-light" : "btn-secondary"
+              className={`btn rounded CurrBtn ${
+                currency === "USD" ? "active" : ""
               } ml-2`}
             >
               {t("estimates.analystEstimates.currUSD")}

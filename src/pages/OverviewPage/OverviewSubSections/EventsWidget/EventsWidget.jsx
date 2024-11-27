@@ -2,17 +2,41 @@ import React, { useState } from "react";
 import "./EventsWidget.css";
 import { useTranslation } from "react-i18next";
 import MoreButton from "../../../../components/MoreButton";
+import { useQuery } from "@tanstack/react-query";
+import { getToken } from "../../../../services/getToken";
+import axios from "axios";
 
-const EventsWidget = ({ data }) => {
+const EventsWidget = () => {
   const { t, i18n } = useTranslation();
   const [selectedEvent, setSelectedEvent] = useState(null);
-
-  // Extract the first four events
-  const events = data.events.slice(0, 4);
 
   const handleEventClick = (event) => {
     setSelectedEvent(event);
   };
+
+  const { data } = useQuery({
+    queryKey: ["EventsWidget"],
+    queryFn: async () => {
+      // Ensure token is valid
+      const token = await getToken();
+
+      if (!token) {
+        throw new Error("Unable to authenticate");
+      }
+      // Get Overview Data
+      const res = await axios.get(
+        `https://data.argaam.com/api/v1/json/ir-widget/events?recordSize=4`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Encoding": "gzip",
+          },
+        }
+      );
+
+      return res.data;
+    },
+  });
 
   return (
     <div className="border border-top-0">
@@ -28,7 +52,7 @@ const EventsWidget = ({ data }) => {
             </tr>
           </thead>
           <tbody>
-            {events.map((event) => (
+            {data?.map((event) => (
               <tr key={event.calendarEventID}>
                 <td>{new Date(event.occursOn).toLocaleDateString()}</td>
                 <td
@@ -52,7 +76,7 @@ const EventsWidget = ({ data }) => {
             ))}
           </tbody>
         </table>
-      <MoreButton path="disclosures/events" />
+        <MoreButton path="disclosures/events" />
       </div>
 
       {/* Modal */}

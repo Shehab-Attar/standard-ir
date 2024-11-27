@@ -131,7 +131,9 @@ const CorporateActionsWidget = ({ data }) => {
                       "overview.corporate_actions.current_capital_currency_sar"
                     )}
                   </th>
-                  <td className="corp-td">{data?.dividandInfo?.capital?.toFixed(2)}</td>
+                  <td className="corp-td">
+                    {data?.dividandInfo?.capital?.toFixed(2)}
+                  </td>
                 </tr>
                 <tr>
                   <th>
@@ -140,11 +142,15 @@ const CorporateActionsWidget = ({ data }) => {
                       ? t("overview.corporate_actions.current_capital_currency")
                       : null}
                   </th>
-                  <td className="corp-td">{data?.dividandInfo?.numberOfShares?.toFixed(2)}</td>
+                  <td className="corp-td">
+                    {data?.dividandInfo?.numberOfShares?.toFixed(2)}
+                  </td>
                 </tr>
                 <tr>
                   <th>{t("overview.corporate_actions.dividend_percentage")}</th>
-                  <td className="corp-td">{data?.dividandInfo?.dividendPercentage?.toFixed(2)}%</td>
+                  <td className="corp-td">
+                    {data?.dividandInfo?.dividendPercentage?.toFixed(2)}%
+                  </td>
                 </tr>
                 <tr>
                   <th>{t("overview.corporate_actions.cash_dividend")}</th>

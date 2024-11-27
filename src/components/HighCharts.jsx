@@ -31,7 +31,7 @@ const Chart = ({ data }) => {
       {
         name: i18n.language === "ar" ? data.DisplayNameAr : data.DisplayNameEn,
         data: data.values.slice(0, 5) || [],
-        color: "#374C5F",
+        color: "#175754",
       },
     ],
     credits: {

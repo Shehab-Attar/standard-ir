@@ -5,12 +5,18 @@ import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 
 const PeriodicChart = ({ startDate, endDate, amount, shares }) => {
+  const sDate = (
+    typeof startDate === "string" ? startDate : startDate.toISOString()
+  ).split("T")[0];
+  const eDate = (
+    typeof endDate === "string" ? endDate : endDate.toISOString()
+  ).split("T")[0];
   const { data: periodicChartData, isLoading } = useQuery({
-    queryKey: ["periodicChartData", amount, shares, startDate, endDate],
+    queryKey: ["periodicChartData", amount, shares, sDate, eDate],
     queryFn: async () => {
       const token = await getToken();
       const res = await axios.get(
-        `https://data.argaam.com/api/v1/json/ir-api/investment-calculator-chart-data-periodic/${amount}/${shares}/${startDate}/${endDate}/false`,
+        `https://data.argaam.com/api/v1/json/ir-api/investment-calculator-chart-data-periodic/${amount}/${shares}/${sDate}/${eDate}/false`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -24,25 +30,32 @@ const PeriodicChart = ({ startDate, endDate, amount, shares }) => {
   if (isLoading) return <div>Loading...</div>;
 
   const chartData = Array.isArray(periodicChartData)
-    ? periodicChartData
-    : [periodicChartData];
+    ? periodicChartData.map((item) => [
+        new Date(item.forDate).getTime(),
+        item.sharesValue,
+      ])
+    : [];
 
   const chartOptions = {
     chart: {
-      type: "line",
+      type: "column",
     },
+    colors: ["#175754"],
     title: {
       text: null,
     },
     xAxis: {
       type: "datetime",
       labels: {
-        format: "{value:%Y-%m-%d}",
+        format: "{value:%b %e, %Y}",
+      },
+      tickPositioner: function () {
+        return chartData.map((point) => point[0]);
       },
     },
     yAxis: {
       title: {
-        text: null,
+        text: "",
       },
     },
     credits: {
@@ -51,7 +64,7 @@ const PeriodicChart = ({ startDate, endDate, amount, shares }) => {
     series: [
       {
         name: "Periodic",
-        data: [1, 1, 2, 3, 4],
+        data: chartData,
       },
     ],
   };

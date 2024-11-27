@@ -5,19 +5,24 @@ import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 
 const CumulativeChart = ({ startDate, endDate, amount, shares }) => {
+  const sDate = (
+    typeof startDate === "string" ? startDate : startDate.toISOString()
+  ).split("T")[0];
+  const eDate = (
+    typeof endDate === "string" ? endDate : endDate.toISOString()
+  ).split("T")[0];
   const { data: cumulativeChartData, isLoading } = useQuery({
-    queryKey: ["cumulativeChartData", amount, shares, startDate, endDate],
+    queryKey: ["cumulativeChartData", amount, shares, sDate, eDate],
     queryFn: async () => {
       const token = await getToken();
       const res = await axios.get(
-        `https://data.argaam.com/api/v1/json/ir-api/investment-calculator-chart-data/${amount}/${shares}/${startDate}/${endDate}/false`,
+        `https://data.argaam.com/api/v1/json/ir-api/investment-calculator-chart-data/${amount}/${shares}/${sDate}/${eDate}/false`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         }
       );
-      console.log(res.data);
       return res.data;
     },
   });
@@ -35,13 +40,17 @@ const CumulativeChart = ({ startDate, endDate, amount, shares }) => {
     chart: {
       type: "line",
     },
+    colors: ["#175754"],
     title: {
       text: null,
     },
     xAxis: {
       type: "datetime",
       labels: {
-        format: "{value:%Y-%m-%d}",
+        format: "{value:%b %e, %Y}",
+        style: {
+          fontSize: "10px",
+        },
       },
     },
     yAxis: {

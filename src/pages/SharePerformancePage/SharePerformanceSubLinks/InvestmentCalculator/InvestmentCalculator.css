@@ -1,12 +1,12 @@
 .result-button {
-  background-color: #374c5f;
+  background-color: #175754;
   color: #fff;
   transition: 0.4s ease;
   font-size: 13px !important;
 }
 
 .result-button:hover {
-  background-color: #9da07c;
+  background-color: #6ca19f;
   color: white;
 }
 

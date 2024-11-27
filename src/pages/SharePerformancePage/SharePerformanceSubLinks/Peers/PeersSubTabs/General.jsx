@@ -67,7 +67,7 @@ const General = () => {
               <td>
                 <a href={`mailto:${item.companyEmail}`}>
                   <svg
-                    style={{ color: "#374c5f" }}
+                    style={{ color: "#175754" }}
                     stroke="currentColor"
                     fill="currentColor"
                     strokeWidth="0"
@@ -88,7 +88,7 @@ const General = () => {
                   rel="noopener noreferrer"
                 >
                   <svg
-                    style={{ color: "#374c5f" }}
+                    style={{ color: "#175754" }}
                     stroke="currentColor"
                     fill="currentColor"
                     strokeWidth="0"

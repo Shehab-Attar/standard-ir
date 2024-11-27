@@ -6,6 +6,8 @@ import { getToken } from "../../../../../services/getToken.js";
 import { useTranslation } from "react-i18next";
 import "../InvestmentCalculator.css";
 import CalChart from "../CalChart/CalChart";
+import { formatChange } from "../../../../../utils/Helpers";
+
 const ByShares = ({
   startDate,
   endDate,
@@ -144,13 +146,15 @@ const ByShares = ({
               <tbody>
                 <tr>
                   <td>{t("sharePerformance.investment_calculator.value")}</td>
-                  <td>{investmentData.amountInvested.toFixed(2) || "-"}</td>
+                  <td>{formatChange(investmentData.amountInvested) || "-"}</td>
                 </tr>
                 <tr>
                   <td>
                     {t("sharePerformance.investment_calculator.sharesPrice")}
                   </td>
-                  <td>{investmentData.initialSharePrice.toFixed(2) || "-"}</td>
+                  <td>
+                    {formatChange(investmentData.initialSharePrice) || "-"}
+                  </td>
                 </tr>
                 <tr>
                   <td>
@@ -174,17 +178,17 @@ const ByShares = ({
               <tbody>
                 <tr>
                   <td>{t("sharePerformance.investment_calculator.value")}</td>
-                  <td>{investmentData.currentStanding.toFixed(2) || "-"}</td>
+                  <td>{formatChange(investmentData.currentStanding) || "-"}</td>
                 </tr>
                 <tr>
                   <td>
                     {t("sharePerformance.investment_calculator.sharesPrice")}
                   </td>
-                  <td>{investmentData.endsSharePrice.toFixed(2) || "-"}</td>
+                  <td>{formatChange(investmentData.endsSharePrice) || "-"}</td>
                 </tr>
                 <tr>
                   <td>{t("sharePerformance.investment_calculator.change")}</td>
-                  <td>{investmentData.changeAmount.toFixed(2) || "-"}</td>
+                  <td>{formatChange(investmentData.changeAmount) || "-"}</td>
                 </tr>
                 <tr>
                   <td>
@@ -193,7 +197,8 @@ const ByShares = ({
                     )}
                   </td>
                   <td>
-                    {investmentData.changeAmountPercentage.toFixed(2) || "-"}%
+                    {formatChange(investmentData.changeAmountPercentage) || "-"}
+                    %
                   </td>
                 </tr>
                 <tr>
@@ -203,7 +208,8 @@ const ByShares = ({
                     )}
                   </td>
                   <td>
-                    {investmentData.changeAnnualizePercentage.toFixed(2) || "-"}
+                    {formatChange(investmentData.changeAnnualizePercentage) ||
+                      "-"}
                     %
                   </td>
                 </tr>
