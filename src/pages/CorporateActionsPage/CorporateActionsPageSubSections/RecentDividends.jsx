@@ -1,5 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { Fragment } from "react";
+import dayjs from "dayjs";
+
 const RecentDividends = ({ data }) => {
   const { t, i18n } = useTranslation();
 
@@ -60,17 +62,15 @@ const RecentDividends = ({ data }) => {
                 </tr>
                 <tr>
                   <th>{t("corporateActions.recentDividends.announcedDate")}</th>
-                  <td>
-                    {new Date(item.dividendAnnouncedDate).toLocaleDateString()}
-                  </td>
+                  <td>{dayjs(item.dividendAnnouncedDate).format("DD/MM/YYYY")}</td>
                 </tr>
                 <tr>
                   <th>{t("corporateActions.recentDividends.dueDate")}</th>
-                  <td>{new Date(item.dividendDueDate).toLocaleDateString()}</td>
+                  <td>{dayjs(item.dividendDueDate).format("DD/MM/YYYY")}</td>
                 </tr>
                 <tr>
                   <th>{t("corporateActions.recentChanges.paymentDate")}</th>
-                  <td>{new Date(item.dividendDate).toLocaleDateString()}</td>
+                  <td>{dayjs(item.dividendDate).format("DD/MM/YYYY")}</td>
                 </tr>
                 <tr>
                   <th>{t("corporateActions.recentChanges.notes")}</th>

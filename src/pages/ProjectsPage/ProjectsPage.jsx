@@ -2,6 +2,7 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { getToken } from "../../services/getToken.js";
 import { useTranslation } from "react-i18next";
+import dayjs from "dayjs";
 
 const ProjectsPage = () => {
   const { t, i18n } = useTranslation();
@@ -121,7 +122,7 @@ const ProjectsPage = () => {
         <tbody>
           {projectsArray.map((item, index) => (
             <tr key={index}>
-              <td>{new Date(item.announcedDate).toLocaleDateString()}</td>
+              <td>{dayjs(item.announcedDate).format("DD/MM/YYYY")}</td>
               <td>
                 {i18n.language === "ar"
                   ? item.projectNameAr

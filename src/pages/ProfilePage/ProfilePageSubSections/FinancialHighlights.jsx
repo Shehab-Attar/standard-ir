@@ -8,7 +8,7 @@ const FinancialHighlights = ({ data }) => {
   const { t, i18n } = useTranslation();
   const [modal, setModal] = useState(false);
   const [selectedField, setSelectedField] = useState(null);
-  const [isUSD, setIsUSD] = useState(false); // State to track currency display
+  const [isUSD, setIsUSD] = useState(false);
 
   const toggleModal = (item) => {
     setSelectedField(item);
@@ -21,7 +21,7 @@ const FinancialHighlights = ({ data }) => {
     .filter((key) => !isNaN(key))
     .sort((a, b) => b - a);
 
-  const conversionRate = 3.751; // Conversion rate from SAR to USD
+  const conversionRate = 3.751;
 
   return (
     <>

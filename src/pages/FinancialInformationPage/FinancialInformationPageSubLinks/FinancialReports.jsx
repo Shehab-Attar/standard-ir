@@ -49,7 +49,7 @@ const FinancialReports = () => {
   ];
 
   const renderReportLinks = (item) => {
-    return reportLinks.map(({ key, label }) => (
+    return reportLinks.map(({ key }) => (
       <td key={key}>
         {item[`${key}ar`] || item[`${key}en`] ? (
           <>

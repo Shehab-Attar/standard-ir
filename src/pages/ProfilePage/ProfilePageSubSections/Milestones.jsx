@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-
+import dayjs from "dayjs";
 const Milestones = ({ data }) => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ const Milestones = ({ data }) => {
           <tbody>
             {displayedMilestones.map((item, index) => (
               <tr key={`${item.fullDate}-${item.companyID}-${index}`}>
-                <th>{new Date(item.fullDate).toLocaleDateString()}</th>
+                <th>{dayjs(item.fullDate).format("DD/MM/YYYY")}</th>
                 <td
                   onClick={() => {
                     if (item.bodyEn || item.bodyAr) {

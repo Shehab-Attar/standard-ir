@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getToken } from "../../../../services/getToken";
 import { useState } from "react";
 import "./DisclousersPageEventsSubLink.css";
-
+import dayjs from "dayjs";
 const DisclousersPageEventsSubLink = () => {
   const { t, i18n } = useTranslation();
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -65,11 +65,7 @@ const DisclousersPageEventsSubLink = () => {
                     <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"></path>
                   </svg>
                   <span className="main-title mx-2">
-                    {new Date(item.occursOn).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "2-digit",
-                    })}
+                    {dayjs(item.occursOn).format("MMMM DD,YYYY")}
                   </span>
                 </td>
               </tr>
@@ -170,9 +166,7 @@ const DisclousersPageEventsSubLink = () => {
                       <tr>
                         <td>{t("overview.events.date")}</td>
                         <td>
-                          {new Date(
-                            selectedEvent.occursOn
-                          ).toLocaleDateString()}
+                          {dayjs(selectedEvent.occursOn).format("DD/MM/YYYY")}
                         </td>
                       </tr>
                       <tr>

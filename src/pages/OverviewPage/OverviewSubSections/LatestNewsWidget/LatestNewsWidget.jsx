@@ -1,11 +1,11 @@
-import React from "react";
+import axios from "axios";
 import { useTranslation } from "react-i18next";
-import MoreButton from "../../../../components/MoreButton";
-import "./LatestNewsWidget.css";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { getToken } from "../../../../services/getToken";
-import axios from "axios";
+import MoreButton from "../../../../components/MoreButton";
+import "./LatestNewsWidget.css";
+
 const LatestNewsWidget = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ const LatestNewsWidget = () => {
       if (!token) {
         throw new Error("Unable to authenticate");
       }
-      // Get Overview Data
+      // Get Latest News Data
       const res = await axios.get(
         `https://data.argaam.com/api/v1/json/ir-widget/latest-news-articles-with-body/${i18n.language}`,
         {

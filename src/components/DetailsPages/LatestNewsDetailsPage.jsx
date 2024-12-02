@@ -16,7 +16,7 @@ const LatestNewsDetailsPage = () => {
         throw new Error("Unable to authenticate");
       }
       const res = await axios.get(
-        `https://data.argaam.com/api/v1.0/json/ir-api/overview/${i18n.language}`,
+        `https://data.argaam.com/api/v1/json/ir-widget/latest-news-articles-with-body/${i18n.language}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -27,9 +27,7 @@ const LatestNewsDetailsPage = () => {
       return res.data;
     },
   });
-  const foundLatestNews = data?.latestNews?.find((d) => {
-    return d.articleID === parseInt(id);
-  });
+  const foundLatestNews = data?.find((d) => d.articleID === parseInt(id));
 
   if (isLoading) {
     return <div>{t("title.loading")}</div>;

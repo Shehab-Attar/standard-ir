@@ -1,32 +1,60 @@
-.Argaam {
-  font-weight: 700;
-  color: rgb(238, 123, 11);
-  font-size: 0.9rem;
-  transition: 0.4s;
-  margin: 0 5px;
-  border-bottom: 1px solid transparent;
+.marquee-container.rtl .ticker-bar {
+  direction: rtl;
+  transform: translateX(100%);
+  
 }
 
-a {
-  text-decoration: none !important;
+.marquee-container {
+  background-color: #2c5550;
+  color: white;
 }
 
-.Argaam:hover {
-  text-decoration: underline !important;
-}
-.poweredBy:hover {
-  color: rgb(76, 74, 72) !important;
-}
-
-.poweredBy {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: #000;
-  transition: 0.3s;
-  margin: 0 5px;
+.ticker-bar {
+  display: flex;
+  align-items: center; 
+  overflow: hidden;
+  margin-bottom: 0 !important;
+  height: 30px;
 }
 
-.footer {
-  backdrop-filter: blur(15px);
-  margin-bottom: 0px !important;
+.ticker-bar .custom-bac {
+  background: #6ca19f;
+  border: 1px solid;
+  border-radius: 15px;
+  color: #fff;
+}
+.ticker-bar li {
+  display: flex;
+  align-items: center; 
+  margin-right: 20px; 
+}
+
+.ticker-bar li span {
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 0px 5px;
+  color: #fff;
+}
+
+.ticker-bar h6 {
+  padding: 0px 5px;
+  align-items: center;
+}
+
+
+@media (max-width: 768px) {
+  .ticker-bar {
+    flex-direction: column; 
+    height: auto; 
+    padding: 0px; 
+  }
+
+  .ticker-bar h6, .ticker-bar li span {
+    font-size: 12px; 
+    padding: 2px; 
+  }
+
+  .marquee-container {
+    padding: 7px; 
+  }
 }

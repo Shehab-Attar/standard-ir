@@ -8,6 +8,15 @@
         "poweredBy": "Powered By",
         "noDataFound": "No data found"
     },
+    "ticker": {
+        "lastPrice": "Last Price",
+        "high": "High",
+        "low": "Low",
+        "change": "Change",
+        "change%": "Change %",
+        "latestNews": "Latest News",
+        "calendar": "Calendar"
+    },
     "sidebar": {
         "overview": "Overview",
         "profile": "Profile",

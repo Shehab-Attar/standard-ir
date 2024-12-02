@@ -3,6 +3,8 @@ import { useQuery } from "@tanstack/react-query";
 import { getToken } from "../../../services/getToken";
 import { useTranslation } from "react-i18next";
 import { formatChange } from "../../../utils/Helpers";
+import dayjs from "dayjs";
+
 const Opinions = () => {
   const { t, i18n } = useTranslation();
 
@@ -66,7 +68,7 @@ const Opinions = () => {
         <tbody>
           {opinionsArray.map((item, index) => (
             <tr key={index}>
-              <td>{new Date(item.forDate).toLocaleDateString()}</td>
+              <td>{dayjs(item.forDate).format("DD/MM/YYYY")}</td>
               <td>
                 {i18n.language === "ar" ? item.brokerNameAr : item.brokerNameEn}
               </td>

@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
-import MoreButton from "../../../../components/MoreButton";
 import { useNavigate } from "react-router-dom";
+import dayjs from "dayjs";
+import MoreButton from "../../../../components/MoreButton";
 
 const AnalystEstimatesWidget = ({ data }) => {
   const { t, i18n } = useTranslation();
@@ -31,7 +32,7 @@ const AnalystEstimatesWidget = ({ data }) => {
                   {analystEstimate.articleSourceName}
                 </span>
                 <span className="mx-2">
-                  {analystEstimate.publishedOn.split(" ")[0]}
+                  {dayjs(analystEstimate.publishedOn).format("DD-MM-YYYY")}
                 </span>
               </p>
             </div>

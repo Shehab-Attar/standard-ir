@@ -8,6 +8,15 @@
     "poweredBy": "بواسطة",
     "noDataFound": "لا يوجد بيانات"
     },
+    "ticker": {
+        "lastPrice": "اخر سعر",
+        "high": "الاعلى",
+        "low": "الادنى",
+        "change": "التغير",
+        "change%": "التغير%",
+        "latestNews": "اخر الاخبار",
+        "calendar": "المفكرة"
+    },
     "sidebar": {
         "overview": "معلومات الشركة",
         "profile": "ملف الشركة",

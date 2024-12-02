@@ -2,6 +2,7 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { getToken } from "../../services/getToken.js";
 import { useTranslation } from "react-i18next";
+import dayjs from "dayjs";
 import "./InvestorPresentationPage.css";
 
 const InvestorsPresentationPage = () => {
@@ -55,7 +56,7 @@ const InvestorsPresentationPage = () => {
           <tbody>
             {investorsPresentationsArray.map((item, index) => (
               <tr key={index}>
-                <td>{new Date(item.createdOn).toLocaleDateString()}</td>
+                <td>{dayjs(item.createdOn).format("DD/MM/YYYY")}</td>
                 <td>
                   {i18n.language === "ar"
                     ? item.descriptionAr

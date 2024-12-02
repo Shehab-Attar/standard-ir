@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import "./EventsWidget.css";
+import axios from "axios";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import MoreButton from "../../../../components/MoreButton";
 import { useQuery } from "@tanstack/react-query";
 import { getToken } from "../../../../services/getToken";
-import axios from "axios";
-
+import dayjs from "dayjs";
+import "./EventsWidget.css";
+import MoreButton from "../../../../components/MoreButton";
 const EventsWidget = () => {
   const { t, i18n } = useTranslation();
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -54,7 +54,7 @@ const EventsWidget = () => {
           <tbody>
             {data?.map((event) => (
               <tr key={event.calendarEventID}>
-                <td>{new Date(event.occursOn).toLocaleDateString()}</td>
+                <td>{dayjs(event.occursOn).format("DD/MM/YYYY")}</td>
                 <td
                   data-bs-toggle="modal"
                   data-bs-target="#events-modal"

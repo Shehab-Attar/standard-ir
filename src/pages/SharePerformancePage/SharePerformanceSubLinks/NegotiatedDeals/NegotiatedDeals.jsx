@@ -1,11 +1,12 @@
 import axios from "axios";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getToken } from "../../../../services/getToken";
 import { formatChange } from "../../../../utils/Helpers";
 import { useTranslation } from "react-i18next";
+import dayjs from "dayjs";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import "./NegotiatedDeals.css";
 
 const NegotiatedDeals = () => {
@@ -38,7 +39,7 @@ const NegotiatedDeals = () => {
   const filteredDeals =
     startDate && endDate
       ? data.deals.filter((item) => {
-          const itemDate = new Date(item.date);
+          const itemDate = dayjs(item.date);
           return itemDate >= startDate && itemDate <= endDate;
         })
       : data.deals;
@@ -119,7 +120,7 @@ const NegotiatedDeals = () => {
             {filteredDeals.length > 0 ? (
               filteredDeals.map((item) => (
                 <tr key={item.date}>
-                  <td>{new Date(item.date).toLocaleDateString()}</td>
+                  <td>{dayjs(item.date).format("DD/MM/YYYY")}</td>
                   <td style={{ color: item.marketPrice > 0 ? "green" : "red" }}>
                     {formatChange(item.marketPrice)}
                   </td>
@@ -137,8 +138,8 @@ const NegotiatedDeals = () => {
                   >
                     ({formatChange(item.negotiatedToMarketprice)} %)
                   </td>
-                  <td>{item.volumeTraded}</td>
-                  <td>{item.valueTraded}</td>
+                  <td>{formatChange(item.volumeTraded)}</td>
+                  <td>{formatChange(item.valueTraded)}</td>
                 </tr>
               ))
             ) : (

@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { formatChange } from "../../../utils/Helpers";
 import { useEffect } from "react";
 import { Tooltip } from "bootstrap";
-
+import dayjs from "dayjs";
 const CapitalChangeHistory = ({ data }) => {
   const { t, i18n } = useTranslation();
   const capitalChangesArray = Array.isArray(data.capitalChangeHistory)
@@ -60,7 +60,7 @@ const CapitalChangeHistory = ({ data }) => {
         <tbody>
           {capitalChangesArray.map((item) => (
             <tr key={item.tableDate}>
-              <td>{new Date(item.tableDate).toLocaleDateString()}</td>
+              <td>{dayjs(item.tableDate).format("DD/MM/YYYY")}</td>
               <td>{i18n.language === "ar" ? item.typeAr : item.typeEn}</td>
               <td>{item.currentCapital}</td>
               <td>{item.currentShares}</td>

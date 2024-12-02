@@ -1,7 +1,7 @@
-import React from "react";
 import { useTranslation } from "react-i18next";
-import MoreButton from "../../../../components/MoreButton";
+import dayjs from "dayjs";
 import "./CorporateActionsWidget.css";
+import MoreButton from "../../../../components/MoreButton";
 
 const CorporateActionsWidget = ({ data }) => {
   const { t, i18n } = useTranslation();
@@ -108,9 +108,9 @@ const CorporateActionsWidget = ({ data }) => {
                 <tr>
                   <th>{t("overview.corporate_actions.announcement")}</th>
                   <td className="corp-td">
-                    {new Date(
-                      data.cpaitalSummary.announcedDate
-                    ).toLocaleDateString()}
+                    {dayjs(data.cpaitalSummary.announcedDate).format(
+                      "DD-MM-YYYY"
+                    )}
                   </td>
                 </tr>
               </tbody>
@@ -180,9 +180,9 @@ const CorporateActionsWidget = ({ data }) => {
                 <tr>
                   <th>{t("overview.corporate_actions.announcement")}</th>
                   <td className="corp-td">
-                    {new Date(
-                      data?.dividandInfo?.dividendAnnouncedDate
-                    ).toLocaleDateString()}
+                    {dayjs(data?.dividandInfo?.dividendAnnouncedDate).format(
+                      "DD-MM-YYYY"
+                    )}
                   </td>
                 </tr>
               </tbody>

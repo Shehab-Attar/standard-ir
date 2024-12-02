@@ -199,7 +199,7 @@ function App() {
             </div>
           </div>
         </div>
-        <div className="fixed-bottom w-100 text-center">
+        <div className="fixed-bottom">
           <Footer />
         </div>
       </div>

@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { formatChange } from "../../../utils/Helpers";
 import { useEffect, Fragment } from "react";
 import { Tooltip } from "bootstrap";
-
+import dayjs from "dayjs";
 const CapitalDividendHistory = ({ data }) => {
   const { t, i18n } = useTranslation();
   const capitalDividendHistoryArray = Array.isArray(data.capitalDividendHistory)
@@ -44,10 +44,10 @@ const CapitalDividendHistory = ({ data }) => {
               <Fragment key={index}>
                 <tr>
                   <td>
-                    {new Date(item.dividendAnnouncedDate).toLocaleDateString()}
+                    {dayjs(item.dividendAnnouncedDate).format("DD/MM/YYYY")}
                   </td>
-                  <td>{new Date(item.dividendDueDate).toLocaleDateString()}</td>
-                  <td>{new Date(item.dividendDate).toLocaleDateString()}</td>
+                  <td>{dayjs(item.dividendDueDate).format("DD/MM/YYYY")}</td>
+                  <td>{dayjs(item.dividendDate).format("DD/MM/YYYY")}</td>
                   <td>{item.cashDividend}</td>
                   <td>{formatChange(item.cashDividendPerShare)}</td>
                   <td

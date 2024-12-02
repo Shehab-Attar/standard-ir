@@ -1,9 +1,9 @@
+import axios from "axios";
 import { useTranslation } from "react-i18next";
-import MoreButton from "../../../../components/MoreButton";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { getToken } from "../../../../services/getToken";
-import axios from "axios";
+import MoreButton from "../../../../components/MoreButton";
 
 const DisclousersWidget = () => {
   const { t, i18n } = useTranslation();

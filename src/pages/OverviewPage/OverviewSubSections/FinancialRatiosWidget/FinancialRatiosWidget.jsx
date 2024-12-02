@@ -13,7 +13,9 @@ const FinancialRatiosWidget = ({ data }) => {
           <tbody>
             {data.financialRatios.fields?.map((field) => (
               <tr key={field.ratioName}>
-                <th>{i18n.language === "ar" ? field.nameAr : field.nameEn}:</th>
+                <th style={{ width: "70%" }}>
+                  {i18n.language === "ar" ? field.nameAr : field.nameEn}:
+                </th>
                 <td
                   style={{
                     color: field.values.value < 0 ? "red" : null,

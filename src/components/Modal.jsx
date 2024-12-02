@@ -1,5 +1,4 @@
 import Chart from "./HighCharts";
-import PieChart from "./PieChart";
 
 // Function to map API response to Chart data format
 const mapDataToChartProps = (data, isUSD, conversionRate) => {
@@ -7,13 +6,7 @@ const mapDataToChartProps = (data, isUSD, conversionRate) => {
   let years = [];
   let values = [];
 
-  if (data.financialHighlights) {
-    // Example for financial highlights
-    years = Object.keys(data.financialHighlights[0]).filter(
-      (key) => !isNaN(key) && key < 2024
-    );
-    values = years.map((year) => data.financialHighlights[0][year]);
-  } else if (data.periodicValues) {
+  if (data.periodicValues) {
     // Example for business segments
     years = data.periodicValues.map((item) => item.forDate);
     values = data.periodicValues.map((item) =>
@@ -25,30 +18,24 @@ const mapDataToChartProps = (data, isUSD, conversionRate) => {
     values = data.values.map((item) =>
       isUSD ? item.value / conversionRate : item.value
     );
-  } else if (data.financialRatioFieldsGroups) {
-    // Example for financial ratios
-    years = data.financialRatioFieldsGroups.map((item) => item.values.year);
-    values = data.financialRatioFieldsGroups.map((item) =>
-      isUSD ? item.values.value / conversionRate : item.values.value
-    );
   }
 
   // Determine the display names based on available fields
   const displayNameEn =
-    data.DisplayNameEn ||
     data.businessSegmentNameEn ||
     data.displayNameEn ||
+    data.DisplayNameEn ||
     data.nameEn ||
     "Default Name En";
   const displayNameAr =
-    data.DisplayNameAr ||
     data.businessSegmentNameAr ||
     data.displayNameAr ||
+    data.DisplayNameAr ||
     data.nameAr ||
     "Default Name Ar";
 
   return {
-    years,
+    years: years,
     values,
     DisplayNameEn: displayNameEn,
     DisplayNameAr: displayNameAr,
@@ -61,8 +48,6 @@ const ModalComponent = ({
   selectedField,
   isUSD,
   conversionRate,
-  showPieChart,
-  pieData,
 }) => {
   const chartData = selectedField
     ? mapDataToChartProps(selectedField, isUSD, conversionRate)
@@ -93,8 +78,7 @@ const ModalComponent = ({
             ></button>
           </div>
           <div className="modal-body">
-            {chartData && !showPieChart && <Chart data={chartData} />}
-            {showPieChart && <PieChart data={pieData} />}
+            {chartData && <Chart data={chartData} />}
           </div>
         </div>
       </div>

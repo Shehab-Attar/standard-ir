@@ -5,16 +5,15 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useTranslation } from "react-i18next";
 import { getToken } from "../../../../../services/getToken.js";
 import { formatChange } from "../../../../../utils/Helpers";
-import {
-  getTodayDate,
-  getDateOneWeekAgo,
-} from "../../../../../utils/Helpers.js";
+import dayjs from "dayjs";
 import "../../../SharePerformancePage.css";
 
 const TrandingDetails = () => {
   const { t } = useTranslation();
-  const [startDate, setStartDate] = useState(new Date(getDateOneWeekAgo()));
-  const [endDate, setEndDate] = useState(new Date(getTodayDate()));
+  const [startDate, setStartDate] = useState(
+    dayjs().subtract(7, "day").toDate()
+  );
+  const [endDate, setEndDate] = useState(dayjs().toDate());
   const [tradingDetailsArray, setTradingDetailsArray] = useState([]);
 
   const fetchTradingDetails = async (fromDate, toDate) => {
@@ -39,16 +38,16 @@ const TrandingDetails = () => {
   };
 
   useEffect(() => {
-    const fromDate = startDate.toISOString().split("T")[0];
-    const toDate = endDate.toISOString().split("T")[0];
+    const fromDate = dayjs(startDate).format("YYYY-MM-DD");
+    const toDate = dayjs(endDate).format("YYYY-MM-DD");
     fetchTradingDetails(fromDate, toDate);
   }, [startDate, endDate]);
 
   const handleStartDateChange = (date) => {
     setStartDate(date);
     if (date && endDate) {
-      const fromDate = date.toISOString().split("T")[0];
-      const toDate = endDate.toISOString().split("T")[0];
+      const fromDate = dayjs(date).format("YYYY-MM-DD");
+      const toDate = dayjs(endDate).format("YYYY-MM-DD");
       fetchTradingDetails(fromDate, toDate);
     }
   };
@@ -56,8 +55,8 @@ const TrandingDetails = () => {
   const handleEndDateChange = (date) => {
     setEndDate(date);
     if (startDate && date) {
-      const fromDate = startDate.toISOString().split("T")[0];
-      const toDate = date.toISOString().split("T")[0];
+      const fromDate = dayjs(startDate).format("YYYY-MM-DD");
+      const toDate = dayjs(date).format("YYYY-MM-DD");
       fetchTradingDetails(fromDate, toDate);
     }
   };
@@ -147,7 +146,7 @@ const TrandingDetails = () => {
             {tradingDetailsArray.length > 0 ? (
               tradingDetailsArray.map((item, index) => (
                 <tr key={index}>
-                  <td>{new Date(item.forDate).toLocaleDateString()}</td>
+                  <td>{dayjs(item.forDate).format("DD/MM/YYYY")}</td>
                   <td style={{ color: item.close > 0 ? "green" : "red" }}>
                     {formatChange(item.close)}
                   </td>
