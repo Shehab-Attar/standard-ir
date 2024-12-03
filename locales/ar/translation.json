@@ -1,0 +1,502 @@
+{
+    
+    "title":{
+    "main": "مجموعة عبدالمحسن الحكير للسياحة والتنمية",
+    "subtitle": "مجموعة الحكير",
+    "more": "المزيد",
+    "loading": "جاري التحميل...",
+    "poweredBy": "بواسطة",
+    "noDataFound": "لا يوجد بيانات"
+    },
+    "ticker": {
+        "lastPrice": "اخر سعر",
+        "high": "الاعلى",
+        "low": "الادنى",
+        "change": "التغير",
+        "change%": "التغير%",
+        "latestNews": "اخر الاخبار",
+        "calendar": "المفكرة"
+    },
+    "sidebar": {
+        "overview": "معلومات الشركة",
+        "profile": "ملف الشركة",
+        "board": "الهيكل التنظيمي",
+        "chart": "تشارت",
+        "share_performance": "أداء السهم",
+        "financial_info": "البيانات المالية",
+        "investors_presentation": "عرض المستثمرين",
+        "disclosures": "الإفصاحات",
+        "corporate_actions": "إجرائات الشركة",
+        "major_shareholders": "كبار المساهمين",
+        "business_segments": "التحليل القطاعي",
+        "projects": "المشاريع",
+        "merges_acq": "الاندماجات والإستحواذات",
+        "estimates": "توصيات المحللين",
+        "contact_ir": "تواصل مع الشركة"
+    },
+
+    
+    "overview": {
+        "market_data": {
+            "title": "أداء السهم",
+            "last_trade": "اخر سعر",
+            "volume": "حجم التداول",
+            "change": "التغيير",
+            "turnover": "قيمة التداول",
+            "change_percent": "التغيير%",
+            "transactions": "عدد الصفقات",
+            "open": "الافتتاح",
+            "market_value": "القيمة السوقية",
+            "low": "الادنى",
+            "avg_volume_3m": "م حجم التداول 3 شهور",
+            "high": "الاعلى",
+            "avg_turnover_3m": "م قيمة التداول 3 شهور",
+            "prev_close": "الاغلاق السابق",
+            "avg_transactions_3m": "م عدد الصفقات 3 شهور",
+            "change_3m": "التغير 3 شهور",
+            "change_12m": "التغيير 12 شهر",
+            "change_6m": "التغيير 6 شهور",
+            "ytd": "التغير من بداية العام"
+        },
+        "financial_ratios": {
+            "title": "المؤشرات المالية"
+        },
+        "events": {
+            "mainTitle": "المفكرة",
+            "date": "تاريخ الحدث",
+            "event": "الحدث",
+            "venue": "موقع الحدث",
+            "details": "التفاصيل",
+            "market": "السوق",
+            "company": "الشركة",
+            "type": "نوع الحدث"
+        },
+        "corporate_actions": {
+            "recent_changes": "التغير في رأس المال",
+            "previous_capital": "رأس المال السابق",
+            "previous_no_of_shares": "عدد الأسهم قبل التغير",
+            "capital_change": "نسبة التغير",
+            "current_capital": "رأس المال بعد التغير",
+            "current_capital_currency": "(مليون)",
+            "current_capital_currency_sar": "(مليون ريال)",
+            "current_no_of_shares": "عدد الأسهم بعد التغير",
+            "type": "النوع",
+            "announcement": "تاريخ الإعلان",
+            "recent_dividends": "أحدث التوزيعات النقدية",
+            "capital": "رأس المال",
+            "shares": "عدد الأسهم",
+            "dividend_percentage": "النسبة من رأس المال",
+            "cash_dividend": "توزيعات أرباح نقدية",
+            "dividend_policy": "سياسة توزيع الأرباح",
+            "dividend_policy_ar": "6 أشهر"
+        },
+        "analyst_recommendations": {
+            "mainTitle": "توصيات المحللين",
+            "date": "التاريخ",
+            "research_firm": "شركة الأبحاث",
+            "rating": "التوصية"
+        },
+        "latest_news": {
+            "mainTitle": "اخر الاخبار"
+        },
+        "earnings": { 
+            "title": "النتائج المالية",
+            "report": "عنوان التقرير",
+            "interim": "مرحلي",
+            "year": "السنة",
+            "fiscalPeriods": {
+                "I1": "3 شهور",
+                "I2": "6 شهور",
+                "I3": "9 شهور",
+                "YEAR": "12 شهر"
+            }
+        },
+        "disclosures": {
+            "mainTitle": "الإفصاحات",
+            "notAvailable": "هذا المقال غير متوفر باللغة العربية"
+        },
+        "analyst_estimates": {
+            "mainTitle": "اراء و توقعات المحللين"
+        },
+        "argaam_reports": {
+            "mainTitle": "تقارير أرقام"
+        },
+        "chartTicker": {
+            "title": "شريط الرسم البياني",
+            "1D": "1 يوم",
+            "5D": "5 أيام",
+            "3M": "3 أشهر",
+            "6M": "6 أشهر",
+            "1Y": "1 سنة",
+            "2Y": "2 سنة",
+            "5Y": "5 سنوات",
+            "View All": "عرض الكل"
+        }
+    },
+    
+    "disclosures": {
+        "latest_news": {
+            "mainTitle": "اخر الاخبار",
+            "date": "التاريخ",
+            "title": "الخبر",
+            "source": "المصدر"
+        },
+        "disc": {
+            "title": "الإفصاح"
+        }
+    },
+
+    "profile": {
+        "info":{
+            "business": "مجال عمل الشركة",
+            "summary": "نبذة موسعة",
+            "basicInfo": "معلومات أساسية",
+            "city": "المدينة",
+            "country": "الدولة",
+            "countryName": "المملكة العربية السعودية",
+            "ownershipType": "نوع الملكية",
+            "jointStock": "مساهمة عامة",
+            "establishDate": "سنة التأسيس",
+            "commercialRegister": "السجل التجاري",
+            "website": "الموقع الإلكتروني",
+            "phone": "الهاتف",
+            "email": "البريد الإلكتروني",
+            "fax": "الفاكس",
+            "poBox": "صندوق البريد",
+            "address": "العنوان"
+        },
+        "financialHighlights": {
+            "titleUSD": "ملخص النتائج المالية (مليون دولار أمريكي)",
+            "titleSAR": "ملخص النتائج المالية (مليون ريال سعودي)",
+            "usd": "دولار أمريكي",
+            "riyal": "ريال",
+            "description": "البيان",
+            "chart": "تشارت"
+        },
+        "tradingData": {
+            "tradingTitle": "بيانات التداول",
+            "market": "سوق التداول",
+            "fiscalYearEnd": "نهاية السنة المالية",
+            "freeFloat": "الأسهم الحرة (مليون)",
+            "freeFloatPercentage": "الأسهم الحرة %",
+            "weightIndex": "وزن الشركة %",
+            "3MAvgVolume": "متوسط حجم التداول (سهم) لآخر 3 أشهر",
+            "3MAvgTransaction": "متوسط عدد الصفقات اليومية - آخر 3 أشهر"
+        },
+        "stockInformation": {
+            "stockTitle": "بيانات السهم",
+            "sharesOutstanding": "عدد الأسهم (مليون)",
+            "parValueUSD": "القيمة الاسمية (دولار أمريكي)",
+            "parValueSAR": "القيمة الاسمية (ريال سعودي)",
+            "bookValueUSD": "القيمة الدفترية للسهم (دولار أمريكي)",
+            "bookValueSAR": "القيمة الدفترية للسهم (ريال سعودي)",
+            "marketValue": "القيمة السوقية (مليون)"
+        },
+        "majorShareholders": {
+            "title": "كبار المساهمين",
+            "name": "اسم المساهم",
+            "shares": "عدد الأسهم (مليون)",
+            "holding": "نسبة الملكية",
+            "founders": "مؤسسي جبل عمر",
+            "macca": "شركة مكه للأنشاء والتعمير"
+        },
+        "subsidiaries": {
+            "title": "الشركات التابعة والزميلة",
+            "company": "الشركة",
+            "country": "الدولة",
+            "percentage": "النسبة"
+        },
+        "milestones": {
+            "title": "التطورات الرئيسية"
+        }
+    },
+    "investorsPresentation": {
+        "date": "تاريخ",
+        "reports": "التقرير",
+        "type": "نوع التقرير",
+        "download": "تحميل"
+    },
+    "mergersAcquisitions": {
+        "date": "التاريخ",
+        "firstParty": "الطرف الاول",
+        "secondParty": "الطرف الثاني",
+        "relatedParties": "أطراف ذات علاقة",
+        "value": "القيمة",
+        "type": "النوع",
+        "status": "الحالة"
+    },
+    "projects": {
+        "date": "التاريخ",
+        "projects": "المشاريع",
+        "country": "الدولة",
+        "status": "حالة المشروع",
+        "start": "تاريخ البدء",
+        "completion": "تاريخ الانتهاء",
+        "NYD": "غير معلن"
+    },
+    "major_shareholders": {
+        "majorShareholders": "المساهمين الرئيسيين",
+        "historicalChanges": "التطورات التاريخية",
+        "shareholders":{
+            "shareholder": "المالك",
+            "type": "النوع",
+            "noOfShares": "عدد الأسهم (مليون)",
+            "holding": "نسبة الملكية",
+            "marketValue": "القيمة السوقية (مليون)",
+            "foreignOwnership": "ملكية الأجانب",
+            "company": "الشركة",
+            "totalForeignOwnership": "ملكيه جميع المستثمرين الأجانب",
+            "limit": "الحد الأعلى",
+            "actual": "الملكية الفعلية"
+        },
+        "historical": {
+            "date": "التاريخ",
+            "shareholder": "المالك",
+            "prevHolding": "نسبة الملكية السابقة",
+            "newHolding": "الملكية الحالية",
+            "change": "التغير",
+            "notes": "ملاحظات",
+            "lessThan5": "أقل من 5 في المئة"
+        }
+    },
+    "corporateActions": {
+        "recentChanges": {
+            "title": "تطور رأس المال",
+            "previousCapital": "رأس المال السابق",
+            "previousNoOfShares": "عدد الأسهم قبل التغير",
+            "capitalChange": "تطور رأس المال",
+            "currentCapital": "رأس المال بعد التغير (مليون ريال)",
+            "currentNoOfShares": "عدد الأسهم بعد التغير (مليون)",
+            "type": "النوع",
+            "announcedDate": "تاريخ الإعلان",
+            "exDividend": "تاريخ الاستحقاق",
+            "paymentDate": "تاريخ التوزيع",
+            "notes": "ملاحظات",
+            "M_Riyal": "(مليون ريال)"
+        },
+        "capitalChange": {
+            "title": "تطور رأس المال",
+            "date": "تاريخ",
+            "type": "النوع",
+            "before": "قبل التغير",
+            "after": "بعد التغير",
+            "change": "معدل التغير",
+            "notes": "ملاحظات",
+            "link": "رابط",
+            "capital": "رأس المال",
+            "shares": "عدد الأسهم",
+            "M_SAR": "(مليون ريال)",
+            "M": "(مليون)"
+        },
+        "recentDividends": {
+            "title": "أحدث التوزيعات النقدية",
+            "capital": "رأس المال",
+            "shares": "عدد الأسهم",
+            "dividend/capital": "النسبة من رأس المال",
+            "cashDividend": "توزيعات أرباح نقدية",
+            "type": "النوع",
+            "announcedDate": "تاريخ الإعلان",
+            "dueDate": "تاريخ الأحقية",
+            "paymentDate": "تاريخ التوزيع",
+            "notes": "ملاحظات",
+            "M_N": "(مليون)"
+        },
+        "capitalDividendHistory": {
+            "title": "التطور التاريخي للتوزيعات النقدية",
+            "announcement": "تاريخ الإعلان",
+            "exDividend": "تاريخ الإستحقاق",
+            "payment": "تاريخ التوزيع",
+            "dividendsRiyal": "إجمالي التوزيعات النقدية (مليون ريال)",
+            "dividends": "التوزيع النقدي",
+            "notes": "ملاحظات"
+        },
+        "historicalDividends": {
+            "title": "تطور التوزيعات النقدية"
+        }
+    },
+    "boardManagement": {
+        "board": "المديرين",
+        "executives": "المديرون التنفيذيون",
+        "salaries": "الرواتب والمكافآت",
+        "highlights": "أبرز المعلومات",
+        "companyName": "الشركة",
+        "title": "المنصب",
+        "startDate": "من",
+        "endDate": "إلى",
+        "salary": {
+            "salaries_title": "الرواتب",
+            "details": "التفاصيل",
+            "members": "الأعضاء",
+            "executives": "المديرون التنفيذيون",
+            "total": "الاجمالي",
+            "bonuses": "المكافآت",
+            "otherRewards": "المكافآت الأخرى",
+            "salaryUnit": "(مليون ريال)"
+        }
+    },
+    "estimates": {
+        "analystEstimates": {
+            "title": "متوسط توقعات المحللين",
+            "details": "التفاصيل",
+            "annual": "سنوي",
+            "quarterly": "ربعي",
+            "currSAR": "ريال",
+            "currUSD": "دولار"
+        },
+        "opinions": {
+            "title": "آراء",
+            "date": "التاريخ",
+            "firm": "شركة الأبحاث",
+            "prevRating": "التقييم الماضي",
+            "rating": "التقييم الحالي",
+            "currPrice": "السعر الحالي",
+            "targetPrice": "السعر المطلوب",
+            "change": "التغيير",
+            "downloads": "المرفقات"
+        }
+    },
+    "businessSegments": {
+        "segmentDistribution": "توزيع القطاعات",
+        "sales": "الايرادات",
+        "fiscalPeriod": "الفترة المالية",
+        "chart": "تشارت",
+        "businessSegments": "قطاعات حسب الأنشطة",
+        "isNetIncome": "الربح الصافي",
+        "totalIncome": "اجمالي الدخل",
+        "totalAssets": "اجمالي الموجودات",
+        "totalLiabilities": "اجمالي المطلوبات"
+    },
+    "financialInformation": {
+        "statements": "القوائم المالية",
+        "ratios": "المؤشرات المالية",
+        "reports": "قائمة التقارير المالية",
+        "financialReports": {
+            "year": "السنة",
+            "Q1": "الربع الاول",
+            "Q2": "الربع الثاني",
+            "Q3": "الربع الثالث",
+            "Q4": "الربع الرابع",
+            "annual": "السنوي",
+            "boardReport": "تقرير مجلس الإدارة"
+        },
+        "financialStatements": {
+            "details": "التفاصيل",
+            "chart": "تشارت"
+        }
+    },
+    "sharePerformance": {
+        "chart": {
+            "title": "الرسم البياني",
+            "tradingDetails": {
+                "title": "تفاصيل التداول",
+                "date": "التاريخ",
+                "price": "السعر",
+                "change": "التغيير",
+                "change%": "التغيير %",
+                "volume": "حجم التداول",
+                "turnover": "قيمة التداول",
+                "open": "الافتتاح",
+                "high": "الأعلى",
+                "low": "الادنى"
+            }
+        },
+        "peers": {
+            "title": "شركات القطاع",
+            "general": {
+                "title": "معلومات عامة",
+                "company": "الشركة",
+                "sector": "قطاع ارقام",
+                "city": "المدينة",
+                "phone": "الهاتف",
+                "fax": "الفاكس",
+                "email": "البريد الإلكتروني",
+                "website": "الموقع الإلكتروني"
+            },
+            "ranking": {
+                "title": "ترتيب الشركات",
+                "rank": "الترتيب",
+                "company": "الشركة",
+                "sector": "قطاع ارقام",
+                "marketCap": "القيمة السوقية (مليون)",
+                "revenue": "الايرادات",
+                "netIncome": "صافي الدخل",
+                "assets": "الاصول",
+                "year": "السنة",
+                "quarter": "ربع سنوي",
+                "interim": "معدل سنويا",
+                "period": "الفترة",
+                "yearly": "سنوي"
+            },
+            "growth": {
+                "title": "النمو",
+                "assets": "الاصول",
+                "netIncome": "صافي الدخل",
+                "revenues": "الايرادات",
+                "bookValue": "القيمة الدفترية"
+            },
+            "marketPerformance": {
+                "title": "اداء الشركة",
+                "month1": "شهر",
+                "month3": "3 أشهر",
+                "month6": "6 أشهر",
+                "month12": "12 شهرا",
+                "ytd": "التغير من بداية السنة",
+                "priceEarnings": "مكرر الأرباح (اخر 12)",
+                "pricePerBook": "مضاعف القيمة الدفترية",
+                "dividendYield": "عائد التوزيع النقدي",
+                "moreThan50": "أكثر من 50",
+                "negative": "سالب"
+            },
+            "perShareData": {
+                "title": "بيانات السهم (ريال)",
+                "company": "الشركة",
+                "bookValue": "القيمة الدفترية",
+                "eps": "العائد على السهم",
+                "cashDividend": "التوزيع النقدي للسهم (ريال)",
+                "dividend": "توزيعات أرباح"
+            },
+            "salariesBenefits": {
+                "title": "المكافئات والمزايا",
+                "company": "الشركة",
+                "board": "مكافئات مجلس الإدارة",
+                "executives": "مكافئات كبار التنفيذيين",
+                "salaries": "الرواتب",
+                "bonus": "المكافآت",
+                "others": "آخرى",
+                "total": "الإجمالي",
+                "year": "السنة"
+            }
+        },
+        "negotiated_deals": {
+            "title": "الصفقات الخاصة",
+            "start": "من",
+            "end": "إلى",
+            "date": "التاريخ",
+            "marketPrice": "سعر السهم",
+            "negotiatedPrice": "سعر الصفقة",
+            "negotiatedMarket": "سعر الصفقة إلى السهم",
+            "volume": "قيمة الصفقة",
+            "value": "كمية الصفقة",
+            "noDataFound": "لا يوجد بيانات"
+        },
+        "investment_calculator": {
+            "title": "حاسبة الاستثمار",
+            "byAmount": "محفوظات سعر السهم",
+            "byShares": "تنزيل سعر السهم",
+            "start-end": "تاريخ البداية والنهاية",
+            "amount": "المبلغ المستثمر",
+            "shares": "عدد الأسهم المستثمرة",
+            "initialInvestment": "الاستثمار الأولي",
+            "endValue": "القيمة النهائية",
+            "result": "اظهار النتائج",
+            "value": "القيمة السوقية",
+            "sharesPrice": "سعر السهم",
+            "sharesBought": "الاسهم المشتراة",
+            "change": "التغير SAR",
+            "changePercentage": "التغير %",
+            "annualizedChange": "معدل سنويا التغير (%)",
+            "cumulative": "التغير التراكمي",
+            "periodic": "التغير الدوري"
+        }
+    }
+}

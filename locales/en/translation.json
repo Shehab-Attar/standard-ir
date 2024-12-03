@@ -1,0 +1,496 @@
+{
+    "title": {
+        "main": "Abdulmohsen Alhokair Group for Tourism and Development",
+        "subtitle": "ALHOKAIR GROUP",
+        "more": "More",
+        "languageMismatch": "The content cannot be loaded in the selected language",
+        "loading": "Loading...",
+        "poweredBy": "Powered By",
+        "noDataFound": "No data found"
+    },
+    "ticker": {
+        "lastPrice": "Last Price",
+        "high": "High",
+        "low": "Low",
+        "change": "Change",
+        "change%": "Change %",
+        "latestNews": "Latest News",
+        "calendar": "Calendar"
+    },
+    "sidebar": {
+        "overview": "Overview",
+        "profile": "Profile",
+        "board": "Board & Management",
+        "chart": "Chart",
+        "share_performance": "Share Performance",
+        "financial_info": "Financial Information",
+        "investors_presentation": "Investors Presentation",
+        "disclosures": "Disclosures",
+        "corporate_actions": "Corporate Actions",
+        "major_shareholders": "Major Shareholders",
+        "business_segments": "Business Segments",
+        "projects": "Projects",
+        "merges_acq": "Merges & Acquisitions",
+        "estimates": "Estimates",
+        "contact_ir": "Contact IR"
+    },
+
+    "overview": {
+        "market_data": {
+            "title": "Market Data",
+            "last_trade": "Last Trade",
+            "volume": "Volume",
+            "change": "Change",
+            "turnover": "Turnover",
+            "change_percent": "Change%",
+            "transactions": "Transactions",
+            "open": "Open",
+            "market_value": "Market Value",
+            "low": "Low",
+            "avg_volume_3m": "Avg Volume 3 M",
+            "high": "High",
+            "avg_turnover_3m": "Avg Turnover 3 M",
+            "prev_close": "Prev. Close",
+            "avg_transactions_3m": "Avg Transactions 3 M",
+            "change_3m": "Change 3 M",
+            "change_12m": "Change 12 M",
+            "change_6m": "Change 6 M",
+            "ytd": "YTD"
+        },
+        "financial_ratios": {
+            "title": "Financial Ratios"
+        },
+        "events": {
+            "mainTitle": "Events",
+            "date": "Date",
+            "event": "Event",
+            "venue": "Venue",
+            "details": "Details",
+            "market": "Market",
+            "company": "Company",
+            "type": "Type"
+        },
+        "corporate_actions": {
+            "recent_changes": "Recent Changes",
+            "previous_capital": "Previous Capital",
+            "previous_no_of_shares": "Previous No. of Shares (M)",
+            "capital_change": "Capital Change",
+            "current_capital": "Current Capital",
+            "current_capital_currency": "(M)",
+            "current_capital_currency_sar": "(M SAR)",
+            "current_capital_currency_riyal": "(Million Riyal)",
+            "current_no_of_shares": "Current No. of Shares (M)",
+            "type": "Type",
+            "announcement": "Announcement",
+            "recent_dividends": "Recent Dividends",
+            "capital": "Capital",
+            "shares": "Shares (mn)",
+            "dividend_percentage": "Dividends/Capital (%)",
+            "cash_dividend": "Cash Dividend",
+            "dividend_policy": "Dividend Policy"
+        },
+        "analyst_recommendations": {
+            "mainTitle": "Analyst Recommendations",
+            "date": "Date",
+            "research_firm": "Research Firm",
+            "rating": "Rating"
+        },
+        "latest_news": {
+            "mainTitle": "Latest News"
+        },
+        "earnings": {
+            "title": "Earnings",
+            "report": "Report",
+            "interim": "Interim",
+            "year": "Year",
+            "fiscalPeriods": {
+                "I1": "3 M",
+                "I2": "6 M",
+                "I3": "9 M",
+                "YEAR": "12 M"
+            }
+        },
+        "disclosures": {
+            "mainTitle": "Disclosures",
+            "notAvailable": "This article is not available in English language"
+        },
+        "analyst_estimates": {
+            "mainTitle": "Analyst Estimates"
+        },
+        "argaam_reports": {
+            "mainTitle": "Argaam Reports"
+        },
+        "chartTicker": {
+            "title": "Chart Ticker",
+            "1D": "1D",
+            "5D": "5D",
+            "3M": "3M",
+            "6M": "6M",
+            "1Y": "1Y",
+            "2Y": "2Y",
+            "5Y": "5Y",
+            "View All": "View All"
+        }
+    },      
+    "disclosures": {
+        "latest_news": {
+            "mainTitle": "Latest News",
+            "date": "Date",
+            "title": "New",
+            "source": "Source"
+        },
+        "disc": {
+            "title": "Disclosures" 
+        }
+    },
+    "profile": {
+        "info": {
+            "business": "Business",
+            "summary": "Summary",
+            "basicInfo": "Basic Information",
+            "city": "City",
+            "country": "Country",
+            "countryName": "Saudi Arabia",
+            "ownershipType": "Ownership Type",
+            "jointStock": "Joint Stock",
+            "establishDate": "Establishment Date",
+            "commercialRegister": "Commercial Register",
+            "website": "Website",
+            "phone": "Phone",
+            "email": "Email",
+            "fax": "Fax",
+            "poBox": "PO Box",
+            "address": "Address"
+        },
+        "financialHighlights": {
+            "titleUSD": "Financials Highlights (M USD)",
+            "titleSAR": "Financials Highlights (M SAR)",
+            "usd": "USD",
+            "riyal": "Riyal",
+            "description": "Description",
+            "chart": "Chart"
+        },
+        "tradingData": {
+            "tradingTitle": "Trading Data",
+            "market": "Stock Market",
+            "fiscalYearEnd": "Fiscal Year End",
+            "freeFloat": "Free Float (M)",
+            "freeFloatPercentage": "Free Float %",
+            "weightIndex": "Weight in Index %",
+            "3MAvgVolume": "3M Avgerage Volume",
+            "3MAvgTransaction": "3M Avgerage Transaction"
+        },
+        "stockInformation": {
+            "stockTitle": "Stock Information",
+            "sharesOutstanding": "Shares Outstanding (M)",
+            "parValueUSD": "Par Value (USD)",
+            "parValueSAR": "Par Value (SAR)",
+            "bookValueUSD": "Book Value (USD)",
+            "bookValueSAR": "Book Value (SAR)",
+            "marketValue": "Market Value (M)"
+        },
+        "majorShareholders": {
+            "title": "Major Shareholders",
+            "name": "Name",
+            "shares": "Number of Shares (M)",
+            "holding": "Holding"
+        },
+        "subsidiaries": {
+            "title": "Subsidiaries & Associates",
+            "company": "Company",
+            "country": "Country",
+            "percentage": "Percentage"
+        },
+        "milestones": {
+            "title": "Milestones"
+        }
+    },
+    "investorsPresentation": {
+        "date": "Date",
+        "reports": "Reports",
+        "type": "Report Type",
+        "download": "Downloads"
+    },
+    "mergersAcquisitions": {
+        "date": "Date",
+        "firstParty": "First Party",
+        "secondParty": "Second Party",
+        "relatedParties": "Related Parties",
+        "value": "Value",
+        "type": "Type",
+        "status": "Status"
+    },
+    "projects": {
+        "date": "Date",
+        "projects": "Projects",
+        "country": "Country",
+        "status": "Status",
+        "start": "Start",
+        "completion": "Completion",
+        "NYD": "NYD"
+    },
+    "major_shareholders": {
+        "majorShareholders": "Major Shareholders",
+        "historicalChanges": "Historical Changes",
+        "shareholders":{
+            "shareholder": "Shareholder",
+            "type": "Type",
+            "noOfShares": "Number of Shares (M)",
+            "holding": "Holding",
+            "marketValue": "Market Value (M)",
+            "foreignOwnership": "Foreign Ownership",
+            "company": "Company",
+            "totalForeignOwnership": "Total Foreign Ownership",
+            "limit": "MAXIMUM LIMIT",
+            "actual": "ACTUAL"
+        },
+        "historical": {
+            "date": "Date",
+            "shareholder": "Shareholder",
+            "prevHolding": "Prev. Holding",
+            "newHolding": "Current Holding",
+            "change": "Change",
+            "notes": "Notes",
+            "lessThan5": "Less Than 5%"
+        }
+    },
+    "corporateActions": {
+        "recentChanges": {
+            "title": "Recent Changes",
+            "previousCapital": "Previous Capital",
+            "previousNoOfShares": "Previous No. of Shares (M)",
+            "capitalChange": "Capital Change",
+            "currentCapital": "Current Capital (M SAR)",
+            "currentNoOfShares": "Current No. of Shares (M)",
+            "type": "Type",
+            "announcedDate": "Announcement",
+            "exDividend": "Ex-Dividend",
+            "paymentDate": "Payment",
+            "notes": "Notes",
+            "M_Riyal": "(Million Riyal)"
+        },
+        "capitalChange": {
+            "title": "Capital Change",
+            "date": "Date",
+            "type": "Type",
+            "before": "Before",
+            "after": "After",
+            "change": "Change",
+            "notes": "Notes",
+            "link": "Link",
+            "capital": "Capital",
+            "shares": "Shares",
+            "M_SAR": "(M SAR)",
+            "M": "(M)"
+        },  
+        "recentDividends": {
+            "title": "Recent Dividends",
+            "capital": "Capital",
+            "shares": "Shares",
+            "dividend/capital": "Dividends/Capital (%)",
+            "cashDividend": "Cash Dividend",
+            "type": "Type",
+            "announcedDate": "Announcement",
+            "dueDate": "Due Date",
+            "paymentDate": "Payment",
+            "notes": "Notes",
+            "M_N": "(mn)"
+        },
+        "capitalDividendHistory": {
+            "title": "Dividend History",
+            "announcement": "Announcement",
+            "exDividend": "Ex-Dividend",
+            "payment": "Payment",
+            "dividendsRiyal": "Dividends (M Riyal)",
+            "dividends": "Dividends",
+            "notes": "Notes"
+        },
+        "historicalDividends": {
+            "title": "Historical Dividends"
+        }
+    },
+    "boardManagement": {
+        "board": "Board & Management",
+        "executives": "Executives",
+        "salaries": "Salaries & Bonuses",
+        "highlights": "Highlights",
+        "companyName": "Company",
+        "title": "Title",
+        "startDate": "From",
+        "endDate": "To",
+        "salary": {
+            "salaries_title": "Salaries",
+            "details": "Details",
+            "members": "Members",
+            "executives": "Executives",
+            "total": "Total",
+            "bonuses": "Bonuses",
+            "otherRewards": "Other Rewards",
+            "salaryUnit": "(Million Riyal)"
+        }
+    },
+    "estimates": {
+        "analystEstimates": {
+            "title": "Analyst Estimates",
+            "details": "Details",
+            "annual": "Annual",
+            "quarterly": "Quarterly",
+            "currSAR": "SAR",
+            "currUSD": "USD"
+        },
+        "opinions": {
+            "title": "Opinions",
+            "date": "Date",
+            "firm": "Research Firm",
+            "prevRating": "Previous Rating",
+            "rating": "Rating",
+            "currPrice": "Current Price",
+            "targetPrice": "Target Price",
+            "change": "Change",
+            "downloads": "Downloads"
+        }
+    },
+    "businessSegments": {
+        "segmentDistribution": "Segment Distribution",
+        "sales": "Sales",
+        "fiscalPeriod": "Fiscal Period",
+        "chart": "Chart",
+        "businessSegments": "Business Segments",
+        "isNetIncome": "IS Net Income",
+        "totalIncome": "Total Income",
+        "totalAssets": "Total Assets",
+        "totalLiabilities": "Total Liabilities"
+    },
+    "financialInformation": {
+        "statements": "Financial Statements",
+        "ratios": "Financial Ratios",
+        "reports": "Financial Reports",
+        "financialReports": {
+            "year": "Year",
+            "Q1": "Q1",
+            "Q2": "Q2",
+            "Q3": "Q3",
+            "Q4": "Q4",
+            "annual": "Annual",
+            "boardReport": "Board Report"
+        },
+        "financialStatements": {
+            "details": "Details",
+            "chart": "Chart"
+        }
+    },
+    "sharePerformance": {
+        "chart": {
+            "title": "Chart",
+            "tradingDetails": {
+                "title": "Trading Details",
+                "date": "Date",
+                "price": "Price",
+                "change": "Change",
+                "change%": "Change %",
+                "volume": "Volume",
+                "turnover": "Turnover",
+                "open": "Open",
+                "high": "High",
+                "low": "Low"
+            }
+        },
+        "peers": {
+            "title": "Peers",
+            "general": {
+                "title": "General",
+                "company": "Company",
+                "sector": "Sector",
+                "city": "City",
+                "phone": "Phone",
+                "fax": "Fax",
+                "email": "Email",
+                "website": "Website"
+            },
+            "ranking": {
+                "title": "Ranking",
+                "company": "Company",
+                "sector": "ِArgaam Sectors",
+                "marketCap": "Market Cap M",
+                "revenue": "Revenues",
+                "netIncome": "Net Income",
+                "assets": "Assets",
+                "year": "Year",
+                "quarter": "Quarter",
+                "interim": "Interim",
+                "period": "Period",
+                "yearly": "Annual"
+            },
+            "growth": {
+                "title": "Growth",
+                "assets": "Assets",
+                "netIncome": "Net Income",
+                "revenues": "Revenues",
+                "bookValue": "Book Value"
+            },
+            "marketPerformance": {
+                "title": "Market Performance",
+                "month1": "Month",
+                "month3": "3 Months",
+                "month6": "6 Months",
+                "month12": "12 Months",
+                "ytd": "YTD",
+                "priceEarnings": "P/E (TTM)",
+                "pricePerBook": "Price/Book",
+                "dividendYield": "Dividend Yield",
+                "moreThan50": "More Than 50",
+                "negative": "NEG"
+            },
+            "perShareData": {
+                "title": "Per Share Data (SAR)",
+                "company": "Company",
+                "bookValue": "Book Value",
+                "eps": "EPS",
+                "cashDividend": "Cash Dividend Per Share (SAR)",
+                "dividend": "Dividends"
+            },
+            "salariesBenefits": {
+                "title": "Salaries & Benefits",
+                "company": "Company",
+                "board": "Board",
+                "executives": "Executives",
+                "salaries": "Salaries",
+                "bonus": "Bonuses",
+                "others": "Others",
+                "total": "Total",
+                "year": "Year"
+            }   
+        },
+        "negotiated_deals": {
+            "title": "Negotiated Deals",
+            "start": "From",
+            "end": "To",
+            "date": "Date",
+            "marketPrice": "Market Price",
+            "negotiatedPrice": "Negotiated Price",
+            "negotiatedMarket": "Negotiated to Market",
+            "volume": "Volume Traded",
+            "value": "Value Traded",
+            "noDataFound": "No Data Found"
+        },
+        "investment_calculator": {
+            "title": "Investment Calculator",
+            "byAmount": "By Amount Invested",
+            "byShares": "By Shares Bought",
+            "start-end": "Start-End Date of Investment",
+            "amount": "Amount Invested",
+            "shares": "Number of Shares Invested",
+            "initialInvestment": "Initial Investment",
+            "endValue": "End Value",
+            "result": "Show Results",
+            "value": "Value",
+            "sharesPrice": "Share Price",
+            "sharesBought": "Shares Bought",
+            "change": "Change SAR",
+            "changePercentage": "Change %",
+            "annualizedChange": "Annualized Change (%)",
+            "cumulative": "Cumulative Change",
+            "periodic": "Periodic Change"
+        }
+    }
+}
