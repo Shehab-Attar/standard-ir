@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { getToken } from "../../services/getToken";
-
+import "./DetailsPagesCSS.css";
 const DisclosureDetailsPage = () => {
   const { id } = useParams();
   const { t, i18n } = useTranslation();
@@ -42,7 +42,7 @@ const DisclosureDetailsPage = () => {
   }
 
   return (
-    <div className="disclosure-details">
+    <div className="details-page">
       <div dangerouslySetInnerHTML={{ __html: foundDisclosure.body }} />
     </div>
   );

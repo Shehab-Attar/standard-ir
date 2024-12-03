@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { getToken } from "../../../../../services/getToken";
-
+import "./DetailsPagesCSS.css";
 const MilestoneDetailsPage = () => {
   const { index } = useParams();
   const { t, i18n } = useTranslation();
@@ -42,7 +42,7 @@ const MilestoneDetailsPage = () => {
   }
 
   return (
-    <div className="milestone-details">
+    <div className="details-page">
       <div
         dangerouslySetInnerHTML={{
           __html:

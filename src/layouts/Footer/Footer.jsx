@@ -45,7 +45,6 @@ const Footer = () => {
         speed={100}
         pauseOnHover={true}
         autoFill={true}
-        loop={0}
         gradient={true}
         gradientWidth={60}
         gradientColor={"#597d79"}
