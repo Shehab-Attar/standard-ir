@@ -13,9 +13,11 @@ import SegmentDistribution from "./BusinessSegmentsSubSections/SegmentDistributi
 import FinancialData from "./BusinessSegmentsSubSections/FinancialData";
 
 const BusinessSegmentsPage = () => {
-  const { t } = useTranslation();
-  const [currency, setCurrency] = useState("SAR");
+  const { t, i18n } = useTranslation();
+  const [currency, setCurrency] = useState(t("businessSegments.currencySAR"));
+  const [pieData, setPieData] = useState([]);
   const [periodType, setPeriodType] = useState("year");
+  const [selectedItem, setSelectedItem] = useState(null);
   const [dropdownValue, setDropdownValue] = useState(
     t("estimates.analystEstimates.annual")
   );
@@ -43,6 +45,22 @@ const BusinessSegmentsPage = () => {
   // == isLoading
   if (isLoading) return <div>{t("title.loading")}</div>;
   // == isLoading
+
+  const handlePieChartClick = () => {
+    // Get the values for the selected date from each business segment
+    const pieData = data.fsFields
+      .find((field) => field.fsFieldID) // Get the current field
+      ?.businessSegments.map((segment) => ({
+        name:
+          i18n.language === "ar"
+            ? segment.businessSegmentNameAr
+            : segment.businessSegmentNameEn,
+        y: segment.periodicValues.find((value) => value.forDate)?.value || 0,
+      }))
+      .filter((item) => item.y !== null && item.y !== 0);
+
+    setPieData(pieData);
+  };
 
   return (
     <div className="container-lg">
@@ -75,17 +93,17 @@ const BusinessSegmentsPage = () => {
 
         <div className="buttons-container">
           <button
-            onClick={() => setCurrency("SAR")}
+            onClick={() => setCurrency(t("businessSegments.currencySAR"))}
             className={`btn rounded CurrBtn ${
-              currency === "SAR" ? "active" : ""
+              currency === t("businessSegments.currencySAR") ? "active" : ""
             }`}
           >
             {t("estimates.analystEstimates.currSAR")}
           </button>
           <button
-            onClick={() => setCurrency("USD")}
+            onClick={() => setCurrency(t("businessSegments.currencyUSD"))}
             className={`btn rounded CurrBtn ${
-              currency === "USD" ? "active" : ""
+              currency === t("businessSegments.currencyUSD") ? "active" : ""
             } ml-2`}
           >
             {t("estimates.analystEstimates.currUSD")}
@@ -97,30 +115,50 @@ const BusinessSegmentsPage = () => {
         currency={currency}
         fieldName="Sales"
         titleKey="businessSegments.sales"
+        selectedItem={selectedItem}
+        onItemClick={setSelectedItem}
+        handlePieChartClick={handlePieChartClick}
+        pieData={pieData}
       />
       <FinancialData
         data={data}
         currency={currency}
         fieldName="Total Income"
         titleKey="businessSegments.totalIncome"
+        selectedItem={selectedItem}
+        onItemClick={setSelectedItem}
+        handlePieChartClick={handlePieChartClick}
+        pieData={pieData}
       />
       <FinancialData
         data={data}
         currency={currency}
         fieldName="IS Net Income"
         titleKey="businessSegments.isNetIncome"
+        selectedItem={selectedItem}
+        onItemClick={setSelectedItem}
+        handlePieChartClick={handlePieChartClick}
+        pieData={pieData}
       />
       <FinancialData
         data={data}
         currency={currency}
         fieldName="Total Assets"
         titleKey="businessSegments.totalAssets"
+        selectedItem={selectedItem}
+        onItemClick={setSelectedItem}
+        handlePieChartClick={handlePieChartClick}
+        pieData={pieData}
       />
       <FinancialData
         data={data}
         currency={currency}
         fieldName="Total Liabilities"
         titleKey="businessSegments.totalLiabilities"
+        selectedItem={selectedItem}
+        onItemClick={setSelectedItem}
+        handlePieChartClick={handlePieChartClick}
+        pieData={pieData}
       />
     </div>
   );

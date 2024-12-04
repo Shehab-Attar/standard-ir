@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getToken } from "../../../../services/getToken";
 import MoreButton from "../../../../components/MoreButton";
 import "./LatestNewsWidget.css";
-
+import dayjs from "dayjs";
 const LatestNewsWidget = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
@@ -55,7 +55,9 @@ const LatestNewsWidget = () => {
                   {article.articleSourceName}
                 </span>
                 <span className="mx-2">
-                  {article.publishedOn.split(" ")[0]}
+                  {dayjs(article.publishedOn, "DD-MM-YYYY").format(
+                    "DD-MM-YYYY"
+                  )}
                 </span>
               </p>
             </div>

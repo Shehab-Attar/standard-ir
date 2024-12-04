@@ -7,24 +7,23 @@ import { useTranslation } from "react-i18next";
 import { useQuery } from "@tanstack/react-query";
 import { getToken } from "../../../services/getToken";
 import { formatChange } from "../../../utils/Helpers";
-import ModalComponent from "../../../components/Modal";
 import "../FinancialInformationPage.css";
+import HighchartsReact from "highcharts-react-official";
+import Highcharts from "highcharts";
+import dayjs from "dayjs";
 
 const FinancialRatios = () => {
   const { t, i18n } = useTranslation();
-  const [modal, setModal] = useState(false);
-  const [selectedField, setSelectedField] = useState(null);
+  const [theItem, setTheItem] = useState(null);
   const [currency, setCurrency] = useState("SAR");
   const [periodType, setPeriodType] = useState("year");
   const [dropdownValue, setDropdownValue] = useState(
     t("estimates.analystEstimates.annual")
   );
 
-  const toggleModal = (item) => {
-    setSelectedField(item);
-    setModal(true);
+  const handleItemClick = (item) => {
+    setTheItem(item);
   };
-  const closeModal = () => setModal(false);
 
   const conversionRate = 3.751; // Conversion rate from SAR to USD
 
@@ -49,6 +48,62 @@ const FinancialRatios = () => {
   });
 
   if (isLoading) return <div>{t("title.loading")}</div>;
+
+  const options = {
+    chart: {
+      type: "column",
+    },
+    title: {
+      text: null,
+    },
+    xAxis: {
+      title: {
+        text: null,
+      },
+      categories:
+        data.financialRatioFieldsGroups[0].financialRatioFieldsGroupFields[0]
+          .values[0].fiscalPeriodType === "Yearly"
+          ? data.financialRatioFieldsGroups[0].financialRatioFieldsGroupFields[0].values
+              .slice(0, 5)
+              .map((value) => value.year)
+          : data.financialRatioFieldsGroups[0].financialRatioFieldsGroupFields[0].values
+              .slice(0, 5)
+              .map((value) =>
+                dayjs(value.period, "DD/MM/YY").format("DD/MM/YY")
+              ) || [],
+    },
+    yAxis: {
+      title: {
+        text: null,
+      },
+    },
+    tooltip: {
+      enabled: true,
+      formatter: function () {
+        return `<b>${this.series.name}</b>: ${Highcharts.numberFormat(
+          this.y,
+          2,
+          ".",
+          ","
+        )}`;
+      },
+    },
+    series: [
+      {
+        name: i18n.language === "ar" ? theItem?.nameAr : theItem?.nameEn,
+        data:
+          theItem?.values.slice(0, 5).map((value) => parseFloat(value.value)) ||
+          [],
+        color: "#175754",
+      },
+    ],
+    legend: {
+      enabled: true,
+    },
+    credits: {
+      enabled: false,
+    },
+  };
 
   return (
     <>
@@ -162,7 +217,15 @@ const FinancialRatios = () => {
                               <button
                                 type="button"
                                 className="btn btn-light"
-                                onClick={() => toggleModal(field)}
+                                data-bs-toggle="modal"
+                                data-bs-target="#financialModal"
+                                onClick={() => handleItemClick(field)}
+                                disabled={field.values
+                                  .slice(0, 5)
+                                  .every(
+                                    (value) =>
+                                      value.value === null || isNaN(value.value)
+                                  )}
                               >
                                 <svg
                                   stroke="currentColor"
@@ -213,12 +276,33 @@ const FinancialRatios = () => {
           ))}
         </div>
       </div>
-      <ModalComponent
-        isVisible={modal}
-        closeModal={closeModal}
-        selectedField={selectedField}
-        conversionRate={conversionRate}
-      />
+
+      {/*Modal */}
+      <div
+        className="modal fade"
+        id="financialModal"
+        tabIndex="-1"
+        aria-labelledby="financialModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header d-flex justify-content-end">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                X
+              </button>
+            </div>
+            <div className="modal-body">
+              <HighchartsReact highcharts={Highcharts} options={options} />
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* End Modal */}
     </>
   );
 };

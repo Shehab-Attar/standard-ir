@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getToken } from "../../../services/getToken";
 import { useNavigate } from "react-router-dom";
 import "../DisclosuresPage.css";
+import dayjs from "dayjs";
 const DisclousersPageLatestNewsSubLink = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
@@ -46,7 +47,10 @@ const DisclousersPageLatestNewsSubLink = () => {
             <tbody>
               {data?.map((item, idx) => (
                 <tr key={idx}>
-                  <td>{item.publishedOn.split(" ")[0]}</td>
+                  {/* <td>{item.publishedOn.split(" ")[0]}</td> */}
+                  <td>
+                    {dayjs(item.publishedOn, "DD/MM/YYYY").format("DD/MM/YYYY")}
+                  </td>
                   <td style={{ minWidth: "650px", cursor: "pointer" }}>
                     <span
                       onClick={() =>

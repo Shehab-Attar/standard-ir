@@ -9,7 +9,7 @@ const LatestNewsDetailsPage = () => {
   const { t, i18n } = useTranslation();
 
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["latestNews", id, i18n.language],
+    queryKey: ["latestNews", i18n.language],
     queryFn: async () => {
       const token = await getToken();
       if (!token) {

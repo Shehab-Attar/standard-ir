@@ -9,7 +9,7 @@ const ArgaamReportsDetailsPage = () => {
   const { t, i18n } = useTranslation();
 
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["argaamReports", id, i18n.language],
+    queryKey: ["argaamReports", i18n.language],
     queryFn: async () => {
       const token = await getToken();
       if (!token) {

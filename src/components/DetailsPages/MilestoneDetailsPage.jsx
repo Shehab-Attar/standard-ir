@@ -2,14 +2,14 @@ import axios from "axios";
 import { useTranslation } from "react-i18next";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
-import { getToken } from "../../../../../services/getToken";
+import { getToken } from "../../services/getToken";
 import "./DetailsPagesCSS.css";
 const MilestoneDetailsPage = () => {
-  const { index } = useParams();
+  const { id } = useParams();
   const { t, i18n } = useTranslation();
 
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["milestone", index, i18n.language],
+    queryKey: ["milestone", i18n.language],
     queryFn: async () => {
       const token = await getToken();
       if (!token) {
@@ -27,7 +27,8 @@ const MilestoneDetailsPage = () => {
       return res.data;
     },
   });
-  const foundMilestone = data?.milestones[parseInt(index)];
+
+  const foundMilestone = data?.milestones[parseInt(id)];
 
   if (isLoading) {
     return <div>{t("title.loading")}</div>;

@@ -9,7 +9,7 @@ const AnalystEstimatesDetailsPage = () => {
   const { t, i18n } = useTranslation();
 
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["estimates", id, i18n.language],
+    queryKey: ["estimates", i18n.language],
     queryFn: async () => {
       const token = await getToken();
       if (!token) {

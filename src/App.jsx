@@ -26,6 +26,7 @@ import LatestNewsDetailsPage from "./components/DetailsPages/LatestNewsDetailsPa
 import ArgaamReportsDetailsPage from "./components/DetailsPages/ArgaamReportsDetailsPage";
 import AnalystEstimatesDetailsPage from "./components/DetailsPages/AnalystEstimatesDetailsPage";
 import BoardDetailsPage from "./components/DetailsPages/BoardDetailsPage";
+import MilestoneDetailsPage from "./components/DetailsPages/MilestoneDetailsPage";
 // Disclosures Sub Links
 import DisclousersPageLatestNewsSubLink from "./pages/DisclosuresPage/DisclousersPageSubLinks/DisclousersPageLatestNewsSubLink";
 import DisclousersPageDisclosuresSubLink from "./pages/DisclosuresPage/DisclousersPageSubLinks/DisclousersPageDisclosuresSubLink";
@@ -192,6 +193,10 @@ function App() {
                 <Route
                   path={`/${i18n.language}/board-management/:id`}
                   element={<BoardDetailsPage />}
+                />
+                <Route
+                  path={`/${i18n.language}/milestones/:id`}
+                  element={<MilestoneDetailsPage />}
                 />
                 {/* End Details Pages */}
                 <Route path="*" element={<div>Not Found</div>} />

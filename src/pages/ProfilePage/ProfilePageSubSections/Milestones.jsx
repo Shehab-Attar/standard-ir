@@ -27,7 +27,6 @@ const Milestones = ({ data }) => {
                 <td
                   onClick={() => {
                     if (item.bodyEn || item.bodyAr) {
-                      console.log("Navigating to milestone with ID:", index);
                       navigate(`/${i18n.language}/milestones/${index}`);
                     }
                   }}

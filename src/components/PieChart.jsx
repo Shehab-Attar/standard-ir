@@ -1,8 +1,8 @@
-import { useTranslation } from "react-i18next";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-
+import { useTranslation } from "react-i18next";
 const PieChart = ({ pieData }) => {
+  const { i18n } = useTranslation();
   const options = {
     chart: {
       type: "pie",
@@ -21,7 +21,7 @@ const PieChart = ({ pieData }) => {
           enabled: true,
           format: "<b>{point.name}</b>: {point.percentage:.1f} %",
           style: {
-            fontSize: "14px", // Adjust text size
+            fontSize: "12px",
             fontWeight: "bold",
           },
         },
@@ -30,8 +30,9 @@ const PieChart = ({ pieData }) => {
     },
     series: [
       {
+        name: i18n.language === "ar" ? "النسبة" : "Share",
         colorByPoint: true,
-        data: pieData || [], // Ensure data is an array
+        data: pieData,
       },
     ],
     credits: {

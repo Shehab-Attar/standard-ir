@@ -5,24 +5,22 @@ import { useTranslation } from "react-i18next";
 import { useQuery } from "@tanstack/react-query";
 import { getToken } from "../../../services/getToken";
 import { formatChange } from "../../../utils/Helpers";
-import ModalComponent from "../../../components/Modal";
 import "../FinancialInformationPage.css";
+import HighchartsReact from "highcharts-react-official";
+import Highcharts from "highcharts";
 
 const FinancialStatements = () => {
   const { t, i18n } = useTranslation();
-  const [modal, setModal] = useState(false);
-  const [selectedField, setSelectedField] = useState(null);
   const [currency, setCurrency] = useState("SAR");
+  const [theItem, setTheItem] = useState(null);
   const [periodType, setPeriodType] = useState("year");
   const [dropdownValue, setDropdownValue] = useState(
     t("estimates.analystEstimates.annual")
   );
 
-  const toggleModal = (item) => {
-    setSelectedField(item);
-    setModal(true);
+  const handleItemClick = (item) => {
+    setTheItem(item);
   };
-  const closeModal = () => setModal(false);
 
   const conversionRate = 3.751; // Conversion rate from SAR to USD
 
@@ -47,6 +45,56 @@ const FinancialStatements = () => {
   });
 
   if (isLoading) return <div>{t("title.loading")}</div>;
+
+  const options = {
+    chart: {
+      type: "column",
+    },
+    title: {
+      text: null,
+    },
+    xAxis: {
+      title: {
+        text: null,
+      },
+      categories:
+        theItem?.values.slice(0, 5).map((value) => value.fiscalPeriod) || [],
+    },
+    yAxis: {
+      title: {
+        text: null,
+      },
+    },
+    tooltip: {
+      enabled: true,
+      formatter: function () {
+        return `<b>${this.series.name}</b>: ${Highcharts.numberFormat(
+          this.y,
+          2,
+          ".",
+          ","
+        )}`;
+      },
+    },
+    series: [
+      {
+        name:
+          i18n.language === "ar"
+            ? theItem?.displayNameAr
+            : theItem?.displayNameEn,
+        data:
+          theItem?.values.slice(0, 5).map((value) => parseFloat(value.value)) ||
+          [],
+        color: "#175754",
+      },
+    ],
+    legend: {
+      enabled: true,
+    },
+    credits: {
+      enabled: false,
+    },
+  };
 
   return (
     <>
@@ -99,118 +147,156 @@ const FinancialStatements = () => {
             </Dropdown.Menu>
           </Dropdown>
         </div>
-
-        <table className="table">
-          <thead className="table-light">
-            <tr className="details-tr">
-              <th className="details-th p-1 px-4">
-                {t("financialInformation.financialStatements.details")}
-              </th>
-              <th className="p-1 px-4">
-                {t("financialInformation.financialStatements.chart")}
-              </th>
-              {data.tabs[0].fields[0].values.slice(0, 5).map((value, index) => (
-                <th key={index} className="px-5 py-1">
-                  {periodType === "year" ? value.forYear : value.fiscalPeriod}
+        <div>
+          <table className="table">
+            <thead className="table-light">
+              <tr className="details-tr">
+                <th className="details-th p-1 px-4">
+                  {t("financialInformation.financialStatements.details")}
                 </th>
-              ))}
-            </tr>
-          </thead>
-        </table>
+                <th className="p-1 px-4">
+                  {t("financialInformation.financialStatements.chart")}
+                </th>
+                {data.tabs[0].fields[0].values
+                  .slice(0, 5)
+                  .map((value, index) => (
+                    <th key={index} className="px-5 py-1">
+                      {periodType === "year"
+                        ? value.forYear
+                        : value.fiscalPeriod}
+                    </th>
+                  ))}
+              </tr>
+            </thead>
+          </table>
 
-        <div className="accordion mt-2" id="accordionExample">
-          {data.tabs.map((tab, tabIndex) => (
-            <div className="accordion-item" key={tabIndex}>
-              <h2 className="accordion-header" id={`flush-heading${tabIndex}`}>
-                <button
-                  className={`accordion-button ${
-                    i18n.language === "ar" ? "accordion-button-ar" : ""
-                  } acc-title`}
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target={`#flush-collapse${tabIndex}`}
-                  aria-expanded="true"
-                  aria-controls={`flush-collapse${tabIndex}`}
+          <div className="accordion mt-2" id="accordionExample">
+            {data.tabs.map((tab, tabIndex) => (
+              <div className="accordion-item" key={tabIndex}>
+                <h2
+                  className="accordion-header"
+                  id={`flush-heading${tabIndex}`}
                 >
-                  {i18n.language === "en" ? tab.tabNameEn : tab.tabNameAr}
-                </button>
-              </h2>
-              <div
-                id={`flush-collapse${tabIndex}`}
-                className={`accordion-collapse collapse ${
-                  tabIndex === 0 ? "show" : ""
-                }`}
-                aria-labelledby={`flush-heading${tabIndex}`}
-                data-bs-parent="#accordionExample"
-              >
-                <div className="accordion-body">
-                  <table className="table">
-                    <tbody>
-                      {tab.fields.map((field, fieldIndex) => (
-                        <tr key={fieldIndex}>
-                          <td className="details-td">
-                            {i18n.language === "en"
-                              ? field.displayNameEn
-                              : field.displayNameAr}
-                          </td>
-                          <td>
-                            <button
-                              type="button"
-                              className="btn btn-light"
-                              onClick={() => toggleModal(field)}
-                            >
-                              <svg
-                                stroke="currentColor"
-                                fill="currentColor"
-                                strokeWidth="0"
-                                viewBox="0 0 16 16"
-                                type="button"
-                                className="icons-color"
-                                height="0.8em"
-                                width="0.8em"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2z"></path>
-                              </svg>
-                            </button>
-                          </td>
-                          {field.values.slice(0, 5).map((value, valueIndex) => (
-                            <td
-                              key={valueIndex}
-                              style={{
-                                color:
-                                  value.value === null || value.value === 0
-                                    ? null
-                                    : value.value < 0
-                                    ? "red"
-                                    : "green",
-                              }}
-                            >
-                              {value.value === null
-                                ? "-"
-                                : formatChange(
-                                    currency === "USD"
-                                      ? value.value / conversionRate
-                                      : value.value
-                                  )}
+                  <button
+                    className={`accordion-button ${
+                      i18n.language === "ar" ? "accordion-button-ar" : ""
+                    } acc-title`}
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target={`#flush-collapse${tabIndex}`}
+                    aria-expanded="true"
+                    aria-controls={`flush-collapse${tabIndex}`}
+                  >
+                    {i18n.language === "en" ? tab.tabNameEn : tab.tabNameAr}
+                  </button>
+                </h2>
+                <div
+                  id={`flush-collapse${tabIndex}`}
+                  className={`accordion-collapse collapse ${
+                    tabIndex === 0 ? "show" : ""
+                  }`}
+                  aria-labelledby={`flush-heading${tabIndex}`}
+                  data-bs-parent="#accordionExample"
+                >
+                  <div className="accordion-body">
+                    <table className="table">
+                      <tbody>
+                        {tab.fields.map((field, fieldIndex) => (
+                          <tr key={fieldIndex}>
+                            <td className="details-td">
+                              {i18n.language === "en"
+                                ? field.displayNameEn
+                                : field.displayNameAr}
                             </td>
-                          ))}
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                            <td>
+                              <button
+                                type="button"
+                                className="btn btn-light"
+                                data-bs-toggle="modal"
+                                data-bs-target="#financialModal"
+                                onClick={() => handleItemClick(field)}
+                                disabled={field.values
+                                  .slice(0, 5)
+                                  .every(
+                                    (value) =>
+                                      value.value === null || isNaN(value.value)
+                                  )}
+                              >
+                                <svg
+                                  stroke="currentColor"
+                                  fill="currentColor"
+                                  strokeWidth="0"
+                                  viewBox="0 0 16 16"
+                                  type="button"
+                                  className="icons-color"
+                                  height="0.8em"
+                                  width="0.8em"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2z"></path>
+                                </svg>
+                              </button>
+                            </td>
+                            {field.values
+                              .slice(0, 5)
+                              .map((value, valueIndex) => (
+                                <td
+                                  key={valueIndex}
+                                  style={{
+                                    color:
+                                      value.value === null || value.value === 0
+                                        ? null
+                                        : value.value < 0
+                                        ? "red"
+                                        : "green",
+                                  }}
+                                >
+                                  {value.value === null
+                                    ? "-"
+                                    : formatChange(
+                                        currency === "USD"
+                                          ? value.value / conversionRate
+                                          : value.value
+                                      )}
+                                </td>
+                              ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-      <ModalComponent
-        isVisible={modal}
-        closeModal={closeModal}
-        selectedField={selectedField}
-        conversionRate={conversionRate}
-      />
+      {/*Modal */}
+      <div
+        className="modal fade"
+        id="financialModal"
+        tabIndex="-1"
+        aria-labelledby="financialModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header d-flex justify-content-end">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                X
+              </button>
+            </div>
+            <div className="modal-body">
+              <HighchartsReact highcharts={Highcharts} options={options} />
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* End Modal */}
     </>
   );
 };

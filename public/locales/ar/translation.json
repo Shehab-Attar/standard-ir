@@ -364,7 +364,9 @@
         "isNetIncome": "الربح الصافي",
         "totalIncome": "اجمالي الدخل",
         "totalAssets": "اجمالي الموجودات",
-        "totalLiabilities": "اجمالي المطلوبات"
+        "totalLiabilities": "اجمالي المطلوبات",
+        "currencySAR": "ريال سعودي",
+        "currencyUSD": "دولار أمريكي"
     },
     "financialInformation": {
         "statements": "القوائم المالية",

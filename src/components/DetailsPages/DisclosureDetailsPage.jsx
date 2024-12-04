@@ -9,7 +9,7 @@ const DisclosureDetailsPage = () => {
   const { t, i18n } = useTranslation();
 
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["disclosure", id, i18n.language],
+    queryKey: ["disclosure", i18n.language],
     queryFn: async () => {
       const token = await getToken();
       if (!token) {

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { getToken } from "../../../../services/getToken";
 import MoreButton from "../../../../components/MoreButton";
-
+import dayjs from "dayjs";
 const DisclousersWidget = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
@@ -59,7 +59,9 @@ const DisclousersWidget = () => {
                   <span className="text-secondary">
                     {elm.articleSourceName}
                   </span>
-                  <span className="mx-2">{elm.publishedOn.split(" ")[0]}</span>
+                  <span className="mx-2">
+                    {dayjs(elm.publishedOn, "DD-MM-YYYY").format("DD-MM-YYYY")}
+                  </span>
                 </p>
               </div>
             );

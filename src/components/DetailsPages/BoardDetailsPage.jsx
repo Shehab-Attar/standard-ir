@@ -9,7 +9,7 @@ const BoardDetailsPage = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["board", id, i18n.language],
+    queryKey: ["board"],
     queryFn: async () => {
       const token = await getToken();
       if (!token) {

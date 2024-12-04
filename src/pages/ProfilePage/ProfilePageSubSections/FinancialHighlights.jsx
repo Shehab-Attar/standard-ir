@@ -1,27 +1,78 @@
-import { useTranslation } from "react-i18next";
-import "../ProfilePage.css";
-import { formatChange } from "../../../utils/Helpers";
 import { useState } from "react";
-import ModalComponent from "../../../components/Modal";
+import { useTranslation } from "react-i18next";
+import { formatChange } from "../../../utils/Helpers";
+import "../ProfilePage.css";
+import HighchartsReact from "highcharts-react-official";
+import Highcharts from "highcharts";
 
 const FinancialHighlights = ({ data }) => {
   const { t, i18n } = useTranslation();
-  const [modal, setModal] = useState(false);
-  const [selectedField, setSelectedField] = useState(null);
   const [isUSD, setIsUSD] = useState(false);
+  const [theItem, setTheItem] = useState(null);
 
-  const toggleModal = (item) => {
-    setSelectedField(item);
-    setModal(true);
-  };
-  const closeModal = () => setModal(false);
-
+  const conversionRate = 3.751;
   // Extract and sort the years from the data object
   const years = Object.keys(data.financialHighlights[0])
+    .slice(0, 5)
     .filter((key) => !isNaN(key))
     .sort((a, b) => b - a);
 
-  const conversionRate = 3.751;
+  const values = theItem
+    ? years.map((year) =>
+        isUSD ? theItem[year] / conversionRate : theItem[year]
+      )
+    : [];
+
+  const handleItemClick = (item) => {
+    setTheItem(item);
+  };
+
+  const options = {
+    chart: {
+      type: "column",
+    },
+    title: {
+      text: null,
+    },
+    xAxis: {
+      title: {
+        text: null,
+      },
+      categories: years,
+    },
+    yAxis: {
+      title: {
+        text: null,
+      },
+    },
+    tooltip: {
+      enabled: true,
+      formatter: function () {
+        return `<b>${this.series.name}</b>: ${Highcharts.numberFormat(
+          this.y,
+          2,
+          ".",
+          ","
+        )}`;
+      },
+    },
+    series: [
+      {
+        name:
+          i18n.language === "ar"
+            ? theItem?.DisplayNameAr
+            : theItem?.DisplayNameEn,
+        data: values,
+        color: "#175754",
+      },
+    ],
+    legend: {
+      enabled: true,
+    },
+    credits: {
+      enabled: false,
+    },
+  };
 
   return (
     <>
@@ -74,7 +125,9 @@ const FinancialHighlights = ({ data }) => {
                       <button
                         type="button"
                         className="btn btn-light"
-                        onClick={() => toggleModal(item)}
+                        data-bs-toggle="modal"
+                        data-bs-target="#financialModal"
+                        onClick={() => handleItemClick(item)}
                       >
                         <svg
                           stroke="currentColor"
@@ -110,13 +163,32 @@ const FinancialHighlights = ({ data }) => {
           </div>
         </div>
       </div>
-      <ModalComponent
-        isVisible={modal}
-        closeModal={closeModal}
-        selectedField={selectedField}
-        isUSD={isUSD}
-        conversionRate={conversionRate}
-      />
+      {/*Modal */}
+      <div
+        className="modal fade"
+        id="financialModal"
+        tabIndex="-1"
+        aria-labelledby="financialModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header d-flex justify-content-end">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                X
+              </button>
+            </div>
+            <div className="modal-body">
+              <HighchartsReact highcharts={Highcharts} options={options} />
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* End Modal */}
     </>
   );
 };

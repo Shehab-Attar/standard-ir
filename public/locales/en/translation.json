@@ -359,7 +359,9 @@
         "isNetIncome": "IS Net Income",
         "totalIncome": "Total Income",
         "totalAssets": "Total Assets",
-        "totalLiabilities": "Total Liabilities"
+        "totalLiabilities": "Total Liabilities",
+        "currencySAR": "SAR",
+        "currencyUSD": "USD"
     },
     "financialInformation": {
         "statements": "Financial Statements",

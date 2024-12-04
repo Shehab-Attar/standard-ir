@@ -37,7 +37,6 @@ const ChartTickerWidget = () => {
       );
       return res.data;
     },
-    enabled: !!period,
   });
 
   const handlePeriodChange = (time) => {
