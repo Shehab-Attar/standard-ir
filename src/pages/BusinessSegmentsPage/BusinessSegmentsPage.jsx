@@ -46,16 +46,16 @@ const BusinessSegmentsPage = () => {
   if (isLoading) return <div>{t("title.loading")}</div>;
   // == isLoading
 
-  const handlePieChartClick = () => {
-    // Get the values for the selected date from each business segment
-    const pieData = data.fsFields
-      .find((field) => field.fsFieldID) // Get the current field
-      ?.businessSegments.map((segment) => ({
+  const handlePieChartClick = (date, fieldData) => {
+    const pieData = fieldData.businessSegments
+      .map((segment) => ({
         name:
           i18n.language === "ar"
             ? segment.businessSegmentNameAr
             : segment.businessSegmentNameEn,
-        y: segment.periodicValues.find((value) => value.forDate)?.value || 0,
+        y:
+          segment.periodicValues.find((value) => value.forDate === date)
+            ?.value || 0,
       }))
       .filter((item) => item.y !== null && item.y !== 0);
 

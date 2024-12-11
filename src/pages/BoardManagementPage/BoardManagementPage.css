@@ -48,3 +48,18 @@
   border-top: 20px solid #6ca19f;
   transform: translate(-50%);
 }
+
+@media (max-width: 575px) {
+  .bod-title {
+    font-size: 12px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .row.d-flex.flex-wrap {
+    flex-direction: column;
+  }
+  .col-6.my-4 {
+    width: 100%;
+  }
+}

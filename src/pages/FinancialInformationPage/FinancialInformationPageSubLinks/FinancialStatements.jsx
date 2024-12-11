@@ -22,7 +22,7 @@ const FinancialStatements = () => {
     setTheItem(item);
   };
 
-  const conversionRate = 3.751; // Conversion rate from SAR to USD
+  const conversionRate = 3.751; // Conversion rate from SAR to USDs
 
   const { data, isLoading } = useQuery({
     queryKey: ["FinantialStatements", periodType],

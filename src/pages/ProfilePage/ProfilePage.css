@@ -18,3 +18,14 @@
   border: 1px solid #175754;
 }
 
+@media (max-width: 511px) {
+  .buttons-container {
+    width: 27vw !important;
+    padding: 0px 10px 0px 0px !important;
+  }
+  .CurrBtn {
+    font-size: 10px !important;
+  }
+}
+
+

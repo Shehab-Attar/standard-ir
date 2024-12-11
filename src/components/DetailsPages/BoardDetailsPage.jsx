@@ -3,6 +3,8 @@ import { useTranslation } from "react-i18next";
 import { useQuery } from "@tanstack/react-query";
 import { useParams, useNavigate } from "react-router-dom";
 import { getToken } from "../../services/getToken";
+import SimpleBar from "simplebar-react";
+import "simplebar/dist/simplebar.css";
 
 const BoardDetailsPage = () => {
   const { id } = useParams();
@@ -92,36 +94,38 @@ const BoardDetailsPage = () => {
         />
       </div>
       <hr />
-      <div className="container table-responsive">
-        <table className="table table-hover">
-          <thead>
-            <tr>
-              <th>{t("boardManagement.companyName")}</th>
-              <th>{t("boardManagement.title")}</th>
-              <th>{t("boardManagement.startDate")}</th>
-              <th>{t("boardManagement.endDate")}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {foundBoardMember.positionHistory.map((item, index) => (
-              <tr key={index}>
-                <td>
-                  {i18n.language === "ar"
-                    ? item.companyNameAr
-                    : item.companyNameEn}
-                </td>
-                <td>
-                  {i18n.language === "ar"
-                    ? item.positionNameAr
-                    : item.positionNameEn}
-                </td>
-                <td>{item.startedOn ? item.startedOn : "-"}</td>
-                <td>{item.endedOn ? item.endedOn : "-"}</td>
+      <SimpleBar style={{ maxHeight: "400px", overflowX: "auto" }}>
+        <div className="container table-responsive">
+          <table className="table table-hover">
+            <thead>
+              <tr>
+                <th>{t("boardManagement.companyName")}</th>
+                <th>{t("boardManagement.title")}</th>
+                <th>{t("boardManagement.startDate")}</th>
+                <th>{t("boardManagement.endDate")}</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody>
+              {foundBoardMember.positionHistory.map((item, index) => (
+                <tr key={index} style={{ whiteSpace: "nowrap" }}>
+                  <td>
+                    {i18n.language === "ar"
+                      ? item.companyNameAr
+                      : item.companyNameEn}
+                  </td>
+                  <td>
+                    {i18n.language === "ar"
+                      ? item.positionNameAr
+                      : item.positionNameEn}
+                  </td>
+                  <td>{item.startedOn ? item.startedOn : "-"}</td>
+                  <td>{item.endedOn ? item.endedOn : "-"}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </SimpleBar>
     </div>
   );
 };

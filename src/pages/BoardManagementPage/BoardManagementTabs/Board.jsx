@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
@@ -6,6 +6,7 @@ const Board = ({ data }) => {
   const { i18n } = useTranslation();
   const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [itemsToShow, setItemsToShow] = useState(4);
 
   const boardDataArray = Array.isArray(data.individuals)
     ? data.individuals
@@ -15,15 +16,36 @@ const Board = ({ data }) => {
     .slice(1, boardDataArray.length)
     .filter((item) => item.companyPositionTypeNameEn === "Board Member");
 
+  useEffect(() => {
+    const updateItemsToShow = () => {
+      if (window.innerWidth < 400) {
+        setItemsToShow(1);
+      } else if (window.innerWidth < 650) {
+        setItemsToShow(2);
+      } else if (window.innerWidth < 1110) {
+        setItemsToShow(3);
+      } else {
+        setItemsToShow(4);
+      }
+    };
+
+    updateItemsToShow();
+    window.addEventListener("resize", updateItemsToShow);
+
+    return () => {
+      window.removeEventListener("resize", updateItemsToShow);
+    };
+  }, []);
+
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? boardMembers.length - 4 : prevIndex - 1
+      prevIndex === 0 ? boardMembers.length - itemsToShow : prevIndex - 1
     );
   };
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === boardMembers.length - 4 ? 0 : prevIndex + 1
+      prevIndex === boardMembers.length - itemsToShow ? 0 : prevIndex + 1
     );
   };
 
@@ -34,6 +56,7 @@ const Board = ({ data }) => {
           type="button"
           className="d-flex flex-wrap flex-md-nowrap my-4 mb-5"
           key={index}
+          style={{width: "100%"}}
           onClick={() => {
             const resumeHighlight =
               i18n.language === "ar"
@@ -73,7 +96,7 @@ const Board = ({ data }) => {
         </button>
         <div className="slider-container d-flex">
           {boardMembers
-            .slice(currentIndex, currentIndex + 4)
+            .slice(currentIndex, currentIndex + itemsToShow)
             .map((item, index) => {
               const resumeHighlight =
                 i18n.language === "ar"

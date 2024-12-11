@@ -1,21 +1,25 @@
 //Packages
+import React, {Suspense} from "react";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 import { useQuery } from "@tanstack/react-query";
 import { getToken } from "../../services/getToken.js";
 
+//Components
+import ErrorBoundary from "../../components/ErrorBoundary";
+
 //Pages
-import MarketDataWidget from "./OverviewSubSections/MarketDataWidget/MarketDataWidget";
-import FinancialRatiosWidget from "./OverviewSubSections/FinancialRatiosWidget/FinancialRatiosWidget.jsx";
-import EventsWidget from "./OverviewSubSections/EventsWidget/EventsWidget.jsx";
-import CorporateActionsWidget from "./OverviewSubSections/CorporateActionsWidget/CorporateActionsWidget";
-import AnalystRecommendationsWidget from "./OverviewSubSections/AnalystRecommendationsWidget/AnalystRecommendationsWidget";
-import LatestNewsWidget from "./OverviewSubSections/LatestNewsWidget/LatestNewsWidget";
-import EarningsWidget from "./OverviewSubSections/EarningsWidget/EarningsWidget";
-import DisclousersWidget from "./OverviewSubSections/DisclousersWidget/DisclousersWidget";
-import AnalystEstimatesWidget from "./OverviewSubSections/AnalystEstimatesWidget/AnalystEstimatesWidget.jsx";
-import ArgaamReportsWidget from "./OverviewSubSections/ArgaamReportsWidget/ArgaamReportsWidget.jsx";
-import ChartTickerWidget from "./OverviewSubSections/ChartTickerWidget/ChartTickerWidget.jsx";
+const MarketDataWidget = React.lazy(() => import("./OverviewSubSections/MarketDataWidget/MarketDataWidget"));
+const FinancialRatiosWidget = React.lazy(() => import("./OverviewSubSections/FinancialRatiosWidget/FinancialRatiosWidget"));
+const LatestNewsWidget = React.lazy(() => import("./OverviewSubSections/LatestNewsWidget/LatestNewsWidget"));
+const ChartTickerWidget = React.lazy(() => import("./OverviewSubSections/ChartTickerWidget/ChartTickerWidget"));
+const EventsWidget = React.lazy(() => import("./OverviewSubSections/EventsWidget/EventsWidget"));
+const CorporateActionsWidget = React.lazy(() => import("./OverviewSubSections/CorporateActionsWidget/CorporateActionsWidget"));
+const AnalystRecommendationsWidget = React.lazy(() => import("./OverviewSubSections/AnalystRecommendationsWidget/AnalystRecommendationsWidget"));
+const EarningsWidget = React.lazy(() => import("./OverviewSubSections/EarningsWidget/EarningsWidget"));
+const DisclousersWidget = React.lazy(() => import("./OverviewSubSections/DisclousersWidget/DisclousersWidget"));
+const AnalystEstimatesWidget = React.lazy(() => import("./OverviewSubSections/AnalystEstimatesWidget/AnalystEstimatesWidget.jsx"));
+const ArgaamReportsWidget = React.lazy(() => import("./OverviewSubSections/ArgaamReportsWidget/ArgaamReportsWidget"));
 
 const OverviewPage = () => {
   const { t, i18n } = useTranslation();
@@ -55,19 +59,27 @@ const OverviewPage = () => {
       <div className="container-lg">
         <div className="row sections">
           <div className="col-md-6">
-            <ChartTickerWidget />
-            <LatestNewsWidget />
-            <EarningsWidget data={data} />
-            <DisclousersWidget />
-            <AnalystEstimatesWidget data={data} />
-            <ArgaamReportsWidget data={data} />
+            
+              <Suspense fallback={<div>Loading...</div>}>
+                <ChartTickerWidget />
+                <LatestNewsWidget />
+                <EarningsWidget data={data} />
+                <DisclousersWidget />
+                <AnalystEstimatesWidget data={data} />
+                <ArgaamReportsWidget data={data} />
+              </Suspense>
+            
           </div>
           <div className="col-md-6">
-            <MarketDataWidget data={data} />
-            <FinancialRatiosWidget data={data} />
-            <EventsWidget />
-            <CorporateActionsWidget data={data} />
-            <AnalystRecommendationsWidget data={data} />
+            
+              <Suspense fallback={<div>Loading...</div>}>
+                <MarketDataWidget data={data} />
+                <FinancialRatiosWidget data={data} />
+                <EventsWidget />
+                <CorporateActionsWidget data={data} />
+                <AnalystRecommendationsWidget data={data} />
+              </Suspense>
+            
           </div>
         </div>
       </div>

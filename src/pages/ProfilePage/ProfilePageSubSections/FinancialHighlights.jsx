@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { formatChange } from "../../../utils/Helpers";
-import "../ProfilePage.css";
 import HighchartsReact from "highcharts-react-official";
 import Highcharts from "highcharts";
+import SimpleBar from "simplebar-react";
+import "simplebar/dist/simplebar.css";
+import "../ProfilePage.css";
 
 const FinancialHighlights = ({ data }) => {
   const { t, i18n } = useTranslation();
@@ -102,65 +104,67 @@ const FinancialHighlights = ({ data }) => {
         </div>
         <hr className="m-2 mb-0 icons-color" />
         <div className="my-3">
-          <div>
-            <table className="table table-hover fs-14">
-              <thead className="table-light">
-                <tr>
-                  <th>{t("profile.financialHighlights.description")}</th>
-                  <th>{t("profile.financialHighlights.chart")}</th>
-                  {years.map((year) => (
-                    <th key={year}>{year}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {data.financialHighlights.map((item) => (
-                  <tr key={item.FSFieldName}>
-                    <th style={{ width: "20%" }}>
-                      {i18n.language === "ar"
-                        ? item.DisplayNameAr
-                        : item.DisplayNameEn}
-                    </th>
-                    <td>
-                      <button
-                        type="button"
-                        className="btn btn-light"
-                        data-bs-toggle="modal"
-                        data-bs-target="#financialModal"
-                        onClick={() => handleItemClick(item)}
-                      >
-                        <svg
-                          stroke="currentColor"
-                          fill="currentColor"
-                          strokeWidth="0"
-                          viewBox="0 0 16 16"
-                          type="button"
-                          className="icons-color"
-                          height="0.8em"
-                          width="0.8em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2z"></path>
-                        </svg>
-                      </button>
-                    </td>
+          <SimpleBar style={{ maxHeight: "400px", overflowX: "auto" }}>
+            <div>
+              <table className="table table-hover fs-14">
+                <thead className="table-light">
+                  <tr>
+                    <th>{t("profile.financialHighlights.description")}</th>
+                    <th>{t("profile.financialHighlights.chart")}</th>
                     {years.map((year) => (
-                      <td
-                        key={year}
-                        style={{
-                          color: item[year] < 0 ? "red" : "green",
-                        }}
-                      >
-                        {formatChange(
-                          isUSD ? item[year] / conversionRate : item[year]
-                        )}
-                      </td>
+                      <th key={year}>{year}</th>
                     ))}
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody>
+                  {data.financialHighlights.map((item) => (
+                    <tr key={item.FSFieldName}>
+                      <th style={{ width: "20%" }}>
+                        {i18n.language === "ar"
+                          ? item.DisplayNameAr
+                          : item.DisplayNameEn}
+                      </th>
+                      <td>
+                        <button
+                          type="button"
+                          className="btn btn-light"
+                          data-bs-toggle="modal"
+                          data-bs-target="#financialModal"
+                          onClick={() => handleItemClick(item)}
+                        >
+                          <svg
+                            stroke="currentColor"
+                            fill="currentColor"
+                            strokeWidth="0"
+                            viewBox="0 0 16 16"
+                            type="button"
+                            className="icons-color"
+                            height="0.8em"
+                            width="0.8em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2z"></path>
+                          </svg>
+                        </button>
+                      </td>
+                      {years.map((year) => (
+                        <td
+                          key={year}
+                          style={{
+                            color: item[year] < 0 ? "red" : "green",
+                          }}
+                        >
+                          {formatChange(
+                            isUSD ? item[year] / conversionRate : item[year]
+                          )}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </SimpleBar>
         </div>
       </div>
       {/*Modal */}

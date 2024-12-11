@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import dayjs from "dayjs";
+import SimpleBar from "simplebar-react";
+import "simplebar/dist/simplebar.css";
+
 const Milestones = ({ data }) => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
@@ -19,28 +22,34 @@ const Milestones = ({ data }) => {
       <h6 className="header-title mx-2">{t("profile.milestones.title")}</h6>
       <hr className="m-2 mb-0 icons-color" />
       <div>
-        <table className="table table-hover">
-          <tbody>
-            {displayedMilestones.map((item, index) => (
-              <tr key={`${item.fullDate}-${item.companyID}-${index}`}>
-                <th>{dayjs(item.fullDate).format("DD/MM/YYYY")}</th>
-                <td
-                  onClick={() => {
-                    if (item.bodyEn || item.bodyAr) {
-                      navigate(`/${i18n.language}/milestones/${index}`);
-                    }
-                  }}
-                  style={{
-                    cursor: item.bodyEn || item.bodyAr ? "pointer" : "default",
-                    color: item.bodyEn || item.bodyAr ? "#175754" : "inherit",
-                  }}
+        <SimpleBar style={{ overflowX: "auto" }}>
+          <table className="table table-hover table-responsive">
+            <tbody>
+              {displayedMilestones.map((item, index) => (
+                <tr
+                  key={`${item.fullDate}-${item.companyID}-${index}`}
+                  style={{ whiteSpace: "nowrap" }}
                 >
-                  {i18n.language === "ar" ? item.titleAr : item.titleEn}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                  <th>{dayjs(item.fullDate).format("DD/MM/YYYY")}</th>
+                  <td
+                    onClick={() => {
+                      if (item.bodyEn || item.bodyAr) {
+                        navigate(`/${i18n.language}/milestones/${index}`);
+                      }
+                    }}
+                    style={{
+                      cursor:
+                        item.bodyEn || item.bodyAr ? "pointer" : "default",
+                      color: item.bodyEn || item.bodyAr ? "#175754" : "inherit",
+                    }}
+                  >
+                    {i18n.language === "ar" ? item.titleAr : item.titleEn}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </SimpleBar>
         {milestonesArray.length > 4 && (
           <a
             onClick={() => setShowAll(!showAll)}

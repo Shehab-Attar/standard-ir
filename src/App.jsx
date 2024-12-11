@@ -27,19 +27,23 @@ import ArgaamReportsDetailsPage from "./components/DetailsPages/ArgaamReportsDet
 import AnalystEstimatesDetailsPage from "./components/DetailsPages/AnalystEstimatesDetailsPage";
 import BoardDetailsPage from "./components/DetailsPages/BoardDetailsPage";
 import MilestoneDetailsPage from "./components/DetailsPages/MilestoneDetailsPage";
+
 // Disclosures Sub Links
 import DisclousersPageLatestNewsSubLink from "./pages/DisclosuresPage/DisclousersPageSubLinks/DisclousersPageLatestNewsSubLink";
 import DisclousersPageDisclosuresSubLink from "./pages/DisclosuresPage/DisclousersPageSubLinks/DisclousersPageDisclosuresSubLink";
 import DisclousersPageEventsSubLink from "./pages/DisclosuresPage/DisclousersPageSubLinks/DisclousersPageEventsSubLink/DisclousersPageEventsSubLink";
+
 // Financial Information Sub Links
 import FinancialStatements from "./pages/FinancialInformationPage/FinancialInformationPageSubLinks/FinancialStatements";
 import FinancialRatios from "./pages/FinancialInformationPage/FinancialInformationPageSubLinks/FinancialRatios";
 import FinancialReports from "./pages/FinancialInformationPage/FinancialInformationPageSubLinks/FinancialReports";
+
 // Share Performance Sub Links
 import Chart from "./pages/SharePerformancePage/SharePerformanceSubLinks/Chart/Chart";
 import Peers from "./pages/SharePerformancePage/SharePerformanceSubLinks/Peers/Peers";
 import NegotiatedDeals from "./pages/SharePerformancePage/SharePerformanceSubLinks/NegotiatedDeals/NegotiatedDeals";
 import InvestmentCalculator from "./pages/SharePerformancePage/SharePerformanceSubLinks/InvestmentCalculator/InvestmentCalculator";
+
 // Peers Sub Links
 import General from "./pages/SharePerformancePage/SharePerformanceSubLinks/Peers/PeersSubTabs/General";
 import Ranking from "./pages/SharePerformancePage/SharePerformanceSubLinks/Peers/PeersSubTabs/Ranking";
@@ -50,7 +54,7 @@ import SalariesBenefits from "./pages/SharePerformancePage/SharePerformanceSubLi
 
 function App() {
   const { i18n } = useTranslation();
-
+  
   return (
     <div className="container-fluid">
       <div className="row justify-content-between mb-5 mt-4 g-0">
@@ -66,6 +70,10 @@ function App() {
               <Routes>
                 <Route
                   path="/"
+                  element={<Navigate to={`/${i18n.language}`} replace />}
+                />
+                <Route
+                  path="/:invalidLang"
                   element={<Navigate to={`/${i18n.language}`} replace />}
                 />
                 <Route path={`/${i18n.language}`} element={<OverviewPage />} />

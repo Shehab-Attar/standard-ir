@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import "../BoardManagementPage.css";
+import SimpleBar from "simplebar-react";
+import "simplebar/dist/simplebar.css";
+
 const Salaries = ({ data }) => {
   const { t } = useTranslation();
   const [selectedYear, setSelectedYear] = useState(data.salaries[1]?.year);
@@ -32,77 +35,79 @@ const Salaries = ({ data }) => {
             </div>
           ))}
         </div>
-        <div>
-          <table className="table table-hover">
-            <thead>
-              <tr>
-                <th>{t("boardManagement.salary.details")}</th>
-                <th>{t("boardManagement.salary.members")}</th>
-                <th>{t("boardManagement.salary.executives")}</th>
-                <th>{t("boardManagement.salary.total")}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {selectedData && (
-                <>
-                  <tr>
-                    <td>
-                      {t("boardManagement.salary.salaries_title") +
-                        " " +
-                        t("boardManagement.salary.salaryUnit")}
-                    </td>
-                    <td>
-                      {selectedData.boardMembersRenumerations.salaries || "-"}
-                    </td>
-                    <td>
-                      {selectedData.executivesRenumerations.salaries || "-"}
-                    </td>
-                    <td>{selectedData.totalsRenumerations.salaries || "-"}</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      {t("boardManagement.salary.bonuses") +
-                        " " +
-                        t("boardManagement.salary.salaryUnit")}
-                    </td>
-                    <td>
-                      {selectedData.boardMembersRenumerations.bonuses || "-"}
-                    </td>
-                    <td>
-                      {selectedData.executivesRenumerations.bonuses || "-"}
-                    </td>
-                    <td>{selectedData.totalsRenumerations.bonuses || "-"}</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      {t("boardManagement.salary.otherRewards") +
-                        " " +
-                        t("boardManagement.salary.salaryUnit")}
-                    </td>
-                    <td>
-                      {selectedData.boardMembersRenumerations.otherRewards ||
-                        "-"}
-                    </td>
-                    <td>
-                      {selectedData.executivesRenumerations.otherRewards || "-"}
-                    </td>
-                    <td>
-                      {selectedData.totalsRenumerations.otherRewards || "-"}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>{t("boardManagement.salary.total")}</td>
-                    <td>
-                      {selectedData.boardMembersRenumerations.total || "-"}
-                    </td>
-                    <td>{selectedData.executivesRenumerations.total || "-"}</td>
-                    <td>{selectedData.totalsRenumerations.total || "-"}</td>
-                  </tr>
-                </>
-              )}
-            </tbody>
-          </table>
-        </div>
+        <SimpleBar style={{ maxHeight: "400px", overflowX: "auto" }}>
+          <div>
+            <table className="table table-hover">
+              <thead>
+                <tr>
+                  <th>{t("boardManagement.salary.details")}</th>
+                  <th>{t("boardManagement.salary.members")}</th>
+                  <th>{t("boardManagement.salary.executives")}</th>
+                  <th>{t("boardManagement.salary.total")}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {selectedData && (
+                  <>
+                    <tr>
+                      <td>
+                        {t("boardManagement.salary.salaries_title") +
+                          " " +
+                          t("boardManagement.salary.salaryUnit")}
+                      </td>
+                      <td>
+                        {selectedData.boardMembersRenumerations.salaries || "-"}
+                      </td>
+                      <td>
+                        {selectedData.executivesRenumerations.salaries || "-"}
+                      </td>
+                      <td>{selectedData.totalsRenumerations.salaries || "-"}</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        {t("boardManagement.salary.bonuses") +
+                          " " +
+                          t("boardManagement.salary.salaryUnit")}
+                      </td>
+                      <td>
+                        {selectedData.boardMembersRenumerations.bonuses || "-"}
+                      </td>
+                      <td>
+                        {selectedData.executivesRenumerations.bonuses || "-"}
+                      </td>
+                      <td>{selectedData.totalsRenumerations.bonuses || "-"}</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        {t("boardManagement.salary.otherRewards") +
+                          " " +
+                          t("boardManagement.salary.salaryUnit")}
+                      </td>
+                      <td>
+                        {selectedData.boardMembersRenumerations.otherRewards ||
+                          "-"}
+                      </td>
+                      <td>
+                        {selectedData.executivesRenumerations.otherRewards || "-"}
+                      </td>
+                      <td>
+                        {selectedData.totalsRenumerations.otherRewards || "-"}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>{t("boardManagement.salary.total")}</td>
+                      <td>
+                        {selectedData.boardMembersRenumerations.total || "-"}
+                      </td>
+                      <td>{selectedData.executivesRenumerations.total || "-"}</td>
+                      <td>{selectedData.totalsRenumerations.total || "-"}</td>
+                    </tr>
+                  </>
+                )}
+              </tbody>
+            </table>
+          </div>
+        </SimpleBar>
       </div>
     </div>
   );

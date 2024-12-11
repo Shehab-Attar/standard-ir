@@ -55,7 +55,7 @@ const BoardManagementPage = () => {
             data-bs-toggle="tab"
             aria-controls="individuals"
             data-bs-target="#individuals"
-            className="header-title tablinks border-0 m-2 mb-0  p-2 pb-0 active"
+            className="header-title tablinks border-0 m-2 mb-0  p-2 pb-0 active bod-title"
           >
             {t("boardManagement.board")}
           </div>
@@ -65,7 +65,7 @@ const BoardManagementPage = () => {
             data-bs-toggle="tab"
             aria-controls="executives"
             data-bs-target="#executives"
-            className="header-title tablinks border-0 m-2 mb-0  p-2 pb-0"
+            className="header-title tablinks border-0 m-2 mb-0  p-2 pb-0 bod-title"
           >
             {t("boardManagement.executives")}
           </div>
@@ -75,7 +75,7 @@ const BoardManagementPage = () => {
             data-bs-toggle="tab"
             aria-controls="salaries"
             data-bs-target="#salaries"
-            className="header-title tablinks border-0 m-2 mb-0  p-2 pb-0"
+            className="header-title tablinks border-0 m-2 mb-0  p-2 pb-0 bod-title"
           >
             {t("boardManagement.salaries")}
           </div>

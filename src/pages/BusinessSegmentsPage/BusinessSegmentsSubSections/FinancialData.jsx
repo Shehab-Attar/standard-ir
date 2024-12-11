@@ -5,7 +5,6 @@ import "simplebar/dist/simplebar.css";
 import HighchartsReact from "highcharts-react-official";
 import Highcharts from "highcharts";
 import PieChart from "../../../components/PieChart";
-
 const FinancialData = ({
   data,
   currency,
@@ -28,6 +27,15 @@ const FinancialData = ({
     [];
 
   const conversionRate = 3.751;
+
+  const areAllValuesNegative = (date) => {
+    return fieldArray.every((segment) => {
+      const value = segment.periodicValues.find(
+        (v) => v.forDate === date
+      )?.value;
+      return value < 0;
+    });
+  };
 
   const options = {
     chart: {
@@ -112,7 +120,9 @@ const FinancialData = ({
                 {years.map((year) => (
                   <th
                     key={year}
-                    onClick={() => handlePieChartClick(selectedItem)}
+                    onClick={() => {
+                      handlePieChartClick(year, fieldData);
+                    }}
                   >
                     <svg
                       stroke="currentColor"
@@ -121,9 +131,13 @@ const FinancialData = ({
                       viewBox="0 0 24 24"
                       aria-hidden="true"
                       type="button"
-                      data-bs-toggle="modal"
-                      data-bs-target="#pieModal"
-                      className="icons-color mx-3"
+                      data-bs-toggle={areAllValuesNegative(year) ? "" : "modal"}
+                      data-bs-target={
+                        areAllValuesNegative(year) ? "" : "#pieModal"
+                      }
+                      className={`icons-color mx-3 ${
+                        areAllValuesNegative(year) ? "opacity-50" : ""
+                      }`}
                       height="1em"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
